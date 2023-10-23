@@ -1,0 +1,909 @@
+{
+    "archetypes": [
+        {
+            "name": "...from Beyond the Stars",
+            "order": 6,
+            "primaryTrait": "Braaains",
+            "secondaryTrait": "Guts",
+            "slug": "space",
+            "specializations": ["alien", "psychic", "tech"]
+        },
+        {
+            "name": "Chainsaw-wielding...",
+            "order": 1,
+            "primaryTrait": "Murder",
+            "secondaryTrait": "Guts",
+            "slug": "saw",
+            "specializations": ["destroy", "maim", "murder-master"]
+        },
+        {
+            "name": "Dark Knight",
+            "order": 2,
+            "primaryTrait": "Murder",
+            "secondaryTrait": "Guts",
+            "slug": "knight",
+            "specializations": ["blood", "dread", "murder-master"]
+        },
+        {
+            "name": "Frankenstein",
+            "order": 3,
+            "primaryTrait": "Murder",
+            "secondaryTrait": "Guts",
+            "slug": "frank",
+            "specializations": ["murder-master", "reanimation", "stitch"]
+        },
+        {
+            "name": "Gargoyle",
+            "order": 3,
+            "primaryTrait": "Guts",
+            "secondaryTrait": "Murder",
+            "slug": "gargoyle",
+            "specializations": ["murder-master", "rooftop", "statue"]
+        },
+        {
+            "name": "Giant",
+            "order": 2,
+            "primaryTrait": "Guts",
+            "secondaryTrait": "Murder",
+            "slug": "giant",
+            "specializations": ["mountain", "murder-master", "titan"]
+        },
+        {
+            "name": "Headless...",
+            "order": 1,
+            "primaryTrait": "Spookiness",
+            "secondaryTrait": "Guts",
+            "slug": "headless",
+            "specializations": ["decapitation", "dark-powers", "jack"]
+        },
+        {
+            "name": "Heavy Metal...",
+            "order": 1,
+            "primaryTrait": "Mayhem",
+            "secondaryTrait": "Spookiness",
+            "slug": "metal",
+            "specializations": ["mayhem-master", "music", "rockstar"]
+        },
+        {
+            "name": "Mad Scientist",
+            "order": 5,
+            "primaryTrait": "Braaains",
+            "secondaryTrait": "Guts",
+            "slug": "science",
+            "specializations": ["goons", "rays", "tech"]
+        },
+        {
+            "name": "Maniac",
+            "order": 4,
+            "primaryTrait": "Mayhem",
+            "secondaryTrait": "Guts",
+            "slug": "maniac",
+            "specializations": ["hunter", "mayhem-master"]
+        },
+        {
+            "name": "Mutant",
+            "order": 2,
+            "primaryTrait": "Guts",
+            "secondaryTrait": "Murder",
+            "slug": "mutant",
+            "specializations": ["deep", "insect", "nuclear"]
+        },
+        {
+            "name": "Ninja",
+            "order": 5,
+            "primaryTrait": "Mayhem",
+            "secondaryTrait": "Spookiness",
+            "slug": "ninja",
+            "specializations": ["assassin", "mayhem-master", "stealth"]
+        },
+        {
+            "name": "Phantom",
+            "order": 2,
+            "primaryTrait": "Spookiness",
+            "secondaryTrait": "Guts",
+            "slug": "phantom",
+            "specializations": ["ethereal", "psychic", "dark-powers"]
+        },
+        {
+            "name": "Pirate",
+            "order": 5,
+            "primaryTrait": "Mayhem",
+            "secondaryTrait": "Guts",
+            "slug": "pirate",
+            "specializations": ["artillery", "sea", "murder-master"]
+        },
+        {
+            "name": "Robot",
+            "order": 3,
+            "primaryTrait": "Braaains",
+            "secondaryTrait": "Guts",
+            "slug": "robot",
+            "specializations": ["computer", "machine", "tech"]
+        },
+        {
+            "name": "Scarecrow",
+            "order": 3,
+            "primaryTrait": "Spookiness",
+            "secondaryTrait": "Mayhem",
+            "slug": "crow",
+            "specializations": ["crow", "dark-powers", "reaper"]
+        },
+        {
+            "name": "Shadow",
+            "order": 2,
+            "primaryTrait": "Spookiness",
+            "secondaryTrait": "Mayhem",
+            "slug": "shadow",
+            "specializations": ["illusion", "shroud", "dark-powers"]
+        },
+        {
+            "name": "Vampire",
+            "order": 3,
+            "primaryTrait": "Spookiness",
+            "secondaryTrait": "Guts",
+            "slug": "vampire",
+            "specializations": ["dark-powers", "lifedrinker", "psychic"]
+        },
+        {
+            "name": "Werewolf",
+            "order": 3,
+            "primaryTrait": "Murder",
+            "secondaryTrait": "Guts",
+            "slug": "werewolf",
+            "specializations": ["hunter", "murder-master", "pack-master"]
+        },
+        {
+            "name": "Wizard",
+            "order": 5,
+            "primaryTrait": "Spookiness",
+            "secondaryTrait": "Guts",
+            "slug": "wizard",
+            "specializations": ["dark-powers", "rune-magic"]
+        },
+        {
+            "name": "Zombie",
+            "order": 3,
+            "primaryTrait": "Murder",
+            "secondaryTrait": "Guts",
+            "slug": "zombie",
+            "specializations": ["murder-master"]
+        }
+    ],
+    "specializations": [
+        {
+            "name": "Alien Anatomy",
+            "signatures": ["acid-guts", "senses", "shapeshift"],
+            "slug": "alien"
+        },
+        {
+            "name": "Artillery",
+            "signatures": ["blunderbuss", "bomb", "bombardment"],
+            "slug": "artillery"
+        },
+        {
+            "name": "Assassin Arts",
+            "signatures": ["ambush", "injury", "viper"],
+            "slug": "assassin"
+        },
+        {
+            "name": "Blood Magic",
+            "signatures": ["blood-counter", "blood-pact", "rage"],
+            "slug": "blood"
+        },
+        {
+            "name": "Computational Cognition",
+            "signatures": ["precision", "supercomputer", "targeting-computer"],
+            "slug": "computer"
+        },
+        {
+            "name": "Crow Whisperer",
+            "signatures": ["conjure-murder", "night-wings"],
+            "slug": "crow"
+        },
+        {
+            "name": "Dark Powers",
+            "signatures": ["blood-ritual", "curse", "night-form", "nightmare", "paralyzing-fear"],
+            "slug": "dark-powers"
+        },
+        {
+            "name": "Decapitation",
+            "signatures": ["execution", "skull-collector"],
+            "slug": "decapitation"
+        },
+        {
+            "name": "Deep Dweller",
+            "signatures": ["chromatophores", "deep-adaptation", "tentacle-lash"],
+            "slug": "deep"
+        },
+        {
+            "name": "Destruction",
+            "signatures": ["carve-path", "splinter"],
+            "slug": "destroy"
+        },
+        {
+            "name": "Dismemberment",
+            "signatures": ["dismemberment", "gruesome-attack", "injury"],
+            "slug": "maim"
+        },
+        {
+            "name": "Dreadnought",
+            "signatures": ["armor", "sentinel", "unstoppable"],
+            "slug": "dread"
+        },
+        {
+            "name": "Electric Reanimation",
+            "signatures": ["electric-attack", "electric-overload", "recharge"],
+            "slug": "reanimation"
+        },
+        {
+            "name": "Ethereal Entity",
+            "signatures": ["spirit-strength", "ethereal-defense", "ethereal-piercing"],
+            "slug": "ethereal"
+        },
+        {
+            "name": "Gravebound",
+            "signatures": ["burrow", "bury", "desecrate"],
+            "slug": "grave"
+        },
+        {
+            "name": "Harvester",
+            "signatures": ["harvest-moon", "reap", "sow"],
+            "slug": "reaper"
+        },
+        {
+            "name": "Illusion",
+            "signatures": ["conjure-illusions", "invisibility"],
+            "slug": "illusion"
+        },
+        {
+            "name": "Insectoid",
+            "signatures": ["carapace", "venomous-spines"],
+            "slug": "insect"
+        },
+        {
+            "name": "Jack-o'-Lantern for a Head",
+            "signatures": ["burning-attacks", "fire-breath", "undaunted"],
+            "slug": "jack"
+        },
+        {
+            "name": "Laboratory Management",
+            "signatures": ["lab-assistant", "rapid-cloning", "ingenious-advice"],
+            "slug": "goons"
+        },
+        {
+            "name": "Life Drinker",
+            "signatures": ["dark-bloodletting", "draining-attacks", "empowering-bite"],
+            "slug": "lifedrinker"
+        },
+        {
+            "name": "Living Mountain",
+            "signatures": [],
+            "slug": "mountain"
+        },
+        {
+            "name": "Living Statue",
+            "signatures": ["stone-scars", "stone-shift", "stone-skin"],
+            "slug": "statue"
+        },
+        {
+            "name": "Master of Sea and Storm",
+            "signatures": [],
+            "slug": "sea"
+        },
+        {
+            "name": "Mayhem Master",
+            "signatures": [],
+            "slug": "mayhem-master"
+        },
+        {
+            "name": "Mechanical Construction",
+            "signatures": [],
+            "slug": "machine"
+        },
+        {
+            "name": "Murder Master",
+            "signatures": [],
+            "slug": "murder-master"
+        },
+        {
+            "name": "Pack Master",
+            "signatures": [],
+            "slug": "pack-master"
+        },
+        {
+            "name": "Plaguebringer",
+            "signatures": [],
+            "slug": "plague"
+        },
+        {
+            "name": "Psychic Powers",
+            "signatures": ["memory-wipe", "precognizance", "telekinesis"],
+            "slug": "psychic"
+        },
+        {
+            "name": "Radioactive",
+            "signatures": [],
+            "slug": "nuclear"
+        },
+        {
+            "name": "Ray Guns",
+            "signatures": ["death-ray"],
+            "slug": "rays"
+        },
+        {
+            "name": "Rock Music",
+            "signatures": [],
+            "slug": "music"
+        },
+        {
+            "name": "Rock Star Lifestyle",
+            "signatures": [],
+            "slug": "rockstar"
+        },
+        {
+            "name": "Rooftop Sentinel",
+            "signatures": ["dive-bomb", "thunderous-gust", "watchful-eye"],
+            "slug": "rooftop"
+        },
+        {
+            "name": "Rune Magic",
+            "signatures": [],
+            "slug": "rune"
+        },
+        {
+            "name": "Shadow Shroud",
+            "signatures": [],
+            "slug": "shroud"
+        },
+        {
+            "name": "Stalker",
+            "signatures": [],
+            "slug": "stalker"
+        },
+        {
+            "name": "Stealth Arts",
+            "signatures": [],
+            "slug": "stealth"
+        },
+        {
+            "name": "Stitchwork Monster",
+            "signatures": ["animation", "parts", "stitchwork"],
+            "slug": "stitch"
+        },
+        {
+            "name": "Superior Technology",
+            "signatures": ["death-ray", "energy-shield", "teleporter"],
+            "slug": "tech"
+        },
+        {
+            "name": "Thundering Titan",
+            "signatures": [],
+            "slug": "titan"
+        },
+        {
+            "name": "Undeath",
+            "signatures": [],
+            "slug": "undeath"
+        },
+        {
+            "name": "Unstoppable Predator",
+            "signatures": [],
+            "slug": "predator"
+        }
+    ],
+    "signatures": [
+        {
+            "description": "You can make a Guts attack that deals d8 acid damage, and you can use your reaction to make this attack as a response to taking damage.",
+            "name": "Acidic Innards",
+            "primaryTrait": "Guts",
+            "slug": "acid-guts",
+            "trait": "Guts"
+        },
+        {
+            "description": "Description",
+            "name": "Armored Carapace",
+            "primaryTrait": "Trait",
+            "slug": "carapace",
+            "trait": "Trait"
+        },
+        {
+            "description": "Description",
+            "name": "Assassin Ambush",
+            "primaryTrait": "Trait",
+            "slug": "ambush",
+            "trait": "Trait"
+        },
+        {
+            "description": "Description",
+            "name": "Blackpowder Bomb",
+            "primaryTrait": "Trait",
+            "slug": "slug",
+            "trait": "Trait"
+        },
+        {
+            "description": "Description",
+            "name": "Blood Ritual",
+            "primaryTrait": "Trait",
+            "slug": "blood-ritual",
+            "trait": "Trait"
+        },
+        {
+            "description": "Description",
+            "name": "Blunderbuss Blast",
+            "primaryTrait": "Trait",
+            "slug": "slug",
+            "trait": "Trait"
+        },
+        {
+            "description": "Once per round, when a creature within melee weapon range attacks you, you can choose to allow the attack to hit to make a melee weapon attack against the creature immediately after. If your attack hits, it deals bonus damage equal to half the damage you received.",
+            "name": "Blood for Blood",
+            "primaryTrait": ["Guts", "Murder", "Mayhem"],
+            "slug": "blood-counter",
+            "trait": "Murder/Mayhem"
+        },
+        {
+            "description": "Outside of combat or when you roll initiative, you may choose to decrease your Max HP by up to 5 HP. Your attacks deal bonus dark damage equal to the amount you reduced your max HP by. You may also choose to end your blood pact at any point outside of combat or when you roll initiative.",
+            "name": "Blood Pact",
+            "primaryTrait": "Guts",
+            "slug": "blood-pact",
+            "trait": ""
+        },
+        {
+            "description": "Your melee weapon attacks deal +1 bonus damage for each creature damaged while within 10 ft. of you since the start of your turn.",
+            "name": "Blood Rage",
+            "primaryTrait": ["Murder", "Mayhem"],
+            "slug": "rage",
+            "trait": "Murder/Mayhem"
+        },
+        {
+            "description": "Description",
+            "name": "Burial",
+            "primaryTrait": "Trait",
+            "slug": "bury",
+            "trait": "Trait"
+        },
+        {
+            "description": "Your attacks deal 3 bonus fire damage, and creatures hit by your attacks catch fire, reducing their recovery by 2.",
+            "name": "Burning Attacks",
+            "primaryTrait": "",
+            "slug": "burning-attacks",
+            "trait": "Passive"
+        },
+        {
+            "description": "You can destroy wooden and similar obstacles as you rampage through them. As part of an attack, you can destroy an obstacle within 5 ft. of yourself and move 5 ft. toward your target.",
+            "name": "Carve a Path",
+            "primaryTrait": "Murder",
+            "slug": "carve-path",
+            "trait": "Murder"
+        },
+        {
+            "description": "Description",
+            "name": "Chromatophoric Camouflage",
+            "primaryTrait": "Trait",
+            "slug": "chromatophores",
+            "trait": "Trait"
+        },
+        {
+            "description": "Your critical hits automatically cause an injury. If you also injure the creature with damage, you cause an extra injury. When you injure a creature, they take the lower die on their roll to endure their injuries.",
+            "name": "Critical Injuries",
+            "primaryTrait": ["Murder", "Mayhem"],
+            "slug": "injury",
+            "trait": "Passive"
+        },
+        {
+            "description": "Description",
+            "name": "Curse",
+            "primaryTrait": "Trait",
+            "slug": "slug",
+            "trait": "Trait"
+        },
+        {
+            "description": "Description",
+            "name": "Dark Bloodletting",
+            "primaryTrait": "Trait",
+            "slug": "dark-bloodletting",
+            "trait": "Trait"
+        },
+        {
+            "description": "Your attacks with ray guns deal +3 bonus damage, and if one injures a creature, that creature takes the lower die when rolling to endure their injuries.",
+            "name": "Death Ray",
+            "primaryTrait": "Braaains",
+            "slug": "death-ray",
+            "trait": "Braaains"
+        },
+        {
+            "description": "Description",
+            "name": "Deep Adaptation",
+            "primaryTrait": "Trait",
+            "slug": "deep-adaptation",
+            "trait": "Trait"
+        },
+        {
+            "description": "Description",
+            "name": "Desecrate Ground",
+            "primaryTrait": "Trait",
+            "slug": "desecrate",
+            "trait": "Trait"
+        },
+        {
+            "description": "When you injure a creature with your chainsaw, that creature's speed and recovery are both halved until it rests or any of its injuries are healed.",
+            "name": "Dismemberment",
+            "primaryTrait": "Murder",
+            "slug": "dismemberment",
+            "trait": "Passive"
+        },
+        {
+            "description": "You swoop down upon a creature to add force to an attack. If you descend at least 10 ft. before making an attack, that attack gets +5 bonus damage if it hits.",
+            "name": "Dive Bomb",
+            "primaryTrait": "Murder",
+            "slug": "dive-bomb",
+            "trait": "Murder"
+        },
+        {
+            "description": "Description",
+            "name": "Draining Attacks",
+            "primaryTrait": "Trait",
+            "slug": "draining-attacks",
+            "trait": "Trait"
+        },
+        {
+            "description": "Your attacks deal 3 bonus lightning damage. When making an attack with a trait other than Spookiness, you can roll a Spookiness die with your damage dice and take the highest value.",
+            "name": "Electrified Attacks",
+            "primaryTrait": ["Murder", "Mayhem", "Spookiness", "Braaains"],
+            "slug": "electric-attack",
+            "trait": "Passive"
+        },
+        {
+            "description": "Once per turn when you deal damage, you can roll Signature and Spookiness. You deal bonus lightning damage equal to the highest die rolled and take lightning damage equal to the lowest die rolled. This lightning damage bypasses your resistances and immunities.",
+            "name": "Electric Overload",
+            "primaryTrait": "Spookiness",
+            "slug": "electric-overload",
+            "trait": "Spookiness"
+        },
+        {
+            "description": "Description",
+            "name": "Empowering Bite",
+            "primaryTrait": "Trait",
+            "slug": "empowering-bite",
+            "trait": "Trait"
+        },
+        {
+            "description": "At the start of your turn when you recover HP, you roll Braaains and Guts and recover the higher of the two values.",
+            "name": "Energy Shield",
+            "primaryTrait": "Braaains",
+            "slug": "energy-shield",
+            "trait": "Passive"
+        },
+        {
+            "description": "You have senses that far exceed those of humans, whether naturally or with technological enhancement. You can see in the ultraviolet and infrared spectrums, can focus in on soft sounds from up to 100 ft. away, and can detect chemical residues on surfaces up to an hour after they were left there to track creatures or investigate what has happened in an area. (This does not automatically allow you to identify those residues if you are otherwise unfamiliar with them.)",
+            "name": "Enhanced Senses",
+            "primaryTrait": "Braaains",
+            "slug": "senses",
+            "trait": "Braaains"
+        },
+        {
+            "description": "Description",
+            "name": "Ethereal Defense",
+            "primaryTrait": "Trait",
+            "slug": "ethereal-defense",
+            "trait": "Trait"
+        },
+        {
+            "description": "Description",
+            "name": "Ethereal Piercing",
+            "primaryTrait": "Trait",
+            "slug": "ethereal-piercing",
+            "trait": "Trait"
+        },
+        {
+            "description": "When you hit a creature that is incapacitated, immobilized, or stunned with an attack, that creature is automatically injured.",
+            "name": "Execution",
+            "primaryTrait": "Murder",
+            "slug": "execution",
+            "trait": "Murder"
+        },
+        {
+            "description": "You make a single Spookiness attack against all creatures in a 30-foot cone, dealing d12 fire damage. You roll damage even if you miss, but deal the lower die roll as damage instead. After you use this skill, you must roll 7 or above on Spookiness to recharge it. You can attempt to recharge this skill at the end of each of your turns.",
+            "name": "Fire Breath",
+            "primaryTrait": "Spookiness",
+            "slug": "fire-breath",
+            "trait": "Spookiness"
+        },
+        {
+            "description": "Description",
+            "name": "Form of the Night",
+            "primaryTrait": "Trait",
+            "slug": "night-form",
+            "trait": "Trait"
+        },
+        {
+            "description": "Description",
+            "name": "Freeze Ray",
+            "primaryTrait": "Trait",
+            "slug": "slug",
+            "trait": "Trait"
+        },
+        {
+            "description": "Description",
+            "name": "Gravebound Burrowing",
+            "primaryTrait": "Trait",
+            "slug": "burrow",
+            "trait": "Trait"
+        },
+        {
+            "description": "Wielding a chainsaw is unwieldy, but can devastate your enemies. You can deal double damage with a chainsaw attack if you made no other attacks on the same turn. You cannot attack for the rest of the turn. (This single chainsaw attack can target multiple targets if you have another Signature that allows it.)",
+            "name": "Gruesome Attack",
+            "primaryTrait": "Murder",
+            "slug": "gruesome-attack",
+            "trait": "Murder"
+        },
+        {
+            "description": "Description",
+            "name": "Harvest Moon",
+            "primaryTrait": "Trait",
+            "slug": "harvest-moon",
+            "trait": "Trait"
+        },
+        {
+            "description": "Reduce all damage you take by 2.",
+            "name": "Indomitable",
+            "primaryTrait": "",
+            "slug": "armor",
+            "trait": "Passive"
+        },
+        {
+            "description": "Description",
+            "name": "Ingenious Advice",
+            "primaryTrait": "Trait",
+            "slug": "ingenious-advice",
+            "trait": "Trait"
+        },
+        {
+            "description": "Description",
+            "name": "Laboratory Assistant",
+            "primaryTrait": "Trait",
+            "slug": "lab-assistant",
+            "trait": "Trait"
+        },
+        {
+            "description": "You make a psychic attack against a target within 20 ft. of you. If it hits, instead of dealing damage, they lose up to an hour of recent memory, and they are stunned until the end of your next turn.",
+            "name": "Memory Wipe",
+            "primaryTrait": "Braaains",
+            "slug": "memory-wipe",
+            "trait": "Braaains"
+        },
+        {
+            "description": "Description",
+            "name": "Nightmare Aura",
+            "primaryTrait": "Trait",
+            "slug": "nightmare",
+            "trait": "Trait"
+        },
+        {
+            "description": "Description",
+            "name": "Paralyzing Fear",
+            "primaryTrait": "Trait",
+            "slug": "paralyizing-fear",
+            "trait": "Trait"
+        },
+        {
+            "description": "Description",
+            "name": "Phantom Bombardment",
+            "primaryTrait": "Trait",
+            "slug": "bombardment",
+            "trait": "Trait"
+        },
+        {
+            "description": "Description",
+            "name": "Precision Operation",
+            "primaryTrait": "Trait",
+            "slug": "precision",
+            "trait": "Trait"
+        },
+        {
+            "description": "You can choose to focus on either offensive or defensive precognizance when you use this skill. When you focus on offensive precognizance, you choose a target. While you continue to focus, all attacks you make against that target use a Signature die and can use Braaains instead of another trait. When you focus on defensive precognizance, you can use your reaction to roll a Signature die and use that instead of your defense.",
+            "name": "Precognizant Combat",
+            "primaryTrait": "Braaains",
+            "slug": "precognizance",
+            "trait": "Braaains"
+        },
+        {
+            "description": "Description",
+            "name": "Rapid Cloning",
+            "primaryTrait": "Trait",
+            "slug": "rapid-cloning",
+            "trait": "Trait"
+        },
+        {
+            "description": "Description",
+            "name": "Reap",
+            "primaryTrait": "Trait",
+            "slug": "slug",
+            "trait": "Trait"
+        },
+        {
+            "description": "At the start of your turn, if you took lightning damage since the start of your last turn, you can roll your Guts die twice and use the higher value instead of once to recover HP.",
+            "name": "Recharge",
+            "primaryTrait": "Guts",
+            "slug": "recharge",
+            "trait": "Passive"
+        },
+        {
+            "description": "You can detach one of your hands and send it out on your own. You can attach one of your eyes to it to be able to see from its location. You can also attempt to grapple, electrocute, or frighten a creature once on each of your turns with your animated hand. Grapple attempts with the hand use a Murder die one size smaller than your own. Electrocution is a melee attack using your Spookiness for d8 lightning damage. Frightening a creature is a melee Spookiness attack that leaves the target frightened on a hit",
+            "name": "Remote Animation",
+            "primaryTrait": "Spookiness",
+            "slug": "animation",
+            "trait": "Spookiness"
+        },
+        {
+            "defense": 2,
+            "description": "Increase your defense by 2. As a reaction, you can give part or all of your defense to an ally within 5 ft. of you.",
+            "name": "Sentinel",
+            "primaryTrait": "Guts",
+            "slug": "slug",
+            "trait": "Passive"
+        },
+        {
+            "description": "You can shapeshift, allowing you to mimic others or become a formless ooze, or create slimy tendrils to attack with.\n- You can use an action to mimic another creature you can see. While you mimic that creature, your appearance is indistinguishable from theirs, and you can attempt to mimic their behavior with a Braaains roll, and the mimicry lasts until you choose to end it (requiring no action) or fall unconscious.\n- As an ooze, your Murder trait is reduced by 1 die size except for making tendril attacks, you can fit through spaces as small as 1 inch in diameter, and you have resistance to bludgeoning, piercing, and slashing damage. Your equipment can either meld into your oozy form or be dropped on the ground in your space when you transform.\n- You can make a Murder attack with a tendril. Its reach is 10 ft. and its damage die is a d8.",
+            "name": "Shapeshifting",
+            "primaryTrait": "Guts",
+            "slug": "shapeshift",
+            "trait": "Guts"
+        },
+        {
+            "description": "Description",
+            "name": "Shrink Ray",
+            "primaryTrait": "Trait",
+            "slug": "slug",
+            "trait": "Trait"
+        },
+        {
+            "description": "You gain a spooky skull trophy for each creature you kill. Your skull trophies each add 1 bonus dark damage to your Spookiness attacks. Also, at any point you can smash a skull trophy to absorb its power and reroll a Spookiness die.",
+            "name": "Skull Collector",
+            "primaryTrait": "Spookiness",
+            "slug": "skull-collector",
+            "trait": "Spookiness"
+        },
+        {
+            "description": "Description",
+            "name": "Sow the Seeds of Death",
+            "primaryTrait": "Trait",
+            "slug": "sow",
+            "trait": "Trait"
+        },
+        {
+            "description": "As an action, you can harvest parts from a corpse within 5 ft. of you to heal HP equal to a Signature Guts roll. This destroys the corpse.",
+            "name": "Spare Parts",
+            "primaryTrait": "Guts",
+            "slug": "parts",
+            "trait": "Guts"
+        },
+        {
+            "description": "You spray splinters and shrapnel as you slash your chainsaw through victim and environment alike. Your attacks with the chainsaw deal 3 damage to all creatures except yourself within a 5 ft. radius of your target. You deal this damage even if you miss.",
+            "name": "Splinter Spray",
+            "primaryTrait": "Murder",
+            "slug": "splinter",
+            "trait": "Passive"
+        },
+        {
+            "description": "As an action, you can hastily attach parts from a nearby corpse to enhance your abilities, which destroys the corpse. Choose to add an extra limb, extra innards, or bone armor. If you choose an extra limb, you attach a limb to yourself that can wield a weapon or perform other simple tasks on your turn. Your trait rolls are reduced by 1 die size for this limb. If you choose extra innards, you are resistant to poison and disease and gain 1 extra HP during your recovery. If you choose bone armor, increase your defense by 1. All improvements from this skill are lost when you are injured.",
+            "name": "Stitchwork Self-Improvement",
+            "primaryTrait": "",
+            "slug": "stitchwork",
+            "trait": ""
+        },
+        {
+            "description": "Whenever you take damage, increase your defense by 1 and reduce your movement speed by 5 ft. You can remove this bonus and penalty, breaking free of your stone shell and dealing bonus damage equal to the total amount of defense bonus sacrificed on your next attack.",
+            "name": "Stone Scars",
+            "primaryTrait": "Guts",
+            "slug": "stone-scars",
+            "trait": "Passive"
+        },
+        {
+            "description": "You can move through solid stone at half your movement speed. If you end your turn in stone, you may become trapped there and must make a Spookiness Signature roll of at least 7 at the start of your turn to escape. Also, you can move up to a 5 ft. cube of stone by touching it and sacrificing 5 ft. of your movement speed for every 5 ft. you move the stone.",
+            "name": "Stone Shift",
+            "primaryTrait": "Spookiness",
+            "slug": "stone-shift",
+            "trait": "Passive"
+        },
+        {
+            "defense": 2,
+            "description": "Your defense is increased by 2, and your unarmed attacks deal d8 bludgeoning damage.",
+            "name": "Stone Skin",
+            "primaryTrait": "Guts",
+            "slug": "stone-skin",
+            "trait": "Passive"
+        },
+        {
+            "description": "Description",
+            "name": "Strength of Spirit",
+            "primaryTrait": "Trait",
+            "slug": "spirit-strength",
+            "trait": "Trait"
+        },
+        {
+            "description": "Description",
+            "name": "A Supercomputer for a Brain",
+            "primaryTrait": "Trait",
+            "slug": "supercomputer",
+            "trait": "Trait"
+        },
+        {
+            "description": "Description",
+            "name": "Targeting Computer",
+            "primaryTrait": "Trait",
+            "slug": "targeting-computer",
+            "trait": "Trait"
+        },
+        {
+            "description": "You can attack a creature with psychic force for d8 damage. If you hit with this attack, you can push the target up to 10 ft.",
+            "name": "Telekinesis",
+            "primaryTrait": "Braaains",
+            "slug": "telekinesis",
+            "trait": "Braaains"
+        },
+        {
+            "description": "You can teleport up to 50 ft. once on each of your turns. After you use this skill, you must roll a Signature Braaains roll of 5 or above to recharge it. You can attempt to recharge this skill at the end of each of your turns.",
+            "name": "Teleporter",
+            "primaryTrait": "Braaains",
+            "slug": "teleporter",
+            "trait": "Braaains"
+        },
+        {
+            "description": "Description",
+            "name": "Tentacle Lash",
+            "primaryTrait": "Trait",
+            "slug": "tentacle-lash",
+            "trait": "Trait"
+        },
+        {
+            "description": "As an action, you flap your wings to create a powerful blast of wind. Make a single Murder attack roll against all creatures in a 15 ft. cone, dealing d10 thunder damage and knocking down all creatures it hits.",
+            "name": "Thunderous Gust",
+            "primaryTrait": "Murder",
+            "slug": "thunderous-gust",
+            "trait": "Murder"
+        },
+        {
+            "description": "As one of the perks of not having a head, you are resistant to psychic damage and immune to fear, charm, and other mind control effects.",
+            "name": "Undaunted",
+            "primaryTrait": "",
+            "slug": "undaunted",
+            "trait": "Passive"
+        },
+        {
+            "description": "You can make a free Murder attack for each 10 ft. you move that pushes an enemy 5 ft. instead of dealing damage.",
+            "name": "Unstoppable",
+            "primaryTrait": "Murder",
+            "slug": "unstoppable",
+            "trait": "Murder"
+        },
+        {
+            "description": "Description",
+            "name": "Venomous Spines",
+            "primaryTrait": "Trait",
+            "slug": "venomous-spines",
+            "trait": "Trait"
+        },
+        {
+            "description": "Description",
+            "name": "Viper's Venom",
+            "primaryTrait": "Trait",
+            "slug": "viper",
+            "trait": "Trait"
+        },
+        {
+            "description": "You can increase your dice by 1 size for perception and awareness Braaains checks, and you can't be surprised.",
+            "name": "Watchful Eye",
+            "primaryTrait": "Braaains",
+            "slug": "watchful-eye",
+            "trait": "Braaains"
+        },
+        {
+            "description": "Description",
+            "name": "Name",
+            "primaryTrait": "Trait",
+            "slug": "slug",
+            "trait": "Trait"
+        }
+    ]
+}
