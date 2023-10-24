@@ -9,8 +9,9 @@
 </template>
 
 <script>
+// components
 import Stat from "./Stat.vue";
-
+// data stores
 import useCharacterStore from "../../stores/character";
 
 export default {

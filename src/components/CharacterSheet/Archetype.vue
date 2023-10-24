@@ -46,20 +46,15 @@
 </template>
 
 <script>
+// data stores
 import useCharacterStore from "../../stores/character";
 
 export default {
     computed: {
         specializations() {
             const specializations = [...this.character.specializations];
-            return specializations.filter(specialization => this.character.archetypes[this.index].slug === specialization.parent);
-            // const specializations = [...this.character.specializations];
-            // const archetypes = [...this.character.archetypes];
-            // return specializations
-            //     .filter(specialization => archetypes
-            //         .map(archetype => archetype.specializations)
-            //         .findIndex(archetypeSpecializations =>
-            //             archetypeSpecializations.includes(specialization.slug)) === this.index);
+            return specializations.filter(specialization =>
+                this.character.archetypes[this.index].slug === specialization.parent);
         },
     },
     data() {
@@ -99,6 +94,10 @@ h3, h4 {
     margin: 0 0 0 1.5rem;
 }
 
+.row {
+    align-items: flex-start;
+}
+
 .sign-block {
     margin-left: 2rem;
 }
@@ -106,7 +105,7 @@ h3, h4 {
 .small {
     color: #760;
     font-size: 0.7rem;
-    margin: 0 2rem 0rem 2rem;
+    margin: -1.5rem 2rem 0.5rem 2rem;
 }
 
 .spec-block {

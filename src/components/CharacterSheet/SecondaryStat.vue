@@ -9,6 +9,7 @@
 </template>
 
 <script>
+// dataStores
 import useCharacterStore from "../../stores/character";
 
 export default {

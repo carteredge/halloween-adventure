@@ -4,18 +4,18 @@ import { defineStore } from 'pinia'
 const useCharacterStore = defineStore('character', {
   state: () => ({
     archetypes: [],
-    braaains: "",
+    braaains: 0,
     defense: 5,
-    guts: "",
+    guts: 0,
     hp: 10,
     injuries: 0,
     maxHP: 10,
-    mayhem: "",
-    murder: "",
+    mayhem: 0,
+    murder: 0,
     signatures: [],
     speed: 5,
     specializations: [],
-    spookiness: "",
+    spookiness: 0,
   })
 });
 

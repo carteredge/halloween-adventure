@@ -10,6 +10,7 @@
 </template>
 
 <script>
+// data stores
 import useCharacterStore from "../../stores/character";
 import useDataStore from "../../stores/data";
 
@@ -42,7 +43,7 @@ export default {
 h1 {
     font-weight: 800;
     margin: 0 auto;
-    text-shadow: 0px 0px 8px #808;
+    text-shadow: 0px 0px 8px #80f;
     text-transform: uppercase;
     transform: skew(-10deg, -10deg);
 }

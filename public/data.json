@@ -1,7 +1,23 @@
 {
+    "DEFAULT_CHARACTER_STATE": {
+        "archetypes": [],
+        "braaains": 0,
+        "defense": 5,
+        "guts": 0,
+        "hp": 10,
+        "injuries": 0,
+        "maxHP": 10,
+        "mayhem": 0,
+        "murder": 0,
+        "signatures": [],
+        "speed": 5,
+        "specializations": [],
+        "spookiness": 0
+    },
     "archetypes": [
         {
             "name": "...from Beyond the Stars",
+            "isActive": true,
             "order": 6,
             "primaryTrait": "Braaains",
             "secondaryTrait": "Guts",
@@ -10,6 +26,7 @@
         },
         {
             "name": "Chainsaw-wielding...",
+            "isActive": true,
             "order": 1,
             "primaryTrait": "Murder",
             "secondaryTrait": "Guts",
@@ -18,6 +35,7 @@
         },
         {
             "name": "Dark Knight",
+            "isActive": true,
             "order": 2,
             "primaryTrait": "Murder",
             "secondaryTrait": "Guts",
@@ -26,6 +44,7 @@
         },
         {
             "name": "Frankenstein",
+            "isActive": true,
             "order": 3,
             "primaryTrait": "Murder",
             "secondaryTrait": "Guts",
@@ -34,6 +53,7 @@
         },
         {
             "name": "Gargoyle",
+            "isActive": true,
             "order": 3,
             "primaryTrait": "Guts",
             "secondaryTrait": "Murder",
@@ -42,6 +62,7 @@
         },
         {
             "name": "Giant",
+            "isActive": true,
             "order": 2,
             "primaryTrait": "Guts",
             "secondaryTrait": "Murder",
@@ -50,6 +71,7 @@
         },
         {
             "name": "Headless...",
+            "isActive": true,
             "order": 1,
             "primaryTrait": "Spookiness",
             "secondaryTrait": "Guts",
@@ -58,6 +80,7 @@
         },
         {
             "name": "Heavy Metal...",
+            "isActive": true,
             "order": 1,
             "primaryTrait": "Mayhem",
             "secondaryTrait": "Spookiness",
@@ -66,6 +89,7 @@
         },
         {
             "name": "Mad Scientist",
+            "isActive": true,
             "order": 5,
             "primaryTrait": "Braaains",
             "secondaryTrait": "Guts",
@@ -74,6 +98,7 @@
         },
         {
             "name": "Maniac",
+            "isActive": true,
             "order": 4,
             "primaryTrait": "Mayhem",
             "secondaryTrait": "Guts",
@@ -82,6 +107,7 @@
         },
         {
             "name": "Mutant",
+            "isActive": true,
             "order": 2,
             "primaryTrait": "Guts",
             "secondaryTrait": "Murder",
@@ -90,6 +116,7 @@
         },
         {
             "name": "Ninja",
+            "isActive": true,
             "order": 5,
             "primaryTrait": "Mayhem",
             "secondaryTrait": "Spookiness",
@@ -98,6 +125,7 @@
         },
         {
             "name": "Phantom",
+            "isActive": true,
             "order": 2,
             "primaryTrait": "Spookiness",
             "secondaryTrait": "Guts",
@@ -106,6 +134,7 @@
         },
         {
             "name": "Pirate",
+            "isActive": true,
             "order": 5,
             "primaryTrait": "Mayhem",
             "secondaryTrait": "Guts",
@@ -114,6 +143,7 @@
         },
         {
             "name": "Robot",
+            "isActive": true,
             "order": 3,
             "primaryTrait": "Braaains",
             "secondaryTrait": "Guts",
@@ -122,14 +152,16 @@
         },
         {
             "name": "Scarecrow",
+            "isActive": true,
             "order": 3,
             "primaryTrait": "Spookiness",
             "secondaryTrait": "Mayhem",
-            "slug": "crow",
-            "specializations": ["crow", "dark-powers", "reaper"]
+            "slug": "scarecrow",
+            "specializations": ["crow-whisperer", "dark-powers", "reaper"]
         },
         {
             "name": "Shadow",
+            "isActive": true,
             "order": 2,
             "primaryTrait": "Spookiness",
             "secondaryTrait": "Mayhem",
@@ -138,6 +170,7 @@
         },
         {
             "name": "Vampire",
+            "isActive": true,
             "order": 3,
             "primaryTrait": "Spookiness",
             "secondaryTrait": "Guts",
@@ -146,6 +179,7 @@
         },
         {
             "name": "Werewolf",
+            "isActive": true,
             "order": 3,
             "primaryTrait": "Murder",
             "secondaryTrait": "Guts",
@@ -154,6 +188,7 @@
         },
         {
             "name": "Wizard",
+            "isActive": true,
             "order": 5,
             "primaryTrait": "Spookiness",
             "secondaryTrait": "Guts",
@@ -162,6 +197,7 @@
         },
         {
             "name": "Zombie",
+            "isActive": true,
             "order": 3,
             "primaryTrait": "Murder",
             "secondaryTrait": "Guts",
@@ -177,7 +213,7 @@
         },
         {
             "name": "Artillery",
-            "signatures": ["blunderbuss", "bomb", "bombardment"],
+            "signatures": ["blackpowder-bomb", "blunderbuss", "bombardment"],
             "slug": "artillery"
         },
         {
@@ -198,7 +234,7 @@
         {
             "name": "Crow Whisperer",
             "signatures": ["conjure-murder", "night-wings"],
-            "slug": "crow"
+            "slug": "crow-whisperer"
         },
         {
             "name": "Dark Powers",
@@ -227,7 +263,7 @@
         },
         {
             "name": "Dreadnought",
-            "signatures": ["armor", "sentinel", "unstoppable"],
+            "signatures": ["indomitable", "sentinel", "unstoppable"],
             "slug": "dread"
         },
         {
@@ -251,13 +287,18 @@
             "slug": "reaper"
         },
         {
+            "name": "Hunter",
+            "signatures": ["cull-weak", "isolate-target"],
+            "slug": "hunter"
+        },
+        {
             "name": "Illusion",
-            "signatures": ["conjure-illusions", "invisibility"],
+            "signatures": ["conjure-illusion", "invisibility"],
             "slug": "illusion"
         },
         {
             "name": "Insectoid",
-            "signatures": ["carapace", "venomous-spines"],
+            "signatures": ["carapace", "extra-limbs", "venomous-spines"],
             "slug": "insect"
         },
         {
@@ -277,7 +318,7 @@
         },
         {
             "name": "Living Mountain",
-            "signatures": [],
+            "signatures": ["indomitable", "sturdy-stance"],
             "slug": "mountain"
         },
         {
@@ -287,32 +328,37 @@
         },
         {
             "name": "Master of Sea and Storm",
-            "signatures": [],
+            "signatures": ["maelstrom", "summon-storm", "wrath-of-deep"],
             "slug": "sea"
         },
         {
             "name": "Mayhem Master",
-            "signatures": [],
+            "signatures": ["barrage", "bleeding-attacks", "cross-strike", "slash-and-dash"],
             "slug": "mayhem-master"
         },
         {
             "name": "Mechanical Construction",
-            "signatures": [],
+            "signatures": ["advanced-alloys", "modular-mechanics"],
             "slug": "machine"
         },
         {
+            "name": "Metal Music",
+            "signatures": ["inspiring-ballad", "terrifying-roar", "thunderous-blast"],
+            "slug": "music"
+        },
+        {
             "name": "Murder Master",
-            "signatures": [],
+            "signatures": ["brute-force", "heavy-hitter", "overrun", "slam-shockwave", "terrifying-power", "wide-swipe"],
             "slug": "murder-master"
         },
         {
             "name": "Pack Master",
-            "signatures": [],
+            "signatures": ["call-pack", "pack-hunt", "pack-mate"],
             "slug": "pack-master"
         },
         {
             "name": "Plaguebringer",
-            "signatures": [],
+            "signatures": ["corpse-bomb", "plague-cloud"],
             "slug": "plague"
         },
         {
@@ -322,22 +368,17 @@
         },
         {
             "name": "Radioactive",
-            "signatures": [],
+            "signatures": ["irradiated-rage", "laser-eyes"],
             "slug": "nuclear"
         },
         {
             "name": "Ray Guns",
-            "signatures": ["death-ray"],
+            "signatures": ["death-ray", "freeze-ray", "shrink-ray"],
             "slug": "rays"
         },
         {
-            "name": "Rock Music",
-            "signatures": [],
-            "slug": "music"
-        },
-        {
             "name": "Rock Star Lifestyle",
-            "signatures": [],
+            "signatures": ["substance-tolerance", "swoon"],
             "slug": "rockstar"
         },
         {
@@ -347,22 +388,17 @@
         },
         {
             "name": "Rune Magic",
-            "signatures": [],
-            "slug": "rune"
+            "signatures": ["bind-rune", "rune-circle", "enchantment"],
+            "slug": "rune-magic"
         },
         {
             "name": "Shadow Shroud",
-            "signatures": [],
+            "signatures": ["cloak-of-shadows", "shadow-shape", "shadow-step"],
             "slug": "shroud"
         },
         {
-            "name": "Stalker",
-            "signatures": [],
-            "slug": "stalker"
-        },
-        {
             "name": "Stealth Arts",
-            "signatures": [],
+            "signatures": ["shadow-shuriken", "smoke-bomb"],
             "slug": "stealth"
         },
         {
@@ -377,18 +413,13 @@
         },
         {
             "name": "Thundering Titan",
-            "signatures": [],
+            "signatures": ["quaking-steps"],
             "slug": "titan"
         },
         {
             "name": "Undeath",
-            "signatures": [],
+            "signatures": ["death-pact"],
             "slug": "undeath"
-        },
-        {
-            "name": "Unstoppable Predator",
-            "signatures": [],
-            "slug": "predator"
         }
     ],
     "signatures": [
@@ -400,11 +431,18 @@
             "trait": "Guts"
         },
         {
-            "description": "Description",
+            "description": "Increase your defense by 1 and reduce all non-lightning damage you take by 1.",
+            "name": "Advanced Alloys",
+            "primaryTrait": "Guts",
+            "slug": "advanced-alloys",
+            "trait": "Guts"
+        },
+        {
+            "description": "Increase your defense by 1. Your unarmed attacks deal 1 bonus damage.",
             "name": "Armored Carapace",
-            "primaryTrait": "Trait",
+            "primaryTrait": "",
             "slug": "carapace",
-            "trait": "Trait"
+            "trait": ""
         },
         {
             "description": "Description",
@@ -415,9 +453,30 @@
         },
         {
             "description": "Description",
+            "name": "Barrage",
+            "primaryTrait": "Trait",
+            "slug": "barrage",
+            "trait": "Trait"
+        },
+        {
+            "description": "Description",
+            "name": "Bind Rune",
+            "primaryTrait": "Trait",
+            "slug": "bind-rune",
+            "trait": "Trait"
+        },
+        {
+            "description": "Description",
             "name": "Blackpowder Bomb",
             "primaryTrait": "Trait",
-            "slug": "slug",
+            "slug": "blackpowder-bomb",
+            "trait": "Trait"
+        },
+        {
+            "description": "Description",
+            "name": "Bleeding Attacks",
+            "primaryTrait": "Trait",
+            "slug": "bleeding-attacks",
             "trait": "Trait"
         },
         {
@@ -431,7 +490,7 @@
             "description": "Description",
             "name": "Blunderbuss Blast",
             "primaryTrait": "Trait",
-            "slug": "slug",
+            "slug": "blunderbuss",
             "trait": "Trait"
         },
         {
@@ -457,6 +516,13 @@
         },
         {
             "description": "Description",
+            "name": "Brute Force",
+            "primaryTrait": "Trait",
+            "slug": "brute-force",
+            "trait": "Trait"
+        },
+        {
+            "description": "Description",
             "name": "Burial",
             "primaryTrait": "Trait",
             "slug": "bury",
@@ -468,6 +534,13 @@
             "primaryTrait": "",
             "slug": "burning-attacks",
             "trait": "Passive"
+        },
+        {
+            "description": "Description",
+            "name": "Call the Pack",
+            "primaryTrait": "Trait",
+            "slug": "call-pack",
+            "trait": "Trait"
         },
         {
             "description": "You can destroy wooden and similar obstacles as you rampage through them. As part of an attack, you can destroy an obstacle within 5 ft. of yourself and move 5 ft. toward your target.",
@@ -484,6 +557,34 @@
             "trait": "Trait"
         },
         {
+            "description": "Description",
+            "name": "Cloak of Shadows",
+            "primaryTrait": "Trait",
+            "slug": "cloak-of-shadows",
+            "trait": "Trait"
+        },
+        {
+            "description": "Description",
+            "name": "Conjure Illusion",
+            "primaryTrait": "Trait",
+            "slug": "conjure-illusion",
+            "trait": "Trait"
+        },
+        {
+            "description": "Description",
+            "name": "Conjure Murder",
+            "primaryTrait": "Trait",
+            "slug": "conjure-murder",
+            "trait": "Trait"
+        },
+        {
+            "description": "Description",
+            "name": "Corpse Bomb",
+            "primaryTrait": "Trait",
+            "slug": "corpse-bomb",
+            "trait": "Trait"
+        },
+        {
             "description": "Your critical hits automatically cause an injury. If you also injure the creature with damage, you cause an extra injury. When you injure a creature, they take the lower die on their roll to endure their injuries.",
             "name": "Critical Injuries",
             "primaryTrait": ["Murder", "Mayhem"],
@@ -492,9 +593,23 @@
         },
         {
             "description": "Description",
+            "name": "Cross Strike",
+            "primaryTrait": "Trait",
+            "slug": "cross-strike",
+            "trait": "Trait"
+        },
+        {
+            "description": "Description",
+            "name": "Cull the Weak",
+            "primaryTrait": "Trait",
+            "slug": "cull-weak",
+            "trait": "Trait"
+        },
+        {
+            "description": "Description",
             "name": "Curse",
             "primaryTrait": "Trait",
-            "slug": "slug",
+            "slug": "curse",
             "trait": "Trait"
         },
         {
@@ -502,6 +617,13 @@
             "name": "Dark Bloodletting",
             "primaryTrait": "Trait",
             "slug": "dark-bloodletting",
+            "trait": "Trait"
+        },
+        {
+            "description": "Description",
+            "name": "Death Pact",
+            "primaryTrait": "Trait",
+            "slug": "death-pact",
             "trait": "Trait"
         },
         {
@@ -568,6 +690,13 @@
             "trait": "Trait"
         },
         {
+            "description": "Description",
+            "name": "Enchantment",
+            "primaryTrait": "Trait",
+            "slug": "enchantment",
+            "trait": "Trait"
+        },
+        {
             "description": "At the start of your turn when you recover HP, you roll Braaains and Guts and recover the higher of the two values.",
             "name": "Energy Shield",
             "primaryTrait": "Braaains",
@@ -603,6 +732,13 @@
             "trait": "Murder"
         },
         {
+            "description": "You have two extra arms. You can wield an extra weapon or make two extra unarmed attacks.",
+            "name": "Extra Limbs",
+            "primaryTrait": "Murder",
+            "slug": "extra-limbs",
+            "trait": "Murder"
+        },
+        {
             "description": "You make a single Spookiness attack against all creatures in a 30-foot cone, dealing d12 fire damage. You roll damage even if you miss, but deal the lower die roll as damage instead. After you use this skill, you must roll 7 or above on Spookiness to recharge it. You can attempt to recharge this skill at the end of each of your turns.",
             "name": "Fire Breath",
             "primaryTrait": "Spookiness",
@@ -620,7 +756,7 @@
             "description": "Description",
             "name": "Freeze Ray",
             "primaryTrait": "Trait",
-            "slug": "slug",
+            "slug": "freeze-ray",
             "trait": "Trait"
         },
         {
@@ -645,10 +781,17 @@
             "trait": "Trait"
         },
         {
+            "description": "Your Murder melee attacks deal 3 bonus damage. If your Signature and Murder dice for an attack both meet or exceed your target's defense, that attack deals 6 bonus damage instead.",
+            "name": "Heavy Hitter",
+            "primaryTrait": "Murder",
+            "slug": "heavy-hitter",
+            "trait": "Murder"
+        },
+        {
             "description": "Reduce all damage you take by 2.",
             "name": "Indomitable",
             "primaryTrait": "",
-            "slug": "armor",
+            "slug": "indomitable",
             "trait": "Passive"
         },
         {
@@ -660,9 +803,58 @@
         },
         {
             "description": "Description",
+            "name": "Inspiring Ballad",
+            "primaryTrait": "Trait",
+            "slug": "inspiring-ballad",
+            "trait": "Trait"
+        },
+        {
+            "description": "Description",
+            "name": "Invisibility",
+            "primaryTrait": "Trait",
+            "slug": "invisibility",
+            "trait": "Trait"
+        },
+        {
+            "description": "Description",
+            "name": "Irradiated Rage",
+            "primaryTrait": "Trait",
+            "slug": "irradiated-rage",
+            "trait": "Trait"
+        },
+        {
+            "description": "Description",
+            "name": "Isolate the Target",
+            "primaryTrait": "Trait",
+            "slug": "isolate-target",
+            "trait": "Trait"
+        },
+        {
+            "description": "Description",
             "name": "Laboratory Assistant",
             "primaryTrait": "Trait",
             "slug": "lab-assistant",
+            "trait": "Trait"
+        },
+        {
+            "description": "Description",
+            "name": "Laser Eyes",
+            "primaryTrait": "Trait",
+            "slug": "laser-eyes",
+            "trait": "Trait"
+        },
+        {
+            "description": "Description",
+            "name": "Maelstrom",
+            "primaryTrait": "Trait",
+            "slug": "maelstrom",
+            "trait": "Trait"
+        },
+        {
+            "description": "Description",
+            "name": "Make 'em Swoon",
+            "primaryTrait": "Trait",
+            "slug": "swoon",
             "trait": "Trait"
         },
         {
@@ -674,9 +866,51 @@
         },
         {
             "description": "Description",
+            "name": "Modular Mechanics",
+            "primaryTrait": "Trait",
+            "slug": "modular-mechanics",
+            "trait": "Trait"
+        },
+        {
+            "description": "Description",
             "name": "Nightmare Aura",
             "primaryTrait": "Trait",
             "slug": "nightmare",
+            "trait": "Trait"
+        },
+        {
+            "description": "Description",
+            "name": "Paralyzing Fear",
+            "primaryTrait": "Trait",
+            "slug": "paralyzing-fear",
+            "trait": "Trait"
+        },
+        {
+            "description": "Description",
+            "name": "Plague Cloud",
+            "primaryTrait": "Trait",
+            "slug": "plague-cloud",
+            "trait": "Trait"
+        },
+        {
+            "description": "You can attempt to charge through multiple creatures with a single attack. You make an attack roll, then move up to your movement speed in a straight line. You can move through occupied spaces during this movement, and the attack roll applies to any creatures whose space you move through. Any creatures hit by the attack are knocked prone. You must end the movement in an empty space or you fall prone in the nearest empty space.",
+            "name": "Overrun",
+            "primaryTrait": "Murder",
+            "slug": "overrun",
+            "trait": "Murder"
+        },
+        {
+            "description": "Description",
+            "name": "Pack Hunt",
+            "primaryTrait": "Trait",
+            "slug": "pack-hunt",
+            "trait": "Trait"
+        },
+        {
+            "description": "Description",
+            "name": "Pack Mate",
+            "primaryTrait": "Trait",
+            "slug": "pack-mate",
             "trait": "Trait"
         },
         {
@@ -709,6 +943,13 @@
         },
         {
             "description": "Description",
+            "name": "Quaking Steps",
+            "primaryTrait": "Trait",
+            "slug": "quaking-steps",
+            "trait": "Trait"
+        },
+        {
+            "description": "Description",
             "name": "Rapid Cloning",
             "primaryTrait": "Trait",
             "slug": "rapid-cloning",
@@ -718,7 +959,7 @@
             "description": "Description",
             "name": "Reap",
             "primaryTrait": "Trait",
-            "slug": "slug",
+            "slug": "reap",
             "trait": "Trait"
         },
         {
@@ -736,12 +977,40 @@
             "trait": "Spookiness"
         },
         {
+            "description": "Description",
+            "name": "Rune Circle",
+            "primaryTrait": "Trait",
+            "slug": "rune-circle",
+            "trait": "Trait"
+        },
+        {
             "defense": 2,
             "description": "Increase your defense by 2. As a reaction, you can give part or all of your defense to an ally within 5 ft. of you.",
             "name": "Sentinel",
             "primaryTrait": "Guts",
-            "slug": "slug",
+            "slug": "sentinel",
             "trait": "Passive"
+        },
+        {
+            "description": "Description",
+            "name": "Shadow Shape",
+            "primaryTrait": "Trait",
+            "slug": "shadow-shape",
+            "trait": "Trait"
+        },
+        {
+            "description": "Description",
+            "name": "Shadow Shuriken",
+            "primaryTrait": "Trait",
+            "slug": "shadow-shuriken",
+            "trait": "Trait"
+        },
+        {
+            "description": "Description",
+            "name": "Shadow Step",
+            "primaryTrait": "Trait",
+            "slug": "shadow-step",
+            "trait": "Trait"
         },
         {
             "description": "You can shapeshift, allowing you to mimic others or become a formless ooze, or create slimy tendrils to attack with.\n- You can use an action to mimic another creature you can see. While you mimic that creature, your appearance is indistinguishable from theirs, and you can attempt to mimic their behavior with a Braaains roll, and the mimicry lasts until you choose to end it (requiring no action) or fall unconscious.\n- As an ooze, your Murder trait is reduced by 1 die size except for making tendril attacks, you can fit through spaces as small as 1 inch in diameter, and you have resistance to bludgeoning, piercing, and slashing damage. Your equipment can either meld into your oozy form or be dropped on the ground in your space when you transform.\n- You can make a Murder attack with a tendril. Its reach is 10 ft. and its damage die is a d8.",
@@ -754,7 +1023,7 @@
             "description": "Description",
             "name": "Shrink Ray",
             "primaryTrait": "Trait",
-            "slug": "slug",
+            "slug": "shrink-ray",
             "trait": "Trait"
         },
         {
@@ -763,6 +1032,27 @@
             "primaryTrait": "Spookiness",
             "slug": "skull-collector",
             "trait": "Spookiness"
+        },
+        {
+            "description": "Description",
+            "name": "Slam Shockwave",
+            "primaryTrait": "Trait",
+            "slug": "slam-shockwave",
+            "trait": "Trait"
+        },
+        {
+            "description": "Description",
+            "name": "Slash and Dash",
+            "primaryTrait": "Trait",
+            "slug": "slash-and-dash",
+            "trait": "Trait"
+        },
+        {
+            "description": "Description",
+            "name": "Smoke Bomb",
+            "primaryTrait": "Trait",
+            "slug": "smoke-bomb",
+            "trait": "Trait"
         },
         {
             "description": "Description",
@@ -823,6 +1113,27 @@
         },
         {
             "description": "Description",
+            "name": "Sturdy Stance",
+            "primaryTrait": "Trait",
+            "slug": "sturdy-stance",
+            "trait": "Trait"
+        },
+        {
+            "description": "Description",
+            "name": "Substance Tolerance",
+            "primaryTrait": "Trait",
+            "slug": "substance-tolerance",
+            "trait": "Trait"
+        },
+        {
+            "description": "Description",
+            "name": "Summon the Storm",
+            "primaryTrait": "Trait",
+            "slug": "summon-storm",
+            "trait": "Trait"
+        },
+        {
+            "description": "Description",
             "name": "A Supercomputer for a Brain",
             "primaryTrait": "Trait",
             "slug": "supercomputer",
@@ -854,6 +1165,27 @@
             "name": "Tentacle Lash",
             "primaryTrait": "Trait",
             "slug": "tentacle-lash",
+            "trait": "Trait"
+        },
+        {
+            "description": "Description",
+            "name": "Terrifying Power",
+            "primaryTrait": "Trait",
+            "slug": "terrifying-power",
+            "trait": "Trait"
+        },
+        {
+            "description": "Description",
+            "name": "Terrifying Roar",
+            "primaryTrait": "Trait",
+            "slug": "terrifying-roar",
+            "trait": "Trait"
+        },
+        {
+            "description": "Description",
+            "name": "Thunderous Blast",
+            "primaryTrait": "Trait",
+            "slug": "thunderous-blast",
             "trait": "Trait"
         },
         {
@@ -897,6 +1229,27 @@
             "primaryTrait": "Braaains",
             "slug": "watchful-eye",
             "trait": "Braaains"
+        },
+        {
+            "description": "Description",
+            "name": "Wide Swipe",
+            "primaryTrait": "Trait",
+            "slug": "wide-swipe",
+            "trait": "Trait"
+        },
+        {
+            "description": "Description",
+            "name": "Wings of Night",
+            "primaryTrait": "Trait",
+            "slug": "night-wings",
+            "trait": "Trait"
+        },
+        {
+            "description": "Description",
+            "name": "Wrath of the Deep",
+            "primaryTrait": "Trait",
+            "slug": "wrath-of-deep",
+            "trait": "Trait"
         },
         {
             "description": "Description",

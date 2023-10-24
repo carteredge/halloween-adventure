@@ -5,9 +5,14 @@
     color: #eb0;
 }
 
+*:focus, *:focus-visible {
+    outline: 0 solid #750;
+    box-shadow: 0 0 10px #d2f;
+}
+
 body {
     background-color: #333;
-    border-color: #aef;
+    border-color: #eb0;
     color: #eb0;
     padding: 2rem;
 }
@@ -32,6 +37,16 @@ button {
     background-color: #222;
     border-color: #eb0;
     border-radius: 8px;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+}
+
+button:active, button:hover:active {
+    opacity: 0.5;
+}
+
+ul {
+    padding: 0;
 }
 
 .desc-die {
@@ -54,6 +69,20 @@ h2.small {
     font-size: 0.7rem;
 }
 
+input, select {
+    background-color: #222;
+    border: 0px none transparent;
+}
+
+select {
+    border-radius: 4px;
+    padding: 0.4rem;
+}
+
+option:disabled {
+    color: #750;
+}
+
 .column {
     align-items: center;
     display: flex;
@@ -69,6 +98,13 @@ h2.small {
 .row.top {
     align-items: start;
     justify-content: start;
+}
+
+.side-menu-header {
+    display: block;
+    font-weight: 800;
+    width: 100%;
+    text-align: center;
 }
 
 .die {
