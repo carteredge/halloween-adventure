@@ -21,10 +21,18 @@ export default {
             value: "",
         }
     },
+    emits: [ "change" ],
     methods: {
         toLabel,
         updateCharacter() {
-            this.character[this.property] = this.value;
+            if (!this.property) {
+                this.$emit("change", this.value);
+                return;
+            }
+            if (this.type?.toLowerCase === "number")
+                this.character[this.property] = Number(this.value);
+            else
+                this.character[this.property] = this.value;
         }
     },
     mounted() {
@@ -56,5 +64,9 @@ export default {
 <style scoped>
 label {
     display: block;
+}
+
+select {
+    margin: 0.3rem;
 }
 </style>

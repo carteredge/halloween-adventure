@@ -3,6 +3,7 @@
 * {
     box-sizing: border-box;
     color: #eb0;
+    scrollbar-color: #960 #222;
 }
 
 *:focus, *:focus-visible {
@@ -14,7 +15,6 @@ body {
     background-color: #333;
     border-color: #eb0;
     color: #eb0;
-    padding: 2rem;
 }
 
 #app {
@@ -25,8 +25,15 @@ body {
 header,
 main,
 footer {
-    margin: auto;
+    margin: 0 auto;
     width: 800px;
+}
+
+#main {
+    display: flex;
+    flex: 1 1;
+    height: 100%;
+    overflow: hidden;
 }
 
 body {
@@ -39,6 +46,12 @@ button {
     border-radius: 8px;
     cursor: pointer;
     padding: 0.5rem 1rem;
+}
+
+button:disabled {
+    background-color: #444;
+    border-color: #960;
+    color: #960;
 }
 
 button:active, button:hover:active {
@@ -79,6 +92,22 @@ select {
     padding: 0.4rem;
 }
 
+.input-wrapper:after, .select:after {
+	border-bottom: 3px solid #eb0;
+	content: '';
+	display: block;
+	min-width: 3rem;
+	transition: 0.2s;
+	width: 5%;
+}
+
+.input-wrapper:hover:after,
+.input-wrapper:focus-within:after,
+.select:hover:after,
+.select:focus:after {
+	width: 100%;
+}
+
 option:disabled {
     color: #750;
 }
@@ -87,6 +116,26 @@ option:disabled {
     align-items: center;
     display: flex;
     flex-direction: column;
+}
+
+.indent {
+    margin-left: 0.5rem;
+}
+
+.menu-divider {
+    border-bottom: 1px solid #eb0;
+    /* border-top: 1px solid #eb0; */
+    height: 8px;
+}
+
+.modal .header {
+    border-bottom: 1px solid #760;
+    color: #960;
+    width: 100%;
+}
+
+.modal select {
+    background-color: #333;
 }
 
 .row {
@@ -107,10 +156,37 @@ option:disabled {
     text-align: center;
 }
 
+.small {
+    color: #a70;
+    font-size: 0.75rem;
+    margin-left: 1rem;
+}
+
+.sneaky {
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.sneaky-parent:hover .sneaky,
+.sneaky-parent:focus .sneaky,
+.sneaky-parent:focus-within .sneaky,
+.sneaky-parent:active .sneaky {
+    opacity: 1;
+}
+
+.subtitle
+{
+    color: #960;
+    font-size: 0.7rem;
+    line-height: 1;
+    margin-top: -0.2rem;
+}
+
 .die {
     display: flex;
     flex-direction: column;
 }
+
 .die,
 .trait {
     color: #8d2;
@@ -122,7 +198,7 @@ option:disabled {
 }
 
 .trait-score {
-    margin-right: 1rem;
+    margin: 0 1rem;
 }
 
 /* #title {
@@ -130,3 +206,7 @@ option:disabled {
     transform: skewX(15deg);
     width: 250px;
 } */
+
+.test {
+    border: 2px solid #8d2;
+}

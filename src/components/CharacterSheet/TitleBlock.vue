@@ -5,6 +5,10 @@
             {{ archetypeText[0] }}
             {{ archetypeText[1] }}
             {{ archetypeText[2] }}
+            <div v-if="character.name">
+                <p class="small bottom">...Named </p>
+                <span>{{ character.name }}</span>
+            </div>
         </h1>
     </div>
 </template>
@@ -18,8 +22,8 @@ export default {
     computed: {
         archetypeText() {
             if (this.character.archetypes?.length) {
-                const archetypes = [...this.character.archetypes];
-                return archetypes.sort((a0, a1) => a0.order - a1.order).map(a => a.name.replace("...", ""));
+                const archetypes = [...this.character.sortArchetypes()];
+                return archetypes.map(a => a.name.replace("...", ""));
             }
             return [ "?", "?", "?" ];
         },
@@ -27,7 +31,7 @@ export default {
     data() {
         return {
             character: useCharacterStore(),
-            dataStore: useDataStore,
+            dataStore: useDataStore(),
         }
     },
 }
@@ -48,6 +52,9 @@ h1 {
     transform: skew(-10deg, -10deg);
 }
 
+.bottom {
+    margin-top: 2rem;
+}
 .small {
     font-size: 1rem;
 }

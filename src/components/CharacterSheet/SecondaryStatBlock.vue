@@ -1,9 +1,9 @@
 <template>
     <div class="secondary-stat-block row">
-        <secondary-stat trait="Defense"/>
-        <secondary-stat trait="Speed"/>
-        <secondary-stat trait="HP"/>
-        <secondary-stat trait="Injuries"/>
+        <secondary-stat trait="defense"/>
+        <secondary-stat trait="speed"/>
+        <secondary-stat editable label="HP" max="maxHP" trait="hp"/>
+        <secondary-stat editable trait="injuries"/>
     </div>
 </template>
 

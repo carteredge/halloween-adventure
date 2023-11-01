@@ -1,38 +1,56 @@
 <template>
     <button
-        class="expander-item"
+        :class="`expander-item ${quiet ? 'quiet' : ''}`"
         aria-label="expand"
         @click="toggleExpand()">
         <slot></slot>
-        <span :class="`expander ${isExpanded(archetype.slug) ? 'open' : ''} ${isTransition(archetype.slug) ? 'transition' : ''}`">
+        <span
+            :class="`expander ${expanded ? 'open' : ''} ${transition ? 'transition' : ''}`">
             &#x25b6;
         </span>
     </button>
-    <div :class="`expander-contents ${isExpanded(archetype.slug) ? 'open' : ''} ${isTransition(archetype.slug) ? 'transition' : ''}`">
-        <div v-if="isExpanded(archetype.slug)">
+    <div
+        :class="`expander-contents ${expanded ? 'open' : ''}`"
+        :style="{ height: height }">
+        <div v-if="expanded">
             <slot name="contents"></slot>
         </div>
     </div>
 </template>
 
 <script>
-import useDataStore from '../../stores/data';
+import useDataStore from '../stores/data';
 
 export default {
     data() {
         return {
             data: useDataStore().data,
-            open: false,
+            height: 0,
+            expanded: false,
             transition: false,
         };
     },
     methods: {
         toggleExpand() {
             this.transition = true;
+            this.height = `${this.animationHeight}px`;
             setTimeout(() => {
                 this.transition = false;
-                this.open = !this.open;
-            }, 100);
+                this.expanded = !this.expanded;
+                this.height = this.expanded ? 'auto' : 0;
+            }, this.expanded ? 10 : 100);
+        },
+    },
+    props: {
+        animationHeight: {
+            type: Number,
+            required: false,
+            default: 200,
+        },
+        quiet: {
+            type: Boolean,
+            required: false,
+            default: false,
         },
     },
 }
@@ -41,6 +59,7 @@ export default {
 <style scoped>
 .expander {
     color: #960;
+    margin: auto 0 auto auto;
     transition: transform 0.1s;
 }
 
@@ -53,23 +72,27 @@ export default {
     border-right: 0 none transparent;
     border-radius: 0;
     display: flex;
-    justify-content: space-between;
+    place-content: center flex-start;
     width: 100%;
 }
 
+.expander-item.quiet {
+    border: 0 none transparent;
+    background-color: #111;
+}
+
 .expander-contents {
-    display: flex;
-    flex-direction: column;
-    height: 0;
-    padding: 0.5rem;
+    /* height: 0; */
+    padding: 0;
     transition: height 0.1s ease-in;
 }
 
 .expander-contents.open {
-    height: 100%;
+    /* height: 100%; */
+    padding: 0.5rem;
 }
 
-.expander-contents.transition, .expander-contents.transition.open {
-    height: 150px; /* ADJUST WHEN ADDITIONAL FORMATTING IS APPLIED TO THE SUBLIST ITEMS */
-}
+/* .expander-contents.transition, .expander-contents.transition.open {
+    height: 150px;
+} */
 </style>

@@ -2,6 +2,7 @@
     <label>
         <div class="input-wrapper" :style="{ maxWidth: `${width}px` }">
             <input
+                :class="this.large ? 'large' : ''"
                 :id="property"
                 :type="type"
                 v-model="value"
@@ -38,6 +39,11 @@ export default {
             type: String,
             required: false,
         },
+        large: {
+            type: Boolean,
+            required: false,
+            default: false,
+        },
         property: {
             type: String,
             required: true,
@@ -60,30 +66,18 @@ export default {
 input {
     display: block;
     width: 100%;
-    background-color: #222;
+    background-color: #111;
     border-left: 0 transparent none;
     border-right: 0 transparent none;
     border-top: 0 transparent none;
     border-bottom: 0 transparent none;
 }
 
+input.large {
+    font-size: 2rem;
+}
+
 label {
     display: block;
-}
-
-.input-wrapper:after, .select:after {
-	border-bottom: 3px solid #eb0;
-	content: '';
-	display: block;
-	min-width: 3rem;
-	transition: 0.2s;
-	width: 5%;
-}
-
-.input-wrapper:hover:after,
-.input-wrapper:focus-within:after,
-.select:hover:after,
-.select:focus:after {
-	width: 100%;
 }
 </style>

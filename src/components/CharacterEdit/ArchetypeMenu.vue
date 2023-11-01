@@ -1,112 +1,176 @@
 <template>
-        <div>
-            <!-- chosen archetypes -> choose specializations -->
-        </div>
-    <h1>Select an Archetype...</h1>
-    <div
-        class="menu-item"
-        :key="archetype.slug"
-        v-for="archetype in data.archetypes">
-        <button
-            class="menu-subitem"
-            aria-label="expand"
-            @click="toggleExpand(archetype.slug)">
-            <h2 class="name">{{ archetype.name }}</h2>
-            <span :class="`expander ${isExpanded(archetype.slug) ? 'open' : ''} ${isTransition(archetype.slug) ? 'transition' : ''}`">
-                &#x25b6;
-            </span>
-        </button>
-        <div :class="`menu-sublist ${isExpanded(archetype.slug) ? 'open' : ''} ${isTransition(archetype.slug) ? 'transition' : ''}`">
-            <div v-if="isExpanded(archetype.slug)">
-                <span class="header">Available Specializations</span>
-                <div
-                    :key="specialization.slug"
-                    v-for="specialization in getItems(archetype.specializations, 'specializations')">
-                    <button
-                        class="menu-subitem"
-                        aria-label="expand"
-                        @click="toggleExpand(specialization.slug)">
-                        <h3 class="name">{{ specialization.name }}</h3>
-                        <span :class="`expander ${isExpanded(specialization.slug) ? 'open' : ''} ${isTransition(specialization.slug) ? 'transition' : ''}`">
-                            &#x25b6;
-                        </span>
-                    </button>
-                </div>
-                <button class="item-action">Select Archetype</button>
-            </div>
-        </div>
+    <div>
+        <h1>Character Skills</h1>
+        <button @click="openSkillsModal">Choose Skills</button>
+        <modal :open="modalIsOpen" @close="closeModal">
+            <archetype-selection-page v-if="pageIndex === 0" @continue="nextPage"/>
+            <specialization-selection-page v-if="pageIndex === 1" @back="previousPage" @continue="nextPage"/>
+            <signature-selection-page v-if="pageIndex === 2" @back="previousPage" @continue="nextPage" />
+        </modal>
+        <archetype :index="0"/>
+        <archetype :index="1"/>
+        <archetype :index="2"/>
     </div>
 </template>
 
 <script>
-import useDataStore from '../../stores/data';
+// components
+import Archetype from "../CharacterSheet/Archetype.vue";
+import ArchetypeSelectionPage from "./ArchetypeSelectionPage.vue";
+import Modal from "../Modal.vue";
+import SignatureSelectionPage from "./SignatureSelectionPage.vue";
+import SpecializationSelectionPage from "./SpecializationSelectionPage.vue";
+// data stores
+import useCharacterStore from "../../stores/character";
+import useDataStore from "../../stores/data";
 
 export default {
+    components: {
+        Archetype,
+        ArchetypeSelectionPage,
+        Modal,
+        SignatureSelectionPage,
+        SpecializationSelectionPage,
+    },
     data() {
         return {
-            data: useDataStore().data,
+            character: useCharacterStore(),
+            dataStore: useDataStore(),
+            modalIsOpen: false,
             openItems: {},
+            pageCount: 3,
+            pageIndex: 0,
             transitionItems: {},
         };
     },
     methods: {
-        getItems(slugs, itemType) {
-            return slugs.map(slug =>
-                this.data[itemType].find(item => item.slug === slug));
+        closeModal() {
+            this.modalIsOpen = false;
         },
-        isExpanded(slug) {
-            return this.openItems[slug];
+        isSelected(slug, itemType) {
+            return this.character[itemType].some(item => item.slug === slug);
         },
-        isTransition(slug) {
-            return this.transitionItems[slug];
+        nextPage() {
+            if (this.pageIndex + 1 === this.pageCount) {
+                this.closeModal();
+                this.pageIndex = 0;
+                return;
+            }
+            this.pageIndex++;
         },
-        toggleExpand(slug) {
-            this.transitionItems[slug] = true;
-            setTimeout(() => {
-                this.transitionItems[slug] = false;
-                this.openItems[slug] = !this.openItems[slug];
-            }, 100);
+        openSkillsModal() {
+            this.modalIsOpen = true;
+        },
+        previousPage() {
+            this.pageIndex--;
         },
     },
 }
 </script>
 
 <style scoped>
-h1 {
+button {
+    margin: 0.5rem 0.5rem 1rem 0.5rem;
+}
+
+h1
+{
     font-size: 1.5rem;
 }
 
-h2 {
+h2
+{
+    border-bottom: 1px solid #eb0;
     font-size: 1.2rem;
+    font-weight: 800;
+    height: 36px;
+    text-align: left;
+    width: 100%;
 }
 
-.expander {
+h3
+{
+    font-size: 1.1rem;
+    font-weight: 800;
+}
+
+h4
+{
+    font-size: 1.05rem;
+    font-weight: 800;
+}
+
+.contents
+{
+    display: flex;
+    flex-direction: column;
+    padding: 0 1rem;
+}
+
+.expander
+{
     color: #960;
     transition: transform 0.1s;
 }
 
-.expander.open, .expander.transition {
+.expander.open,
+.expander.transition
+{
     transform: rotate(90deg);
 }
 
-.header {
-    border-bottom: 1px solid #760;
-    color: #960;
-    width: 100%;
-}
-
-.item-action {
-    width: auto;
+.item-action
+{
     align-self: flex-end;
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 0.8;
+    height: 32px;
+    margin: 0.5rem;
+    padding: 0;
+    text-align: center;
+    width: 32px;
 }
 
-.menu-item {
+.list-icon-button {
+    border-radius: 50%;
+    height: 36px;
+    width: 36px;
+    padding: 0;
+    position: relative;
+}
+
+.icon-check, .icon-trash {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.list-icon-button .icon-check {
+    opacity: 1;
+}
+
+.list-icon-button .icon-trash {
+    opacity: 0;
+}
+
+.list-icon-button:hover .icon-check {
+    opacity: 0;
+}
+
+.list-icon-button:hover .icon-trash {
+    opacity: 1;
+}
+
+.menu-item
+{
     display: flex;
     flex-direction: column;
     place-content: start start;
 }
 
-.menu-subitem {
+.menu-subitem
+{
     border-left: 0 none transparent;
     border-right: 0 none transparent;
     border-radius: 0;
@@ -115,7 +179,8 @@ h2 {
     width: 100%;
 }
 
-.menu-sublist {
+.menu-sublist
+{
     display: flex;
     flex-direction: column;
     height: 0;
@@ -123,11 +188,20 @@ h2 {
     transition: height 0.1s ease-in;
 }
 
-.menu-sublist.open {
+.menu-sublist.open
+{
     height: 100%;
 }
 
-.menu-sublist.transition, .menu-sublist.transition.open {
-    height: 150px; /* ADJUST WHEN ADDITIONAL FORMATTING IS APPLIED TO THE SUBLIST ITEMS */
+.menu-sublist.transition,
+.menu-sublist.transition.open
+{
+    height: 150px;
+    /* ADJUST WHEN ADDITIONAL FORMATTING IS APPLIED TO THE SUBLIST ITEMS */
+}
+
+.specialization-expander
+{
+    border-top: 0 none transparent;
 }
 </style>

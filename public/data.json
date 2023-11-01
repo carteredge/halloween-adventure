@@ -5,14 +5,21 @@
         "defense": 5,
         "guts": 0,
         "hp": 10,
+        "id": "",
         "injuries": 0,
+        "inventory": [],
         "maxHP": 10,
         "mayhem": 0,
         "murder": 0,
+        "name": "",
         "signatures": [],
         "speed": 5,
         "specializations": [],
         "spookiness": 0
+    },
+    "names": {
+        "first": [ "Bony", "Bloody", "Captain", "Fangtooth", "Mad", "Nightmare", "Old Lady", "Old Man", "One-Eyed", "Pumpkin", "Rotten", "Sawtooth", "Shady", "Slasher", "Spooky" ],
+        "last": [ "Agatha", "Basher", "Bitey", "Bones", "Choppy", "Chuck", "Dave", "Jack", "Jane", "Jim", "Joe", "Killer", "Molly", "Stabby" ]
     },
     "archetypes": [
         {
@@ -30,7 +37,7 @@
             "order": 1,
             "primaryTrait": "Murder",
             "secondaryTrait": "Guts",
-            "slug": "saw",
+            "slug": "chainsaw-wielding",
             "specializations": ["destroy", "maim", "murder-master"]
         },
         {
@@ -76,7 +83,7 @@
             "primaryTrait": "Spookiness",
             "secondaryTrait": "Guts",
             "slug": "headless",
-            "specializations": ["decapitation", "dark-powers", "jack"]
+            "specializations": ["execution", "dark-powers", "jack"]
         },
         {
             "name": "Heavy Metal...",
@@ -84,7 +91,7 @@
             "order": 1,
             "primaryTrait": "Mayhem",
             "secondaryTrait": "Spookiness",
-            "slug": "metal",
+            "slug": "heavy-metal",
             "specializations": ["mayhem-master", "music", "rockstar"]
         },
         {
@@ -103,7 +110,7 @@
             "primaryTrait": "Mayhem",
             "secondaryTrait": "Guts",
             "slug": "maniac",
-            "specializations": ["hunter", "mayhem-master"]
+            "specializations": ["cannibal", "hunter", "mayhem-master"]
         },
         {
             "name": "Mutant",
@@ -193,7 +200,7 @@
             "primaryTrait": "Spookiness",
             "secondaryTrait": "Guts",
             "slug": "wizard",
-            "specializations": ["dark-powers", "rune-magic"]
+            "specializations": ["chaos-magic", "dark-powers", "rune-magic"]
         },
         {
             "name": "Zombie",
@@ -202,7 +209,7 @@
             "primaryTrait": "Murder",
             "secondaryTrait": "Guts",
             "slug": "zombie",
-            "specializations": ["murder-master"]
+            "specializations": ["cannibal", "dark-powers", "murder-master", "undeath"]
         }
     ],
     "specializations": [
@@ -213,7 +220,7 @@
         },
         {
             "name": "Artillery",
-            "signatures": ["blackpowder-bomb", "blunderbuss", "bombardment"],
+            "signatures": ["blackpowder-bomb", "blunderbuss-blast", "bombardment"],
             "slug": "artillery"
         },
         {
@@ -227,13 +234,23 @@
             "slug": "blood"
         },
         {
+            "name": "Actual Cannibal",
+            "signatures": [ "devour-braaains", "devour-flesh", "gnaw" ],
+            "slug": "cannibal"
+        },
+        {
+            "name": "Chaos Magic",
+            "signatures": ["call-chaos", "shift-spell", "volatile-casting"],
+            "slug": "chaos-magic"
+        },
+        {
             "name": "Computational Cognition",
             "signatures": ["precision", "supercomputer", "targeting-computer"],
             "slug": "computer"
         },
         {
             "name": "Crow Whisperer",
-            "signatures": ["conjure-murder", "night-wings"],
+            "signatures": ["conjure-murder", "crow-familiar", "night-wings"],
             "slug": "crow-whisperer"
         },
         {
@@ -242,9 +259,9 @@
             "slug": "dark-powers"
         },
         {
-            "name": "Decapitation",
-            "signatures": ["execution", "skull-collector"],
-            "slug": "decapitation"
+            "name": "Execution",
+            "signatures": ["executioner-strike", "judgment", "skull-collector"],
+            "slug": "execution"
         },
         {
             "name": "Deep Dweller",
@@ -253,7 +270,7 @@
         },
         {
             "name": "Destruction",
-            "signatures": ["carve-path", "splinter"],
+            "signatures": ["blade-breaker", "carve-path", "splinter"],
             "slug": "destroy"
         },
         {
@@ -288,12 +305,12 @@
         },
         {
             "name": "Hunter",
-            "signatures": ["cull-weak", "isolate-target"],
+            "signatures": ["catch-scent", "cull-weak", "isolate-target"],
             "slug": "hunter"
         },
         {
             "name": "Illusion",
-            "signatures": ["conjure-illusion", "invisibility"],
+            "signatures": ["conjure-illusion", "invisibility", "phantom-duplicates"],
             "slug": "illusion"
         },
         {
@@ -318,7 +335,7 @@
         },
         {
             "name": "Living Mountain",
-            "signatures": ["indomitable", "sturdy-stance"],
+            "signatures": ["burly", "brute", "indomitable" ],
             "slug": "mountain"
         },
         {
@@ -333,12 +350,12 @@
         },
         {
             "name": "Mayhem Master",
-            "signatures": ["barrage", "bleeding-attacks", "cross-strike", "slash-and-dash"],
+            "signatures": ["barrage", "bleeding-attacks", "cross-strike", "run-amok", "slash-and-dash"],
             "slug": "mayhem-master"
         },
         {
             "name": "Mechanical Construction",
-            "signatures": ["advanced-alloys", "modular-mechanics"],
+            "signatures": ["advanced-alloys", "metallic-mettle", "modular-mechanics"],
             "slug": "machine"
         },
         {
@@ -348,7 +365,7 @@
         },
         {
             "name": "Murder Master",
-            "signatures": ["brute-force", "heavy-hitter", "overrun", "slam-shockwave", "terrifying-power", "wide-swipe"],
+            "signatures": ["heavy-hitter", "overrun", "slam-shockwave", "terrifying-power", "wide-swipe"],
             "slug": "murder-master"
         },
         {
@@ -368,7 +385,7 @@
         },
         {
             "name": "Radioactive",
-            "signatures": ["irradiated-rage", "laser-eyes"],
+            "signatures": ["irradiated-rage", "laser-eyes", "radioactive-zone"],
             "slug": "nuclear"
         },
         {
@@ -378,12 +395,12 @@
         },
         {
             "name": "Rock Star Lifestyle",
-            "signatures": ["substance-tolerance", "swoon"],
+            "signatures": ["dive-bar-brawler", "mosh-pit-pro", "substance-tolerance"],
             "slug": "rockstar"
         },
         {
             "name": "Rooftop Sentinel",
-            "signatures": ["dive-bomb", "thunderous-gust", "watchful-eye"],
+            "signatures": ["dive-bomb", "night-wings", "thunderous-gust", "watchful-eye"],
             "slug": "rooftop"
         },
         {
@@ -398,7 +415,7 @@
         },
         {
             "name": "Stealth Arts",
-            "signatures": ["shadow-shuriken", "smoke-bomb"],
+            "signatures": ["shadow-shuriken", "smoke-bomb", "vanishing-trick"],
             "slug": "stealth"
         },
         {
@@ -413,850 +430,1476 @@
         },
         {
             "name": "Thundering Titan",
-            "signatures": ["quaking-steps"],
+            "signatures": ["forceful-throw", "quaking-charge", "thunderous-slam"],
             "slug": "titan"
         },
         {
             "name": "Undeath",
-            "signatures": ["death-pact"],
+            "signatures": ["death-pact", "undying-endurance"],
             "slug": "undeath"
         }
     ],
     "signatures": [
         {
-            "description": "You can make a Guts attack that deals d8 acid damage, and you can use your reaction to make this attack as a response to taking damage.",
             "name": "Acidic Innards",
+            "description": "You can make a Guts attack that deals d8 acid damage, and you can use your reaction to make this attack as a response to taking damage.",
             "primaryTrait": "Guts",
             "slug": "acid-guts",
-            "trait": "Guts"
+            "trait": "Guts",
+            "type": "Action/Reaction"
         },
         {
-            "description": "Increase your defense by 1 and reduce all non-lightning damage you take by 1.",
             "name": "Advanced Alloys",
+            "defense": 1,
+            "description": "Increase your defense by 1 and reduce all non-lightning damage you take by 1.",
             "primaryTrait": "Guts",
             "slug": "advanced-alloys",
-            "trait": "Guts"
+            "trait": "",
+            "type": "Passive"
         },
         {
-            "description": "Increase your defense by 1. Your unarmed attacks deal 1 bonus damage.",
             "name": "Armored Carapace",
-            "primaryTrait": "",
+            "defense": 1,
+            "description": "Increase your defense by 1. Increase the damage die size of your unarmed attacks.",
+            "primaryTrait": "Guts",
             "slug": "carapace",
-            "trait": ""
+            "trait": "",
+            "type": "Passive"
         },
         {
-            "description": "Description",
             "name": "Assassin Ambush",
-            "primaryTrait": "Trait",
+            "description": "Make a weapon attack against a creature while unseen, dealing double damage.",
+            "primaryTrait": "Mayhem",
             "slug": "ambush",
-            "trait": "Trait"
+            "trait": "Murder/Mayhem",
+            "type": "Passive"
         },
         {
-            "description": "Description",
             "name": "Barrage",
-            "primaryTrait": "Trait",
+            "description": "Make two Mayhem attacks, rolling the second one with reduced dice size.",
+            "primaryTrait": "Mayhem",
             "slug": "barrage",
-            "trait": "Trait"
+            "trait": "Mayhem",
+            "type": "Action"
         },
         {
-            "description": "Description",
             "name": "Bind Rune",
-            "primaryTrait": "Trait",
+            "description": "Scribe two elemental runes.",
+            "primaryTrait": "Spookiness",
             "slug": "bind-rune",
-            "trait": "Trait"
+            "trait": "Spookiness",
+            "type": "Action"
         },
         {
-            "description": "Description",
+            "name": "Blade-Breaker",
+            "description": "Make an attack with a chainsaw or another heavy weapon. If it hits, it deals normal damage and renders a piece of the target's equipment of your choice useless.",
+            "primaryTrait": "Murder",
+            "slug": "blade-breaker",
+            "trait": "Murder",
+            "type": "Action"
+        },
+        {
             "name": "Blackpowder Bomb",
-            "primaryTrait": "Trait",
+            "description": "(3 uses/rest) Make a ranged attack with a range of 50 ft. that deals d12 damage in an area of 15 ft.",
+            "primaryTrait": "Mayhem",
             "slug": "blackpowder-bomb",
-            "trait": "Trait"
+            "trait": "Mayhem",
+            "type": "Action"
         },
         {
-            "description": "Description",
-            "name": "Bleeding Attacks",
-            "primaryTrait": "Trait",
+            "name": "Bleeding Attack",
+            "description": "Make a weapon attack. On a hit, reduce the target's recovery by half for 1 hour or until they are healed.",
+            "primaryTrait": "Mayhem",
             "slug": "bleeding-attacks",
-            "trait": "Trait"
+            "trait": "Mayhem",
+            "type": "Action"
         },
         {
-            "description": "Description",
             "name": "Blood Ritual",
-            "primaryTrait": "Trait",
+            "description": "Once per turn, when you damage an enemy, you can use a blood ritual to deal extra damage. Roll for a Spookiness Signature. You deal bonus dark damage to the target equal to the higher die and take dark damage equal to the lower die. The damage to yourself cannot be prevented or redirected.",
+            "primaryTrait": "Spookiness",
             "slug": "blood-ritual",
-            "trait": "Trait"
+            "trait": "Spookiness",
+            "type": "Bonus"
         },
         {
-            "description": "Description",
             "name": "Blunderbuss Blast",
-            "primaryTrait": "Trait",
-            "slug": "blunderbuss",
-            "trait": "Trait"
+            "description": "Make a ranged attack with a range of 30 ft. This attack deals the lower dice roll to all targets in a 15 ft. cone originating from you in the direction of the attack.",
+            "primaryTrait": "Mayhem",
+            "slug": "blunderbuss-blast",
+            "trait": "Mayhem",
+            "type": "Action"
         },
         {
-            "description": "Once per round, when a creature within melee weapon range attacks you, you can choose to allow the attack to hit to make a melee weapon attack against the creature immediately after. If your attack hits, it deals bonus damage equal to half the damage you received.",
             "name": "Blood for Blood",
-            "primaryTrait": ["Guts", "Murder", "Mayhem"],
+            "description": "As a reaction, when a creature within melee weapon range attacks you, you can choose to allow the attack to hit to make a melee weapon attack against the creature immediately after. If your attack hits, it deals bonus damage equal to half the damage you received.",
+            "primaryTrait": "Murder",
             "slug": "blood-counter",
-            "trait": "Murder/Mayhem"
+            "trait": "Murder/Mayhem",
+            "type": "Reaction"
         },
         {
-            "description": "Outside of combat or when you roll initiative, you may choose to decrease your Max HP by up to 5 HP. Your attacks deal bonus dark damage equal to the amount you reduced your max HP by. You may also choose to end your blood pact at any point outside of combat or when you roll initiative.",
             "name": "Blood Pact",
+            "description": "Outside of combat or when you roll initiative, you may choose to decrease your Max HP by up to 5 HP. Your attacks deal bonus dark damage equal to the amount you reduced your max HP by. You may also choose to end your blood pact at any point outside of combat or when you roll initiative.",
             "primaryTrait": "Guts",
             "slug": "blood-pact",
-            "trait": ""
+            "trait": "",
+            "type": "Other"
         },
         {
-            "description": "Your melee weapon attacks deal +1 bonus damage for each creature damaged while within 10 ft. of you since the start of your turn.",
             "name": "Blood Rage",
-            "primaryTrait": ["Murder", "Mayhem"],
+            "description": "Your melee weapon attacks deal +1 bonus damage for each creature damaged while within 20 ft. of you since the end of your last turn.",
+            "primaryTrait": "Murder",
             "slug": "rage",
-            "trait": "Murder/Mayhem"
+            "trait": "Murder/Mayhem",
+            "type": "Passive"
         },
         {
-            "description": "Description",
-            "name": "Brute Force",
-            "primaryTrait": "Trait",
-            "slug": "brute-force",
-            "trait": "Trait"
+            "name": "Brute",
+            "description": "Throw or slam a creature at least one size category smaller than you for double damage.",
+            "primaryTrait": "Murder",
+            "slug": "brute",
+            "trait": "Murder",
+            "type": "Action"
         },
         {
-            "description": "Description",
             "name": "Burial",
-            "primaryTrait": "Trait",
+            "description": "Make a Spookiness attack against a creature you can see within 15 ft. On a hit, the creature is swallowed by the earth itself. The creature is trapped, cannot move or take actions except to attempt to escape, and takes d6 crushing damage each turn. It can try to escape on its turn with a Murder or equivalent roll contested by your Spookiness. You may only have one target buried by this skill at a time, and if you use this skill on another creature, the previously trapped creature is released.",
+            "primaryTrait": "Spookiness",
             "slug": "bury",
-            "trait": "Trait"
+            "trait": "Spookiness",
+            "type": "Action"
         },
         {
-            "description": "Your attacks deal 3 bonus fire damage, and creatures hit by your attacks catch fire, reducing their recovery by 2.",
+            "name": "Burly",
+            "description": "Your Max HP is increased by 5.",
+            "maxHP": 5,
+            "primaryTrait": "Guts",
+            "slug": "burly",
+            "trait": "",
+            "type": "Passive"
+        },
+        {
             "name": "Burning Attacks",
+            "description": "Your attacks deal 3 bonus fire damage, and creatures hit by your attacks catch fire, reducing their recovery by 2.",
             "primaryTrait": "",
             "slug": "burning-attacks",
-            "trait": "Passive"
+            "trait": "",
+            "type": "Passive"
         },
         {
-            "description": "Description",
+            "name": "Call the Chaos",
+            "description": "",
+            "slug": "call-chaos"
+        },
+        {
             "name": "Call the Pack",
-            "primaryTrait": "Trait",
+            "description": "3 shadow wolves appear to attack enemies within 50 ft. of you. They use your Signature die (d12) and their Murder (d10). They disappear at the end of the turn.",
+            "primaryTrait": "Murder",
             "slug": "call-pack",
-            "trait": "Trait"
+            "trait": "Murder",
+            "type": "Action"
         },
         {
-            "description": "You can destroy wooden and similar obstacles as you rampage through them. As part of an attack, you can destroy an obstacle within 5 ft. of yourself and move 5 ft. toward your target.",
             "name": "Carve a Path",
+            "description": "You can destroy wooden and similar obstacles as you rampage through them. Before making an attack, and destroy an obstacle within 5 ft. of yourself and move 5 ft. toward your target.",
             "primaryTrait": "Murder",
             "slug": "carve-path",
-            "trait": "Murder"
+            "trait": "Murder",
+            "type": "Action"
         },
         {
-            "description": "Description",
+            "name": "Catch the Scent",
+            "description": "On your turn, you can learn the scent of a creature if that creature or an item they have carried, used, or handled is within 10 ft. of you. You have can reroll a die for a Murder or Mayhem attack or damage roll once on each turn against that creature. This effect ends on that creature if you use it on a new creature.",
+            "primaryTrait": "",
+            "slug": "catch-scent",
+            "trait": "Murder/Mayhem",
+            "type": "Action"
+        },
+        {
             "name": "Chromatophoric Camouflage",
-            "primaryTrait": "Trait",
+            "description": "Your skin changes color to match your environment. You can use Guts whenever you hide, and you can attempt to hide for free once on each of your turns.",
+            "primaryTrait": "Guts",
             "slug": "chromatophores",
-            "trait": "Trait"
+            "trait": "Guts",
+            "type": "Bonus"
         },
         {
-            "description": "Description",
             "name": "Cloak of Shadows",
-            "primaryTrait": "Trait",
+            "description": "You produce a 15 ft. radius of shadow centered on yourself that moves with you that lasts until you dismiss it, requiring no action.",
+            "primaryTrait": "Spookiness",
             "slug": "cloak-of-shadows",
-            "trait": "Trait"
+            "trait": "Spookiness",
+            "type": "Action"
         },
         {
-            "description": "Description",
             "name": "Conjure Illusion",
-            "primaryTrait": "Trait",
+            "description": "You produce an illusion that fits in a 10 ft. cube. It can reproduce motion, but to change the motion or move its location you must use another action.",
+            "primaryTrait": "Spookiness",
             "slug": "conjure-illusion",
-            "trait": "Trait"
+            "trait": "Spookiness",
+            "type": "Action"
         },
         {
-            "description": "Description",
             "name": "Conjure Murder",
-            "primaryTrait": "Trait",
+            "description": "You conjure a murder of crows. They occupy a 10 ft. radius, obscuring sight and hearing, and dealing d4 Spookiness damage to creatures who enter their radius or start their turn within it. A creature dealt this damage cannot be dealt it again until the start of its next turn. On your turn, you can command it to move up to 30 ft. as a free action.",
+            "primaryTrait": "Spookiness",
             "slug": "conjure-murder",
-            "trait": "Trait"
+            "trait": "Spookiness",
+            "type": "Action"
         },
         {
-            "description": "Description",
             "name": "Corpse Bomb",
-            "primaryTrait": "Trait",
+            "description": "You cause a corpse to explode, making a Spookiness attack that deals d8 damage to creatures in a 10 ft. radius and inflict them with disease, reducing their recovery by half until they are healed.",
+            "primaryTrait": "Spookiness",
             "slug": "corpse-bomb",
-            "trait": "Trait"
+            "trait": "Spookiness",
+            "type": "Action"
         },
         {
-            "description": "Your critical hits automatically cause an injury. If you also injure the creature with damage, you cause an extra injury. When you injure a creature, they take the lower die on their roll to endure their injuries.",
             "name": "Critical Injuries",
-            "primaryTrait": ["Murder", "Mayhem"],
+            "description": "Your critical hits automatically cause an injury. If you also injure the creature with damage, you cause an extra injury. When you injure a creature, they take the lower die on their roll to endure their injuries.",
+            "primaryTrait": "Murder",
             "slug": "injury",
-            "trait": "Passive"
+            "trait": "",
+            "type": "Passive"
         },
         {
-            "description": "Description",
             "name": "Cross Strike",
-            "primaryTrait": "Trait",
+            "description": "Make an attack with two dual-wielded weapons. If you hit a single creature with both weapons, roll damage an extra time for one of those weapons.",
+            "primaryTrait": "Mayhem",
             "slug": "cross-strike",
-            "trait": "Trait"
+            "trait": "Mayhem",
+            "type": "Action"
         },
         {
-            "description": "Description",
+            "name": "Crow Familiar",
+            "description": "You have a crow familiar companion. (HP: 5 | Defense: 5 | Speed: 6 | Murder: d4 | Mayhem: d6 | Guts: d4 | Braaains: d4 | Spookiness: d8). The crow acts on your turn and has only one action. It has a Spookiness attack that deals d6 dark damage and frighten its target until the end of your next turn.",
+            "primaryTrait": "Spookiness",
+            "slug": "crow-familiar",
+            "trait": "",
+            "type": "Companion"
+        },
+        {
             "name": "Cull the Weak",
-            "primaryTrait": "Trait",
+            "description": "Make an attack. This attack deals 5 bonus damage against targets that are already injured.",
+            "primaryTrait": "Murder",
             "slug": "cull-weak",
-            "trait": "Trait"
+            "trait": "Murder",
+            "type": "Action"
         },
         {
-            "description": "Description",
             "name": "Curse",
-            "primaryTrait": "Trait",
+            "description": "Instead of dealing damage, this attack curses a creature for 24 hours. Choose one of the following curses when you hit with this attack:\n\n*Blindness:* The cursed creature uses the lowest die rolled for its attacks.\n\n*Hex:* The cursed creature uses the lowest die rolled for all rolls except attacks and recovery.\n\n*Plague:* The cursed creature rolls an extra Guts die and uses the lowest die rolled for its recovery.",
+            "primaryTrait": "Spookiness",
             "slug": "curse",
-            "trait": "Trait"
+            "trait": "Spookiness",
+            "type": "Action"
         },
         {
-            "description": "Description",
             "name": "Dark Bloodletting",
-            "primaryTrait": "Trait",
+            "description": "When you hit with an attack that drains life from a target, you can forego that life drain to instead immediately make a d8 Spookiness attack against that target.",
+            "primaryTrait": "Spookiness",
             "slug": "dark-bloodletting",
-            "trait": "Trait"
+            "trait": "Spookiness",
+            "type": "Bonus"
         },
         {
-            "description": "Description",
             "name": "Death Pact",
-            "primaryTrait": "Trait",
+            "description": "When you would succumb to your injuries, you instead have until the end of your next turn to kill a target. If you do, you recover from one injury. If you do not kill another creature, you succumb to your injuries.",
+            "primaryTrait": "Guts",
             "slug": "death-pact",
-            "trait": "Trait"
+            "trait": "",
+            "type": "Passive"
         },
         {
-            "description": "Your attacks with ray guns deal +3 bonus damage, and if one injures a creature, that creature takes the lower die when rolling to endure their injuries.",
-            "name": "Death Ray",
+            "name": "Death Ray Expertise",
+            "description": "Your attacks with ray guns deal +3 bonus damage, and if one injures a creature, that creature rolls twice and takes the lower die when rolling to endure those injuries.",
             "primaryTrait": "Braaains",
             "slug": "death-ray",
-            "trait": "Braaains"
+            "trait": "",
+            "type": "Passive"
         },
         {
-            "description": "Description",
             "name": "Deep Adaptation",
-            "primaryTrait": "Trait",
+            "description": "You have several adaptations from living in the depths of the ocean: Your attacks deal d4 bonus poison or lightning damage. You have blindsense out to 30 ft. You can generate 10 ft. of light.",
+            "primaryTrait": "",
             "slug": "deep-adaptation",
-            "trait": "Trait"
+            "trait": "",
+            "type": "Passive"
         },
         {
-            "description": "Description",
-            "name": "Desecrate Ground",
-            "primaryTrait": "Trait",
+            "name": "Desecrated Ground",
+            "description": "The ground within a 25 ft. radius of you is desecrated. Healing and recovery are halved on that ground for all non-undead creatures.",
+            "primaryTrait": "Spookiness",
             "slug": "desecrate",
-            "trait": "Trait"
+            "trait": "",
+            "type": "Passive"
         },
         {
-            "description": "When you injure a creature with your chainsaw, that creature's speed and recovery are both halved until it rests or any of its injuries are healed.",
+            "name": "Devour Braaains",
+            "description": "You eat the brain of a nearby corpse. For the next minute, when you make Braaains rolls, you can roll a Guts die as well and take the higher roll.",
+            "primaryTrait": "Guts",
+            "slug": "devour-braaains",
+            "trait": "Guts",
+            "type"  : "Action"
+        },
+        {
+            "name": "Devour Flesh",
+            "description": "You devour the flesh of a corpse within 5 ft. of you. Roll Guts and recover that amount of HP. This destroys the corpse.",
+            "primaryTrait": "Guts",
+            "slug": "devour-flesh",
+            "trait": "Guts",
+            "type"  : "Action"
+        },
+        {
             "name": "Dismemberment",
+            "description": "When you injure a creature with your chainsaw, that creature's speed and recovery are both halved until it rests or any of its injuries are healed.",
             "primaryTrait": "Murder",
             "slug": "dismemberment",
-            "trait": "Passive"
+            "trait": "",
+            "type": "Passive"
         },
         {
-            "description": "You swoop down upon a creature to add force to an attack. If you descend at least 10 ft. before making an attack, that attack gets +5 bonus damage if it hits.",
+            "name": "Dive Bar Brawler",
+            "description": "Once per turn when you make an attack, you can make a melee or throwing Mayhem attack with a nearby item that deals d6 damage.",
+            "primaryTrait": "Mayhem",
+            "slug": "dive-bar-brawler",
+            "trait": "Mayhem",
+            "type": "Bonus"
+        },
+        {
             "name": "Dive Bomb",
+            "description": "You swoop down upon a creature to add force to an attack. You descend at 10 ft. toward the target before making this attack, moving up to 10 ft. horizontally at the same time. This attack deals +5 bonus damage.",
             "primaryTrait": "Murder",
             "slug": "dive-bomb",
-            "trait": "Murder"
+            "trait": "Murder",
+            "type": "Action"
         },
         {
-            "description": "Description",
             "name": "Draining Attacks",
-            "primaryTrait": "Trait",
+            "description": "When you roll damage for an attack, you recover HP equal to the lower die.",
+            "primaryTrait": "Murder",
             "slug": "draining-attacks",
-            "trait": "Trait"
+            "trait": "",
+            "type": "Passive"
         },
         {
-            "description": "Your attacks deal 3 bonus lightning damage. When making an attack with a trait other than Spookiness, you can roll a Spookiness die with your damage dice and take the highest value.",
             "name": "Electrified Attacks",
+            "description": "Your attacks deal 3 bonus lightning damage. When making an attack with a trait other than Spookiness, you can roll a Spookiness die with your damage dice and take the highest value.",
             "primaryTrait": ["Murder", "Mayhem", "Spookiness", "Braaains"],
             "slug": "electric-attack",
-            "trait": "Passive"
+            "trait": "",
+            "type": "Passive"
         },
         {
-            "description": "Once per turn when you deal damage, you can roll Signature and Spookiness. You deal bonus lightning damage equal to the highest die rolled and take lightning damage equal to the lowest die rolled. This lightning damage bypasses your resistances and immunities.",
             "name": "Electric Overload",
+            "description": "Once per turn when you deal damage, you can roll Signature and Spookiness. You deal bonus lightning damage equal to the highest die rolled and take lightning damage equal to the lowest die rolled. This lightning damage bypasses your resistances and immunities.",
             "primaryTrait": "Spookiness",
             "slug": "electric-overload",
-            "trait": "Spookiness"
+            "trait": "Spookiness",
+            "type": "Bonus"
         },
         {
-            "description": "Description",
             "name": "Empowering Bite",
-            "primaryTrait": "Trait",
+            "description": "When you heal from your Vampire abilities, you can regain HP past your max health. Your dice are increased by 1 size while your HP is above their max. If you would recover HP while already above your max health, you instead can either keep your current HP or take your max plus the amount you would heal.",
+            "primaryTrait": "Guts",
             "slug": "empowering-bite",
-            "trait": "Trait"
+            "trait": "",
+            "type": "Passive"
         },
         {
-            "description": "Description",
             "name": "Enchantment",
-            "primaryTrait": "Trait",
+            "description": "Choose a weapon or set of armor. If you choose a weapon, that weapon deals 3 bonus damage of a type of your choice. If you choose a set of armor, its wearer has resistance to a damage type of your choice. You can have up to 3 enchantments simultaneously.",
+            "primaryTrait": "",
             "slug": "enchantment",
-            "trait": "Trait"
+            "trait": "",
+            "type": "Passive"
         },
         {
-            "description": "At the start of your turn when you recover HP, you roll Braaains and Guts and recover the higher of the two values.",
             "name": "Energy Shield",
+            "description": "At the start of your turn when you recover HP, you roll Braaains and Guts and recover the higher of the two values.",
             "primaryTrait": "Braaains",
             "slug": "energy-shield",
-            "trait": "Passive"
+            "trait": "Passive",
+            "type": "Passive"
         },
         {
-            "description": "You have senses that far exceed those of humans, whether naturally or with technological enhancement. You can see in the ultraviolet and infrared spectrums, can focus in on soft sounds from up to 100 ft. away, and can detect chemical residues on surfaces up to an hour after they were left there to track creatures or investigate what has happened in an area. (This does not automatically allow you to identify those residues if you are otherwise unfamiliar with them.)",
             "name": "Enhanced Senses",
+            "description": "You have senses that far exceed those of humans, whether naturally or with technological enhancement. You can see in the ultraviolet and infrared spectrums, can focus in on soft sounds from up to 100 ft. away, and can detect chemical residues on surfaces up to an hour after they were left there to track creatures or investigate what has happened in an area. (This does not automatically allow you to identify those residues if you are otherwise unfamiliar with them.)",
             "primaryTrait": "Braaains",
             "slug": "senses",
-            "trait": "Braaains"
+            "trait": "Braaains",
+            "type": "Action"
         },
         {
-            "description": "Description",
             "name": "Ethereal Defense",
-            "primaryTrait": "Trait",
+            "description": "When you are damaged, you can become ethereal as a reaction. You are immune to that damage if it is nonmagical, and otherwise the damage is halved.",
+            "primaryTrait": "",
             "slug": "ethereal-defense",
-            "trait": "Trait"
+            "trait": "",
+            "type": "Reaction"
         },
         {
-            "description": "Description",
             "name": "Ethereal Piercing",
-            "primaryTrait": "Trait",
+            "description": "Make a weapon or magic attack. This attack uses Spookiness instead of its usual trait, deals dark damage instead of its usual type, it ignores damage reduction, and, if you miss, it still deals damage equal to the lower damage die rolled.",
+            "primaryTrait": "Spookiness",
             "slug": "ethereal-piercing",
-            "trait": "Trait"
+            "trait": "Spookiness",
+            "type": "Action"
         },
         {
+            "name": "Executioner's Strike",
             "description": "When you hit a creature that is incapacitated, immobilized, or stunned with an attack, that creature is automatically injured.",
-            "name": "Execution",
             "primaryTrait": "Murder",
-            "slug": "execution",
-            "trait": "Murder"
+            "slug": "executioner-strike",
+            "trait": "",
+            "type": "Passive"
         },
         {
-            "description": "You have two extra arms. You can wield an extra weapon or make two extra unarmed attacks.",
             "name": "Extra Limbs",
+            "description": "You have two extra arms. You can wield an extra weapon or make two extra unarmed attacks when you make an attack as an action.",
             "primaryTrait": "Murder",
             "slug": "extra-limbs",
-            "trait": "Murder"
+            "trait": "Murder",
+            "type": "Bonus"
         },
         {
-            "description": "You make a single Spookiness attack against all creatures in a 30-foot cone, dealing d12 fire damage. You roll damage even if you miss, but deal the lower die roll as damage instead. After you use this skill, you must roll 7 or above on Spookiness to recharge it. You can attempt to recharge this skill at the end of each of your turns.",
             "name": "Fire Breath",
+            "description": "You make a single Spookiness attack against all creatures in a 30-foot cone, dealing d12 fire damage. You roll damage even if you miss, but deal the lower die roll as damage instead. After you use this skill, you must roll 7 or above on Spookiness to recharge it. You can attempt to recharge this skill at the end of each of your turns.",
             "primaryTrait": "Spookiness",
             "slug": "fire-breath",
-            "trait": "Spookiness"
+            "trait": "Spookiness",
+            "type": "Action"
         },
         {
-            "description": "Description",
+            "name": "Forceful Throw",
+            "description": "As an attack, throw a weapon, rock, or creature you have grappled up to 50 ft. The target is knocked down if hit.",
+            "primaryTrait": "Murder",
+            "slug": "forceful-throw",
+            "trait": "Murder",
+            "type": "Action"
+        },
+        {
             "name": "Form of the Night",
-            "primaryTrait": "Trait",
+            "description": "Once per turn, you can change your form. You may choose to take the form of one of the following creatures of the night, your original form, or a hybrid between the two. The transformation lasts up to one hour, until you choose to end it on your turn (requiring no action), fall unconscious, or are injured. You may use each form once, and you recover all uses on a rest.\n\n- *Bat:* The bat is a *tiny* creature with d4 Murder, d8 Mayhem, and d4 Guts. The bat uses your other traits. In both your hybrid and bat forms, you can fly, and you can use your echolocation in place of sight, allowing you to be aware of your surroundings even if blinded and to detect invisible creatures.\n\n- *Black Cat:* The cat is a *tiny* creature with d4 Murder, d10 Mayhem, and d4 Guts. The cat uses your other traits. In both your hybrid and cat forms, you have claws that you can use to make Mayhem attacks, and you can curse the luck of a creature within 20 ft. of you as a reaction forcing them to reroll any or all of their dice for one roll.\n\n- *Plague Rat:* The plague rat is a *tiny* creature with d4 Murder, d4 Mayhem, and d4 Guts. The rat uses your other traits. In both your hybrid and plague rat forms, you are resistant to disease and poison, and when you bite a creature it inflicts them with disease, reducing their recovery by 2 for 24 hours. This effect is cumulative.\n\n- *Swarm of Insects:* (The swarm of insects does not have a hybrid form.) The swarm of insects is a *large* swarm of *tiny* creatures with d4 Murder, d4 Mayhem, and d4 Guts. It is resistant to bludgeoning, piercing, and slashing damage, can fly, and can fit through spaces as small as an inch in diameter. While in the swarm form, you can attack all enemies in your area with a Spookiness attack that deals d6 damage.\n\n- *Wolf:* The wolf is a *medium* creature with d8 Murder, d10 Mayhem, and d6 Guts. The wolf uses your other traits. In both your hybrid and wolf forms, your speed is 50 ft. per round and you can make two claw attacks and one bite attack. These attacks are Murder attacks.",
+            "primaryTrait": "",
             "slug": "night-form",
-            "trait": "Trait"
+            "trait": "",
+            "type": "Action"
         },
         {
-            "description": "Description",
             "name": "Freeze Ray",
-            "primaryTrait": "Trait",
+            "description": "Make a ray gun attack. If the attack hits, it deals d8 cold damage instead of its normal damage, and the target's speed is halved. If the target's speed was already halved, its speed becomes 0, or, if it's speed was already 0, they are froze and incapable of taking actions or reactions. These effects last until they are healed or take fire damage.",
+            "primaryTrait": "Braaains",
             "slug": "freeze-ray",
-            "trait": "Trait"
+            "trait": "Braaains",
+            "type": "Action"
         },
         {
-            "description": "Description",
+            "name": "Gnaw",
+            "description": "When you grapple a creature and on each of your turns afterwards that you have the creature grappled, you can make a Murder bite attack that does d6 damage against that creature for free.",
+            "primaryTrait": "Murder",
+            "slug": "gnaw",
+            "trait": "Murder",
+            "type": "Bonus"
+        },
+        {
             "name": "Gravebound Burrowing",
+            "description": "Description",
             "primaryTrait": "Trait",
             "slug": "burrow",
             "trait": "Trait"
         },
         {
-            "description": "Wielding a chainsaw is unwieldy, but can devastate your enemies. You can deal double damage with a chainsaw attack if you made no other attacks on the same turn. You cannot attack for the rest of the turn. (This single chainsaw attack can target multiple targets if you have another Signature that allows it.)",
             "name": "Gruesome Attack",
+            "description": "Wielding a chainsaw is unwieldy, but can devastate your enemies. You can deal double damage with a chainsaw attack if you made no other attacks on the same turn. You cannot attack for the rest of the turn. (This single chainsaw attack can target multiple targets if you use an action with another Signature that allows it.)",
             "primaryTrait": "Murder",
             "slug": "gruesome-attack",
-            "trait": "Murder"
+            "trait": "",
+            "type": "Passive"
         },
         {
-            "description": "Description",
             "name": "Harvest Moon",
-            "primaryTrait": "Trait",
+            "description": "You conjure blood-red moonlight in an area with a 15 ft. radius centered on a point within 50 ft. of you. On each of your turns, you can make a Spookiness attack for free against all creatures in the moonlight, dealing no damage but frightening them until the end of your next turn on a hit. You can have one such effect at a time, and the effect ends if you use this skill again, fall unconscious, or decide to end the effect, requiring no action.",
+            "primaryTrait": "Spookiness",
             "slug": "harvest-moon",
-            "trait": "Trait"
+            "trait": "Spookiness",
+            "type": "Action"
         },
         {
-            "description": "Your Murder melee attacks deal 3 bonus damage. If your Signature and Murder dice for an attack both meet or exceed your target's defense, that attack deals 6 bonus damage instead.",
             "name": "Heavy Hitter",
+            "description": "Make a Murder melee attack that deal 3 bonus damage. If your Signature and Murder dice for the attack both meet or exceed your target's defense, also add the damage of your lower damage die.",
             "primaryTrait": "Murder",
             "slug": "heavy-hitter",
-            "trait": "Murder"
+            "trait": "Murder",
+            "type": "Action"
         },
         {
-            "description": "Reduce all damage you take by 2.",
             "name": "Indomitable",
+            "description": "Reduce all damage you take by 2.",
             "primaryTrait": "",
             "slug": "indomitable",
-            "trait": "Passive"
+            "trait": "",
+            "type": "Passive"
         },
         {
-            "description": "Description",
             "name": "Ingenious Advice",
-            "primaryTrait": "Trait",
+            "description": "When an ally within 30 ft. of you who can hear you fails a roll, you can use your reaction and give them advice. You can roll one Braains die, and they can use that roll if it is higher than their roll.",
+            "primaryTrait": "Braaains",
             "slug": "ingenious-advice",
-            "trait": "Trait"
+            "trait": "Braaains",
+            "type": "Reaction"
         },
         {
-            "description": "Description",
             "name": "Inspiring Ballad",
-            "primaryTrait": "Trait",
+            "description": "You shred an epic ballad on your guitar, accompanied by screaming vocals, inspiring all allies within 30 ft. of you. When they make a roll, they can reroll one of the dice. Once they do so, they loose this effect.",
+            "primaryTrait": "",
             "slug": "inspiring-ballad",
-            "trait": "Trait"
+            "trait": "",
+            "type": "Action"
         },
         {
-            "description": "Description",
             "name": "Invisibility",
-            "primaryTrait": "Trait",
+            "description": "You become invisible until the end of your next turn. After you use this skill, you must roll a Signature Spookiness roll of 5 or above to recharge it. You can attempt to recharge this skill at the end of each of your turns.",
+            "primaryTrait": "Spookiness",
             "slug": "invisibility",
-            "trait": "Trait"
+            "trait": "Spookiness",
+            "type": "Action"
         },
         {
-            "description": "Description",
             "name": "Irradiated Rage",
-            "primaryTrait": "Trait",
+            "description": "Damage triggers a radiation-fueled rage in you. On your next turn after you take damage your attacks deal 3 bonus radiation damage, and you can make one extra attack for free.",
+            "primaryTrait": "Murder",
             "slug": "irradiated-rage",
-            "trait": "Trait"
+            "trait": "",
+            "type": "Bonus"
         },
         {
-            "description": "Description",
             "name": "Isolate the Target",
-            "primaryTrait": "Trait",
+            "description": "When a creature moves within 30 ft. of you, you can move up to half your speed as a reaction. If they come within melee range of you on the same turn, you can make a melee attack against them for free.",
+            "primaryTrait": "",
             "slug": "isolate-target",
-            "trait": "Trait"
+            "trait": "Murder/Mayhem",
+            "type": "Reaction"
         },
         {
-            "description": "Description",
+            "name": "Judgment",
+            "description": "When a creature within 30 ft. of you damages one of your allies, you can use your reaction to make a Spookiness attack against it, dealing d12 dark damage.",
+            "primaryTrait": "Spookiness",
+            "slug": "judgment",
+            "trait": "Spookiness",
+            "type": "Reaction"
+        },
+        {
             "name": "Laboratory Assistant",
-            "primaryTrait": "Trait",
+            "description": "You have a permanent lab assistant companion. Choose one of the companions from the Lab Assistants sidebar. The assistant acts on your turn and has only one action.\n\n> #### **Lab Assistants**\n> \n> **Clone Assistant**  \n> 10 HP | * Defense | * Speed  \n> \\* Murder | * Mayhem | * Guts | d4 Braaains | d4 Spookiness  \n>\n> *Unarmed Attack*  \n> **d6** Murder melee attack, **d4** bludgeoning damage  \n> \n> *Meat Shield*  \n> The assistant can use its reaction to redirect an attack from you to it if it is within 5 ft. of you or the attacker.\n>\n> \\*The Clone uses your Defense, Speed, Murder, Mayhem, and Guts. The clone can wield weapons. If you have at least an Archetype for using a weapon, the clone attacks with a d8 for that weapon.\n>\n> **Mutant Assistant**  \n> 15 HP | 5 Defense | 5 Speed  \n> d6 Murder | d6 Mayhem | d10 Guts | d4 Braaains | d4 Spookiness  \n>\n> *Unarmed Attack*  \n> **d8** Murder melee attack, **d8** bludgeoning damage  \n>\n> *Meat Shield*  \n> The assistant can use its reaction to redirect an attack from you to it if it is within 5 ft. of you or the attacker.\n> \n> **Robot Assistant**  \n> 10 HP | 7 Defense | 5 Speed  \n> d6 Murder | d6 Mayhem | d6 Guts | d8 Braaains | d4 Spookiness  \n>\n> *Unarmed Attack*  \n> **d8** Murder melee attack, **d8** bludgeoning damage  \n> \n> *Electrocute*  \n> **d8** Braaains melee attack, **d8** lightning damage\n",
+            "primaryTrait": "",
             "slug": "lab-assistant",
-            "trait": "Trait"
+            "trait": "",
+            "type": "Companion"
         },
         {
-            "description": "Description",
-            "name": "Laser Eyes",
-            "primaryTrait": "Trait",
+            "name": "Piercing Laser Eyes",
+            "description": "You make a Braaains attack that deals d8 damage to all creatures in a 50 ft. line originating from you.",
+            "primaryTrait": "Braaains",
             "slug": "laser-eyes",
-            "trait": "Trait"
+            "trait": "Braaains",
+            "type": "Action"
         },
         {
-            "description": "Description",
             "name": "Maelstrom",
-            "primaryTrait": "Trait",
+            "description": "You conjure a mighty maelstrom of water at a point you can see within 50 ft. of yourself. The maelstrom has a radius of 30 ft. The movement speed of creatures is halved while they are within the maelstrom, and when a creature moves while within the maelstrom you can use your reaction to make a Spookiness attack, pulling it 10 ft. towards the center on a hit. You can have up to three maelstroms active at any time, and they last until you are more than 100 ft. from their center, you fall unconscious, or you choose to end them, requiring no action.",
+            "primaryTrait": "Spookiness",
             "slug": "maelstrom",
-            "trait": "Trait"
+            "trait": "Spookiness",
+            "type": "Action/Reaction"
         },
         {
-            "description": "Description",
-            "name": "Make 'em Swoon",
-            "primaryTrait": "Trait",
-            "slug": "swoon",
-            "trait": "Trait"
-        },
-        {
-            "description": "You make a psychic attack against a target within 20 ft. of you. If it hits, instead of dealing damage, they lose up to an hour of recent memory, and they are stunned until the end of your next turn.",
             "name": "Memory Wipe",
+            "description": "You make a psychic attack against a target within 20 ft. of you. If it hits, instead of dealing damage, they lose up to an hour of recent memory, and they are stunned until the end of your next turn.",
             "primaryTrait": "Braaains",
             "slug": "memory-wipe",
-            "trait": "Braaains"
+            "trait": "Braaains",
+            "type": "Action"
         },
         {
-            "description": "Description",
+            "name": "Metallic Mettle",
+            "description": "You are immune to poison and disease and resistant to psychic attacks.",
+            "primaryTrait": "",
+            "slug": "metallic-mettle",
+            "trait": "",
+            "type": "Passive"
+        },
+        {
             "name": "Modular Mechanics",
-            "primaryTrait": "Trait",
+            "description": "With your robotic intellect and adaptable construction, you can use Braaains in place of other traits. Once per turn, you can roll a Braaains die in additional to the other die for a Murder, Mayhem, or Guts roll.",
+            "primaryTrait": "Braaains",
             "slug": "modular-mechanics",
-            "trait": "Trait"
+            "trait": "Braaains",
+            "type": "Bonus"
         },
         {
-            "description": "Description",
+            "name": "Mosh Pit Pro",
+            "description": "Adept at holding your own in large, violent crowds, you gain 1 bonus damage and 1 defense for each enemy within 5 ft. of you.",
+            "primaryTrait": "Mayhem",
+            "slug": "mosh-pit-pro",
+            "trait": "",
+            "type": "Passive"
+        },
+        {
             "name": "Nightmare Aura",
-            "primaryTrait": "Trait",
+            "description": "Once on your turn, you can make a bonus fear (Spookiness) attack against all creatures of your choice within 25 ft. of you that you can see. If the attack hits, instead of dealing damage, the creatures are frightened. The defense of frightened creatures against your Spookiness is halved, rounded down.",
+            "primaryTrait": "Spookiness",
             "slug": "nightmare",
-            "trait": "Trait"
+            "trait": "Spookiness",
+            "type": "Action"
         },
         {
-            "description": "Description",
             "name": "Paralyzing Fear",
-            "primaryTrait": "Trait",
+            "description": "When you frighten a creature, that creature is stunned until the end of your next turn.",
+            "primaryTrait": "Spookiness",
             "slug": "paralyzing-fear",
-            "trait": "Trait"
+            "trait": "",
+            "type": "Passive"
         },
         {
-            "description": "Description",
+            "name": "Phantom Duplicates",
+            "description": "You create illusory duplicates of yourself. When you would be hit with an attack, unless the lower roll also hits, it destroys one of your duplicates instead.",
+            "primaryTrait": "Spookiness",
+            "slug": "phantom-duplicates",
+            "trait": "",
+            "type": "Action"
+        },
+        {
             "name": "Plague Cloud",
+            "description": "Description",
             "primaryTrait": "Trait",
             "slug": "plague-cloud",
             "trait": "Trait"
         },
         {
-            "description": "You can attempt to charge through multiple creatures with a single attack. You make an attack roll, then move up to your movement speed in a straight line. You can move through occupied spaces during this movement, and the attack roll applies to any creatures whose space you move through. Any creatures hit by the attack are knocked prone. You must end the movement in an empty space or you fall prone in the nearest empty space.",
             "name": "Overrun",
+            "description": "You can attempt to charge through multiple creatures with a single attack. Make an attack roll, then move up to your movement speed in a straight line. You can move through occupied spaces during this movement, and the attack roll applies to any creatures whose space you move through. Any creatures hit by the attack are knocked prone. You must end the movement in an empty space or you fall prone in the nearest empty space.",
             "primaryTrait": "Murder",
             "slug": "overrun",
-            "trait": "Murder"
+            "trait": "Murder",
+            "type": "Action"
         },
         {
-            "description": "Description",
             "name": "Pack Hunt",
-            "primaryTrait": "Trait",
+            "description": "You deal 3 bonus damage against targets if you and an ally are both within 5 ft. of the target. You can also use your reaction to grant this damage to an ally when they attack a target within 5 ft. of you.",
+            "primaryTrait": "Murder",
             "slug": "pack-hunt",
-            "trait": "Trait"
+            "trait": "",
+            "type": "Passive/Reaction"
         },
         {
-            "description": "Description",
             "name": "Pack Mate",
-            "primaryTrait": "Trait",
+            "description": "You have a wolf companion (HP: 10 | Defense: 5 | Speed: 6 | Murder: d8 | Mayhem: d10 | Guts: d6 | Braaains: d4 | Spookiness: d6). The wolf acts on your turn and has only one action.",
+            "primaryTrait": "",
             "slug": "pack-mate",
-            "trait": "Trait"
+            "trait": "",
+            "type": "Companion"
         },
         {
-            "description": "Description",
             "name": "Paralyzing Fear",
+            "description": "Description",
             "primaryTrait": "Trait",
             "slug": "paralyizing-fear",
             "trait": "Trait"
         },
         {
-            "description": "Description",
             "name": "Phantom Bombardment",
-            "primaryTrait": "Trait",
+            "description": "Make an attack against all targets in a 30 ft. radius centered on a point you can see within 50 ft. of you. This attack deals d12 dark damage. After you use this skill, you must roll a Signature Spookiness roll of 7 or above to recharge it. You can attempt to recharge this skill at the end of each of your turns.",
+            "primaryTrait": "Spookiness",
             "slug": "bombardment",
-            "trait": "Trait"
+            "trait": "Spookiness",
+            "type": "Action"
         },
         {
-            "description": "Description",
             "name": "Precision Operation",
-            "primaryTrait": "Trait",
+            "description": "Whenever you roll a trait die and a skill die of different sizes, you can increase the size of the smaller die by one. For example, if you were to roll an attack with a d6 Murder trait and a d10 attack skill, you can instead roll a d8 and a d10.",
+            "primaryTrait": "",
             "slug": "precision",
-            "trait": "Trait"
+            "trait": "",
+            "type": "Passive"
         },
         {
-            "description": "You can choose to focus on either offensive or defensive precognizance when you use this skill. When you focus on offensive precognizance, you choose a target. While you continue to focus, all attacks you make against that target use a Signature die and can use Braaains instead of another trait. When you focus on defensive precognizance, you can use your reaction to roll a Signature die and use that instead of your defense.",
             "name": "Precognizant Combat",
+            "description": "You can choose to focus on either offensive or defensive precognizance when you use this skill. When you focus on offensive precognizance, you choose a target. While you continue to focus, all attacks you make against that target use a Signature die and can use Braaains instead of another trait. When you focus on defensive precognizance, you can use your reaction to make a Signature Braaains roll and use that instead of your defense if it is higher.",
             "primaryTrait": "Braaains",
             "slug": "precognizance",
-            "trait": "Braaains"
+            "trait": "Braaains",
+            "type": "Bonus"
         },
         {
-            "description": "Description",
-            "name": "Quaking Steps",
-            "primaryTrait": "Trait",
-            "slug": "quaking-steps",
-            "trait": "Trait"
+            "name": "Quaking Charge",
+            "description": "Move up to your speed and make a single Murder attack against all creatures you pass within 10 ft. of. This attack knocks down creatures it hits instead of dealing damage.",
+            "primaryTrait": "Murder",
+            "slug": "quaking-charge",
+            "trait": "Murder",
+            "type": "Action"
         },
         {
-            "description": "Description",
+            "name": "Radioactive Zone",
+            "description": "The area within 15 ft. of you  is radioactive. Creatures take 3 radiation damage each round they start their turn in that area or the first time they enter that area. A creature who takes this damage cannot take it again until the start of their next turn. This area persists even if you die.",
+            "primaryTrait": "",
+            "slug": "radioactive-zone",
+            "trait": "",
+            "type": "Passive"
+        },
+        {
             "name": "Rapid Cloning",
-            "primaryTrait": "Trait",
+            "description": "You create a quick but unstable clone of yourself that's prone to mutation. The clone appears an unoccupied space adjacent to you. It shares your traits but has none of your memories and therefore none of your archetypes, specializations, and signatures. The clone ages rapidly, growing to an adult almost instantly and expiring after 1 minute. You have enough raw material in your portable rapid cloning machine to produce 1 clone. You can reabsorb that clone into the machine as an action to reclaim it as raw material. The clone acts on your turn and has only 1 Action. Additionally, roll a d6 to determine its mutation:\n1. The clone comes out better than you could have hoped and, somehow, shares your all of you archetypes and specializations.\n2. The clone is particularly unstable. If it is injured or its duration expires, it explodes.\n3. Your DNA was mixed with a nearby insect. Your clone has an exoskeleton, granting it +1 defense, and when it makes an unarmed attack, it deals the lower die as poison damage.\n4. Something went awry in early cell division. Your clone has two extra arms and an extra head. It is resistant to psychic damage as well as fear and charm effects, and it can make two extra unarmed attacks on its turn.\n5. The accelerated growth formula was too strong. Your clone is bloated and covered with bony protrusions, granting it +5 max HP and +2 defense.\n6. The accelerated growth formula was just right and has given your clone rapid healing. It rolls two Guts die for recovery instead of one and takes the higher value. If it rolls the same value on both dice, it heals an injury as well.",
+            "primaryTrait": "",
             "slug": "rapid-cloning",
-            "trait": "Trait"
+            "trait": "",
+            "type": "Action"
         },
         {
-            "description": "Description",
             "name": "Reap",
-            "primaryTrait": "Trait",
+            "description": "Attack all creatures with 10 ft. of you. This attack deals d10 dark damage, and if any creatures die from this attack, you recover HP equal to the lower damage dealt.",
+            "primaryTrait": "Spookiness",
             "slug": "reap",
-            "trait": "Trait"
+            "trait": "Spookiness",
+            "type": "Action"
         },
         {
-            "description": "At the start of your turn, if you took lightning damage since the start of your last turn, you can roll your Guts die twice and use the higher value instead of once to recover HP.",
             "name": "Recharge",
-            "primaryTrait": "Guts",
+            "description": "At the start of your turn, if you took lightning damage since the start of your last turn, you can roll your Guts die twice instead of once and use the higher value for your recovery.",
+            "primaryTrait": "",
             "slug": "recharge",
-            "trait": "Passive"
+            "trait": "",
+            "type": "Passive"
         },
         {
-            "description": "You can detach one of your hands and send it out on your own. You can attach one of your eyes to it to be able to see from its location. You can also attempt to grapple, electrocute, or frighten a creature once on each of your turns with your animated hand. Grapple attempts with the hand use a Murder die one size smaller than your own. Electrocution is a melee attack using your Spookiness for d8 lightning damage. Frightening a creature is a melee Spookiness attack that leaves the target frightened on a hit",
             "name": "Remote Animation",
+            "description": "You detach one of your hands and send it out on its own. You can also attach one of your eyes to it as part of the same action to be able to see from its location. The animated hand has 5 HP, and if injured becomes inanimate until you reattach it. It can attempt to grapple, electrocute, or frighten a creature once on each of your turns. Grapple attempts with the hand use a Murder die one size smaller than your own. Electrocution is a melee attack using your Spookiness for d8 lightning damage. Frightening a creature is a melee Spookiness attack that leaves the target frightened on a hit.",
             "primaryTrait": "Spookiness",
             "slug": "animation",
-            "trait": "Spookiness"
+            "trait": "Spookiness",
+            "type": "Action"
         },
         {
-            "description": "Description",
+            "name": "Run Amok",
+            "description": "Your speed is increased by 2, and you can either make an extra Mayhem attack or move double your speed on your first turn in combat.",
+            "primaryTrait": "Mayhem",
+            "slug": "run-amok",
+            "speed": 2,
+            "trait": "",
+            "type": "Passive"
+        },
+        {
             "name": "Rune Circle",
+            "description": "Description",
             "primaryTrait": "Trait",
             "slug": "rune-circle",
             "trait": "Trait"
         },
         {
+            "name": "Sentinel",
             "defense": 2,
             "description": "Increase your defense by 2. As a reaction, you can give part or all of your defense to an ally within 5 ft. of you.",
-            "name": "Sentinel",
-            "primaryTrait": "Guts",
+            "primaryTrait": "",
             "slug": "sentinel",
-            "trait": "Passive"
+            "trait": "",
+            "type": "Passive"
         },
         {
-            "description": "Description",
             "name": "Shadow Shape",
-            "primaryTrait": "Trait",
+            "description": "You animate a shadow and attack a target. The target must be within 15 ft. of a point in shadow within 50 ft. of you. The shadow has 1 HP, is destroyed if it is injured, and moves up to 25 ft. and attacks the target if it can reach it on each of your turns until it is destroyed. You can have 1 animated shadow at any given time, and the shadow is destroyed if you fall unconscious or choose to end it, requiring no action.",
+            "primaryTrait": "Spookiness",
             "slug": "shadow-shape",
-            "trait": "Trait"
+            "trait": "Spookiness",
+            "type": "Action"
         },
         {
-            "description": "Description",
             "name": "Shadow Shuriken",
-            "primaryTrait": "Trait",
+            "description": "Your Mayhem attacks with shuriken deal dark damage instead of their usual type and do not end your stealth.",
+            "primaryTrait": "Mayhem",
             "slug": "shadow-shuriken",
-            "trait": "Trait"
+            "trait": "Mayhem",
+            "type": "Action"
         },
         {
-            "description": "Description",
             "name": "Shadow Step",
-            "primaryTrait": "Trait",
+            "description": "Once on each of your turns, you can teleport from one shadow to another that you can see within 50 ft. of you, and you can attempt to stealth when you do so.",
+            "primaryTrait": "",
             "slug": "shadow-step",
-            "trait": "Trait"
+            "trait": "",
+            "type": "Bonus"
         },
         {
-            "description": "You can shapeshift, allowing you to mimic others or become a formless ooze, or create slimy tendrils to attack with.\n- You can use an action to mimic another creature you can see. While you mimic that creature, your appearance is indistinguishable from theirs, and you can attempt to mimic their behavior with a Braaains roll, and the mimicry lasts until you choose to end it (requiring no action) or fall unconscious.\n- As an ooze, your Murder trait is reduced by 1 die size except for making tendril attacks, you can fit through spaces as small as 1 inch in diameter, and you have resistance to bludgeoning, piercing, and slashing damage. Your equipment can either meld into your oozy form or be dropped on the ground in your space when you transform.\n- You can make a Murder attack with a tendril. Its reach is 10 ft. and its damage die is a d8.",
             "name": "Shapeshifting",
+            "description": "You can shapeshift, allowing you to mimic others or become a formless ooze, or create slimy tendrils to attack with.\n\n- You can use an action to mimic another creature you can see. While you mimic that creature, your appearance is indistinguishable from theirs, and you can attempt to mimic their behavior with a Braaains roll, and the mimicry lasts until you choose to end it, requiring no action, or fall unconscious.\n\n- As an ooze, your Murder trait is reduced by 1 die size except for making tendril attacks, you can fit through spaces as small as 1 inch in diameter, and you have resistance to bludgeoning, piercing, and slashing damage. Your equipment can either meld into your oozy form or be dropped on the ground in your space when you transform.\n\n- You can make a Murder attack with a tendril. Its reach is 10 ft. and its damage die is a d8.",
             "primaryTrait": "Guts",
             "slug": "shapeshift",
-            "trait": "Guts"
+            "trait": "Guts",
+            "type": "Action"
         },
         {
-            "description": "Description",
+            "name": "Shift Spell",
+            "description": "",
+            "slug": "shift-spell"
+        },
+        {
             "name": "Shrink Ray",
-            "primaryTrait": "Trait",
+            "description": "Make a ray gun attack. A creature hit by this attack takes no damage from it, but instead they become tiny, their Max HP is halved, and their Murder, Mayhem, and Guts traits are reduced to d4 for 1 hour. You can also use this action to end that effect on one creature.",
+            "primaryTrait": "Braaains",
             "slug": "shrink-ray",
-            "trait": "Trait"
+            "trait": "Braaains",
+            "type": "Action"
         },
         {
-            "description": "You gain a spooky skull trophy for each creature you kill. Your skull trophies each add 1 bonus dark damage to your Spookiness attacks. Also, at any point you can smash a skull trophy to absorb its power and reroll a Spookiness die.",
             "name": "Skull Collector",
+            "description": "You harvest a spooky skull trophy from a corpse. Your skull trophies each add 1 bonus dark damage to your Spookiness attacks. Also, at any point you can smash a skull trophy to absorb its power and reroll a Spookiness die.",
             "primaryTrait": "Spookiness",
             "slug": "skull-collector",
-            "trait": "Spookiness"
+            "trait": "Spookiness",
+            "type": "Action"
         },
         {
-            "description": "Description",
             "name": "Slam Shockwave",
-            "primaryTrait": "Trait",
+            "description": "Make an attack with a heavy melee weapon or attempt to slam a creature. When you hit with this attack or successfully slam a creature, you roll a separate d8 Murder damage roll. You deal the higher damage to the target, and you deal the lower value of your attack dice to all other creatures within 5 ft. of your target except yourself.",
+            "primaryTrait": "Murder",
             "slug": "slam-shockwave",
-            "trait": "Trait"
+            "trait": "Murder",
+            "type": "Action"
         },
         {
-            "description": "Description",
             "name": "Slash and Dash",
-            "primaryTrait": "Trait",
+            "description": "You can move up to half your speed when making an attack.",
+            "primaryTrait": "Mayhem",
             "slug": "slash-and-dash",
-            "trait": "Trait"
+            "trait": "",
+            "type": "Passive"
         },
         {
-            "description": "Description",
             "name": "Smoke Bomb",
-            "primaryTrait": "Trait",
+            "description": "As an action, you throw down a smoke bomb at a point within 50 ft. of yourself, creating a cloud of spoke in a 10 ft. radius around you, blinding everyone within it.",
+            "primaryTrait": "",
             "slug": "smoke-bomb",
-            "trait": "Trait"
+            "trait": "",
+            "type": "Action"
         },
         {
-            "description": "Description",
             "name": "Sow the Seeds of Death",
-            "primaryTrait": "Trait",
+            "description": "Make an attack against a creature. On a hit, the attack deals no damage, but their recovery is halved and healing has no effect on them.",
+            "primaryTrait": "Spookiness",
             "slug": "sow",
-            "trait": "Trait"
+            "trait": "Spookiness",
+            "type": "Action"
         },
         {
-            "description": "As an action, you can harvest parts from a corpse within 5 ft. of you to heal HP equal to a Signature Guts roll. This destroys the corpse.",
             "name": "Spare Parts",
+            "description": "Harvest parts from a corpse within 5 ft. of you to heal HP equal to a Signature Guts roll. This destroys the corpse.",
             "primaryTrait": "Guts",
             "slug": "parts",
-            "trait": "Guts"
+            "trait": "Guts",
+            "type": "Action"
         },
         {
-            "description": "You spray splinters and shrapnel as you slash your chainsaw through victim and environment alike. Your attacks with the chainsaw deal 3 damage to all creatures except yourself within a 5 ft. radius of your target. You deal this damage even if you miss.",
             "name": "Splinter Spray",
+            "description": "You spray splinters and shrapnel as you slash your chainsaw through victim and environment alike. Your attacks with the chainsaw deal 3 damage to all creatures except yourself within a 5 ft. radius of your target. You deal this damage even if you miss.",
             "primaryTrait": "Murder",
             "slug": "splinter",
-            "trait": "Passive"
+            "trait": "",
+            "type": "Passive"
         },
         {
-            "description": "As an action, you can hastily attach parts from a nearby corpse to enhance your abilities, which destroys the corpse. Choose to add an extra limb, extra innards, or bone armor. If you choose an extra limb, you attach a limb to yourself that can wield a weapon or perform other simple tasks on your turn. Your trait rolls are reduced by 1 die size for this limb. If you choose extra innards, you are resistant to poison and disease and gain 1 extra HP during your recovery. If you choose bone armor, increase your defense by 1. All improvements from this skill are lost when you are injured.",
             "name": "Stitchwork Self-Improvement",
+            "description": "You hastily attach parts from a nearby corpse to enhance your abilities, which destroys the corpse. Choose to add an extra limb, extra innards, or bone armor. If you choose an extra limb, you attach a limb to yourself that can wield a weapon or perform other simple tasks on your turn. Your trait rolls are reduced by 1 die size for this limb. If you choose extra innards, you are resistant to poison and disease and gain 1 extra HP during your recovery. If you choose bone armor, increase your defense by 1. All improvements from this skill are lost when you are injured.",
             "primaryTrait": "",
             "slug": "stitchwork",
-            "trait": ""
+            "trait": "",
+            "type": "Action"
         },
         {
-            "description": "Whenever you take damage, increase your defense by 1 and reduce your movement speed by 5 ft. You can remove this bonus and penalty, breaking free of your stone shell and dealing bonus damage equal to the total amount of defense bonus sacrificed on your next attack.",
             "name": "Stone Scars",
-            "primaryTrait": "Guts",
+            "description": "Whenever you take damage, increase your defense by 1 and reduce your movement speed by 5 ft. As an action, you can remove this bonus and penalty, breaking free of your stone shell and dealing bonus damage equal to the total amount of defense bonus sacrificed on your next attack.",
+            "primaryTrait": "",
             "slug": "stone-scars",
-            "trait": "Passive"
+            "trait": "",
+            "type": "Action"
         },
         {
-            "description": "You can move through solid stone at half your movement speed. If you end your turn in stone, you may become trapped there and must make a Spookiness Signature roll of at least 7 at the start of your turn to escape. Also, you can move up to a 5 ft. cube of stone by touching it and sacrificing 5 ft. of your movement speed for every 5 ft. you move the stone.",
             "name": "Stone Shift",
+            "description": "Move through solid stone at half your movement speed. If you end your turn in stone, you may become trapped there and must make a Spookiness Signature roll of at least 5 at the start of your turn to escape. Alternatively, you can move up to a 5 ft. cube of stone by touching it and sacrificing 5 ft. of your movement speed for every 5 ft. you move the stone.",
             "primaryTrait": "Spookiness",
             "slug": "stone-shift",
-            "trait": "Passive"
+            "trait": "",
+            "type": "Action"
         },
         {
+            "name": "Stone Skin",
             "defense": 2,
             "description": "Your defense is increased by 2, and your unarmed attacks deal d8 bludgeoning damage.",
-            "name": "Stone Skin",
-            "primaryTrait": "Guts",
+            "primaryTrait": "",
             "slug": "stone-skin",
-            "trait": "Passive"
+            "trait": "",
+            "type": "Passive"
         },
         {
-            "description": "Description",
             "name": "Strength of Spirit",
-            "primaryTrait": "Trait",
+            "description": "You can roll Spookiness in place of Guts for any Guts roll.",
+            "primaryTrait": "Spookiness",
             "slug": "spirit-strength",
-            "trait": "Trait"
+            "trait": "",
+            "type": "Passive"
         },
         {
-            "description": "Description",
-            "name": "Sturdy Stance",
-            "primaryTrait": "Trait",
-            "slug": "sturdy-stance",
-            "trait": "Trait"
-        },
-        {
-            "description": "Description",
             "name": "Substance Tolerance",
-            "primaryTrait": "Trait",
+            "description": "Your heavy drug habit has left you resistant to poison, and the constant haze of drugs has left you resistant to psychic attacks.",
+            "primaryTrait": "",
             "slug": "substance-tolerance",
-            "trait": "Trait"
+            "trait": "",
+            "type": "Passive"
         },
         {
-            "description": "Description",
             "name": "Summon the Storm",
-            "primaryTrait": "Trait",
+            "description": "You conjure a storm above you. When you conjure the storm and as a free action once on each turn the storm remains active, you can conjure a lightning bolt, wind blast, or ice barrage from the storm. Make a Spookiness attack against a target within 100 ft. of you and choose the effect. The lightning bolt deals d10 lightning damage. The wind blast moves the target 10 ft. and knocks them down. The ice barrage deals d6 cold damage and reduces the target's speed by half. At the start of each of your turns, you must make a Signature Spookiness roll of at least 5 to maintain the storm. The storm also ends if you fall unconscious or choose to end it, requiring no action.",
+            "primaryTrait": "Spookiness",
             "slug": "summon-storm",
-            "trait": "Trait"
+            "trait": "Spookiness",
+            "type": "Action"
         },
         {
-            "description": "Description",
             "name": "A Supercomputer for a Brain",
-            "primaryTrait": "Trait",
+            "description": "You can use Braaains actions as free actions as long as they do not deal damage, inflict status effects, or modify another character's traits. You can also make one extra Braaains attack on each of your turns.",
+            "primaryTrait": "Braaains",
             "slug": "supercomputer",
-            "trait": "Trait"
+            "trait": "Braaains",
+            "type": "Bonus"
         },
         {
-            "description": "Description",
             "name": "Targeting Computer",
-            "primaryTrait": "Trait",
+            "description": "Make a Braaains weapon attack. If your Braaains and Signature dice would both hit your target, the attack deals bonus damage equal to the lower damage die.",
+            "primaryTrait": "Braaains",
             "slug": "targeting-computer",
-            "trait": "Trait"
+            "trait": "Braaains",
+            "type": "Action"
         },
         {
-            "description": "You can attack a creature with psychic force for d8 damage. If you hit with this attack, you can push the target up to 10 ft.",
             "name": "Telekinesis",
+            "description": "You can attack a creature with psychic force for d8 damage. If you hit with this attack, you can push the target up to 10 ft.",
             "primaryTrait": "Braaains",
             "slug": "telekinesis",
-            "trait": "Braaains"
+            "trait": "Braaains",
+            "type": "Action"
         },
         {
-            "description": "You can teleport up to 50 ft. once on each of your turns. After you use this skill, you must roll a Signature Braaains roll of 5 or above to recharge it. You can attempt to recharge this skill at the end of each of your turns.",
             "name": "Teleporter",
+            "description": "You can teleport up to 50 ft. once on each of your turns. After you use this skill, you must roll a Signature Braaains roll of 5 or above to recharge it. You can attempt to recharge this skill at the end of each of your turns.",
             "primaryTrait": "Braaains",
             "slug": "teleporter",
-            "trait": "Braaains"
+            "trait": "Braaains",
+            "type": "Bonus"
         },
         {
-            "description": "Description",
             "name": "Tentacle Lash",
-            "primaryTrait": "Trait",
+            "description": "You have wriggling, writhing tentacles. When you make make an attack as an action, you can make a Murder attack or attempt to grapple with a tentacle with a reach of 10 ft. for free as part of that same action. You can also roll Guts in addition to other dice for maintaining a grapple and take the highest.",
+            "primaryTrait": "Murder",
             "slug": "tentacle-lash",
-            "trait": "Trait"
+            "trait": "Murder",
+            "type": "Bonus"
         },
         {
-            "description": "Description",
             "name": "Terrifying Power",
-            "primaryTrait": "Trait",
+            "description": "When you injure a creature, other creatures within 10 feet of you are frightened until the end of your next turn.",
+            "primaryTrait": "",
             "slug": "terrifying-power",
-            "trait": "Trait"
+            "trait": "",
+            "type": "Passive"
         },
         {
-            "description": "Description",
             "name": "Terrifying Roar",
-            "primaryTrait": "Trait",
+            "description": "You let out a powerful heavy-metal roar. Make a Spookiness attack. Creatures hit by the attack are frightened instead of taking damage.",
+            "primaryTrait": "Spookiness",
             "slug": "terrifying-roar",
-            "trait": "Trait"
+            "trait": "Spookiness",
+            "type": "Action"
         },
         {
-            "description": "Description",
             "name": "Thunderous Blast",
+            "description": "Make a Spookiness Attack against all creatures within 15 ft. of you that deals d8 thunder damage and knocks a target prone on a hit.",
             "primaryTrait": "Trait",
             "slug": "thunderous-blast",
-            "trait": "Trait"
+            "trait": "Trait",
+            "type": "Action"
         },
         {
-            "description": "As an action, you flap your wings to create a powerful blast of wind. Make a single Murder attack roll against all creatures in a 15 ft. cone, dealing d10 thunder damage and knocking down all creatures it hits.",
             "name": "Thunderous Gust",
+            "description": "You flap your wings to create a powerful blast of wind. Make a single Murder attack roll against all creatures in a 15 ft. cone, dealing d10 thunder damage and knocking down all creatures it hits.",
             "primaryTrait": "Murder",
             "slug": "thunderous-gust",
-            "trait": "Murder"
+            "trait": "Murder",
+            "type": "Action"
         },
         {
-            "description": "As one of the perks of not having a head, you are resistant to psychic damage and immune to fear, charm, and other mind control effects.",
+            "name": "Thunderous Slam",
+            "description": "Slam a creature to the ground. This attack deals the lower die of damage to it and all creatures within 15 ft. of it.",
+            "primaryTrait": "Murder",
+            "slug": "thunderous-slam",
+            "trait": "Murder",
+            "type": "Action"
+        },
+        {
             "name": "Undaunted",
+            "description": "As one of the perks of not having a head, you are resistant to psychic damage and immune to fear, charm, and other mind control effects.",
             "primaryTrait": "",
             "slug": "undaunted",
-            "trait": "Passive"
+            "trait": "",
+            "type": "Passive"
         },
         {
-            "description": "You can make a free Murder attack for each 10 ft. you move that pushes an enemy 5 ft. instead of dealing damage.",
+            "name": "Undying Endurance",
+            "description": "",
+            "primaryTrait": "",
+            "slug": "undying-endurance"
+        },
+        {
             "name": "Unstoppable",
+            "description": "You can make a free Murder attack for each 10 ft. you move that pushes an enemy 5 ft. instead of dealing damage.",
             "primaryTrait": "Murder",
             "slug": "unstoppable",
-            "trait": "Murder"
+            "trait": "",
+            "type": "Passive"
         },
         {
-            "description": "Description",
+            "name": "Vanishing Trick",
+            "description": "When a creature attacks you, you can use your reaction to turn invisible. Their attack uses their lower roll, and, if it misses, you can move up to half your speed and then remain invisible until the start of your next turn.",
+            "primaryTrait": "Spookiness",
+            "slug": "vanishing-trick",
+            "trait": "",
+            "type": "Reaction"
+        },
+        {
             "name": "Venomous Spines",
-            "primaryTrait": "Trait",
+            "description": "You are covered with venomous spines. Your unarmed attacks deal the lower die rolled as poison damage. When you are damaged by a creature within 5 ft. of you, you can make an unarmed attack against that creature as a reaction.",
+            "primaryTrait": "Murder",
             "slug": "venomous-spines",
-            "trait": "Trait"
+            "trait": "",
+            "type": "Passive/Reaction"
         },
         {
-            "description": "Description",
             "name": "Viper's Venom",
-            "primaryTrait": "Trait",
+            "description": "You deftly apply poison to your weapon and attack with it. The attack deals a bonus 2 poison damage, and the target's speed and defense are halved until they are healed.",
+            "primaryTrait": "Mayhem",
             "slug": "viper",
-            "trait": "Trait"
+            "trait": "Murder/Mayhem",
+            "type": "Action"
         },
         {
-            "description": "You can increase your dice by 1 size for perception and awareness Braaains checks, and you can't be surprised.",
+            "name": "Volatile Casting",
+            "description": "",
+            "primaryTrait": "Spookiness",
+            "slug": "volatile-casting"
+        },
+        {
             "name": "Watchful Eye",
+            "description": "Increase your dice by 1 size for perception and awareness Braaains checks, and you can't be surprised.",
             "primaryTrait": "Braaains",
             "slug": "watchful-eye",
-            "trait": "Braaains"
+            "trait": "",
+            "type": "Passive"
         },
         {
-            "description": "Description",
             "name": "Wide Swipe",
-            "primaryTrait": "Trait",
+            "description": "You make a single melee weapon attack roll against any number of enemies within your melee weapon range.",
+            "primaryTrait": "Murder",
             "slug": "wide-swipe",
-            "trait": "Trait"
+            "trait": "Murder",
+            "type": "Action"
         },
         {
-            "description": "Description",
             "name": "Wings of Night",
-            "primaryTrait": "Trait",
+            "description": "You have wings. You can fly, and your speed is increased by 2.",
+            "primaryTrait": "",
             "slug": "night-wings",
-            "trait": "Trait"
+            "speed": 2,
+            "trait": "",
+            "type": "Passive"
         },
         {
-            "description": "Description",
             "name": "Wrath of the Deep",
-            "primaryTrait": "Trait",
+            "description": "You conjure a shadowy tentacle or move a tentacle you conjured previously up to 50 ft., then you make an attack or grapple attempt with each tentacle. The tentacles have a reach of 10 ft., attack and grapple using your Spookiness, and deal d8 damage. Each tentacle has 5 HP and is destroyed if it is injured. You can also choose to dismiss any number of tentacles on your turn, requiring no action, and all tentacles vanish if you fall unconscious.",
+            "primaryTrait": "Spookiness",
             "slug": "wrath-of-deep",
-            "trait": "Trait"
+            "trait": "Spookiness",
+            "type": "Action"
         },
         {
-            "description": "Description",
             "name": "Name",
+            "description": "Description",
             "primaryTrait": "Trait",
             "slug": "slug",
             "trait": "Trait"
+        }
+    ],
+    "items": [
+        {
+            "name": "Axe",
+            "blurb": "d8 slashing damage",
+            "damage": 8,
+            "damageType": "slashing",
+            "description": "d8 slashing damage",
+            "isStarterOption": true,
+            "lootChance": 0,
+            "properties": [],
+            "slug": "axe"
+        },
+        {
+            "name": "Baseball Bat",
+            "blurb": "Light, d6 bludgeoning damage",
+            "damage": 6,
+            "damageType": "bludgeoning",
+            "description": "Light, d6 bludgeoning damage",
+            "isStarterOption": true,
+            "lootChance": 0,
+            "properties": ["light"],
+            "slug": "baseball-bat"
+        },
+        {
+            "name": "Blunderbuss",
+            "blurb": "Two-handed, ranged (25 ft.), d10 piercing damage",
+            "damage": 10,
+            "damageType": "piercing",
+            "description": "Two-handed, ranged (25 ft.), d10 piercing damage",
+            "isStarterOption": true,
+            "lootChance": 0,
+            "properties": ["ranged", "two-handed"],
+            "range": 25,
+            "slug": "blunderbuss"
+        },
+        {
+            "name": "Bone Club",
+            "blurb": "d6 bludgeoning damage",
+            "damage": 6,
+            "damageType": "bludgeoning",
+            "description": "d6 bludgeoning damage",
+            "isStarterOption": true,
+            "lootChance": 0,
+            "properties": [],
+            "slug": "bone-club"
+        },
+        {
+            "name": "Chain",
+            "blurb": "Reach, d6 bludgeoning damage",
+            "damage": 6,
+            "damageType": "bludgeoning",
+            "description": "Reach, d6 bludgeoning damage",
+            "isStarterOption": true,
+            "lootChance": 0,
+            "properties": ["reach"],
+            "slug": "chain"
+        },
+        {
+            "name": "Chainsaw",
+            "blurb": "Heavy, d12 slashing damage",
+            "damage": 12,
+            "damageType": "slashing",
+            "description": "Heavy, d12 slashing damage",
+            "isStarterOption": true,
+            "lootChance": 1,
+            "properties": ["heavy"],
+            "required": "chainsaw-wielding",
+            "slug": "chainsaw"
+        },
+        {
+            "name": "Claw",
+            "blurb": "Light, d4 slashing damage",
+            "damage": 4,
+            "damageType": "slashing",
+            "description": "Light, d4 slashing damage",
+            "isStarterOption": true,
+            "lootChance": 0,
+            "properties": ["light"],
+            "slug": "claw"
+        },
+        {
+            "name": "Club",
+            "blurb": "Heavy, d8 bludgeoning damage",
+            "damage": 8,
+            "damageType": "bludgeoning",
+            "description": "Heavy, d8 bludgeoning damage",
+            "isStarterOption": true,
+            "lootChance": 0,
+            "properties": ["heavy"],
+            "slug": "club"
+        },
+        {
+            "name": "Electric Guitar",
+            "blurb": "d8 bludgeoning or thunder damage",
+            "damage": 8,
+            "damageType": "bludgeoning/thunder",
+            "description": "d8 bludgeoning or thunder damage",
+            "isStarterOption": true,
+            "lootChance": 0,
+            "properties": [],
+            "required": "heavy-metal",
+            "slug": "electric-guitar"
+        },
+        {
+            "name": "Fun Size Candy",
+            "blurb": "Recover d8 HP",
+            "description": "Recover d8 HP",
+            "isStarterOption": true,
+            "lootChance": 3,
+            "properties": ["consumable", "healing"],
+            "slug": "fun-size-candy"
+        },
+        {
+            "name": "Full Size Candy",
+            "blurb": "Heal 1 injury or status effect",
+            "description": "Heal 1 injury or status effect",
+            "isStarterOption": true,
+            "lootChance": 2,
+            "properties": ["consumable", "healing"],
+            "slug": "full-size-candy"
+        },
+        {
+            "name": "Headsman's Axe",
+            "blurb": "Heavy, d10 slashing damage",
+            "damage": 10,
+            "damageType": "slashing",
+            "description": "Heavy, d10 slashing damage",
+            "isStarterOption": true,
+            "lootChance": 0,
+            "properties": ["heavy"],
+            "slug": "headsman-axe"
+        },
+        {
+            "name": "King Size Candy",
+            "blurb": "Heal all injuries",
+            "description": "Heal all injuries",
+            "isStarterOption": true,
+            "lootChance": 1,
+            "properties": ["consumable", "healing"],
+            "slug": "king-size-candy"
+        },
+        {
+            "name": "Knife",
+            "blurb": "Light, thrown (20 ft.), d4 slashing damage",
+            "damage": 4,
+            "damageType": "slashing",
+            "description": "Light, thrown (20 ft.), d4 slashing damage",
+            "isStarterOption": true,
+            "lootChance": 0,
+            "properties": ["light", "thrown"],
+            "range": 20,
+            "slug": "knife"
+        },
+        {
+            "name": "Leather Armor",
+            "blurb": "Light armor, 1 defense",
+            "defense": 1,
+            "description": "Light armor, 1 defense",
+            "isStarterOption": true,
+            "lootChance": 0,
+            "properties": ["light armor"],
+            "slug": "leather-armor"
+        },
+        {
+            "name": "Machete",
+            "blurb": "Light, d6 slashing damage",
+            "damage": 6,
+            "damageType": "slashing",
+            "description": "Light, d6 slashing damage",
+            "isStarterOption": true,
+            "lootChance": 0,
+            "properties": ["light"],
+            "slug": "machete"
+        },
+        {
+            "name": "Necromancer's Staff",
+            "blurb": "Spooky, ranged (25 ft.), d8 dark damage",
+            "damage": 8,
+            "damageType": "dark",
+            "description": "Spooky, ranged (25 ft.), d8 dark damage",
+            "isStarterOption": true,
+            "lootChance": 0,
+            "properties": ["spooky"],
+            "range": 25,
+            "slug": "necromancer-staff"
+        },
+        {
+            "name": "Laser Sword",
+            "blurb": "Brainy, light, d10 plasma damage",
+            "damage": 10,
+            "damageType": "plasma",
+            "description": "Brainy, light, d10 plasma damage",
+            "isStarterOption": true,
+            "lootChance": 0,
+            "properties": ["brainy", "light"],
+            "slug": "laser-sword"
+        },
+        {
+            "name": "Mummy's Linen",
+            "blurb": "Roll a d6 with your recovery roll.",
+            "description": "Roll a d6 with your recovery roll and take the highest die.",
+            "isStarterOption": true,
+            "lootChance": 1,
+            "properties": ["trinket"],
+            "slug": "mummy-linen"
+        },
+        {
+            "name": "Pistol",
+            "blurb": "Light, ranged (50 ft.), d8 piercing damage",
+            "damage": 8,
+            "damageType": "piercing",
+            "description": "Light, ranged (50 ft.), d8 piercing damage",
+            "isStarterOption": true,
+            "lootChance": 0,
+            "properties": ["light", "ranged"],
+            "range": 50,
+            "slug": "pistol"
+        },
+        {
+            "name": "Plasma Rifle",
+            "blurb": "Brainy, ranged (100 ft.), d10 plasma damage",
+            "damage": 10,
+            "damageType": "plasma",
+            "description": "Brainy, ranged (100 ft.), d10 plasma damage",
+            "isStarterOption": true,
+            "lootChance": 1,
+            "properties": ["brainy", "ranged"],
+            "range": 100,
+            "slug": "plasma-rifle"
+        },
+        {
+            "name": "Plate Armor",
+            "blurb": "Heavy armor, 2 defense, -1 speed",
+            "defense": 2,
+            "description": "Heavy armor, 2 defense, -1 speed",
+            "isStarterOption": true,
+            "lootChance": 1,
+            "properties": ["heavy armor"],
+            "slug": "plate-armor",
+            "speed": -1
+        },
+        {
+            "name": "Ray Gun",
+            "blurb": "Brainy, ranged (50 ft.), d8 plasma damage",
+            "damage": 8,
+            "damageType": "plasma",
+            "description": "Brainy, ranged (50 ft.), d8 plasma damage",
+            "isStarterOption": true,
+            "lootChance": 0,
+            "properties": ["brainy", "ranged"],
+            "range": 50,
+            "slug": "ray-gun"
+        },
+        {
+            "name": "Scythe",
+            "blurb": "Heavy, reach, d10 slashing damage",
+            "damage": 10,
+            "damageType": "slashing",
+            "description": "Heavy, reach, d10 slashing damage",
+            "isStarterOption": true,
+            "lootChance": 0,
+            "properties": ["heavy"],
+            "slug": "scythe"
+        },
+        {
+            "name": "Shield",
+            "blurb": "1 defense, use the Defend action with Murder",
+            "defense": 1,
+            "description": "1 defense, use the Defend action with Murder",
+            "isStarterOption": true,
+            "lootChance": 0,
+            "properties": ["shield"],
+            "slug": "shield"
+        },
+        {
+            "name": "Shotgun",
+            "blurb": "Two-handed, ranged (35 ft.), d12 piercing damage",
+            "damage": 12,
+            "damageType": "piercing",
+            "description": "Two-handed, ranged (35 ft.), d12 piercing damage",
+            "isStarterOption": true,
+            "lootChance": 0,
+            "properties": ["ranged", "two-handed"],
+            "range": 35,
+            "slug": "boomstick"
+        },
+        {
+            "name": "Shuriken",
+            "blurb": "Light, thrown (30 ft.), d8 slashing damage",
+            "damage": 4,
+            "damageType": "slashing",
+            "description": "Light, thrown (30 ft.), d8 slashing damage",
+            "isStarterOption": true,
+            "lootChance": 0,
+            "properties": ["light", "thrown"],
+            "range": 30,
+            "slug": "shuriken"
+        },
+        {
+            "name": "Sledge Hammer",
+            "blurb": "Heavy, d10 slashing damage",
+            "damage": 10,
+            "damageType": "bludgeoning",
+            "description": "Heavy, d10 slashing damage",
+            "isStarterOption": true,
+            "lootChance": 0,
+            "properties": ["heavy"],
+            "slug": "sledge"
+        },
+        {
+            "name": "Sword",
+            "blurb": "d8 slashing damage",
+            "damage": 8,
+            "damageType": "slashing",
+            "description": "d8 slashing damage",
+            "isStarterOption": true,
+            "lootChance": 0,
+            "properties": [],
+            "slug": "sword"
+        },
+        {
+            "name": "Tactical Armor",
+            "blurb": "Heavy armor, 2 defense, -1 speed",
+            "damageReduction": 1,
+            "defense": 2,
+            "description": "Heavy armor, 2 defense, -1 speed",
+            "isStarterOption": true,
+            "lootChance": 1,
+            "properties": ["heavy armor"],
+            "slug": "tactical-armor",
+            "speed":-1
+        },
+        {
+            "name": "Tyrant's Whip",
+            "blurb": "Reach, wounding, d6 slashing damage, motivate your allies",
+            "damage": 6,
+            "damageType": "slashing",
+            "description": "Reach, wounding, d6 slashing damage. As an action, you may attack an ally with this whip. If you do, that ally may reroll one of their damage dice on their next attack, and they may use their reaction to move up to half their speed and immediately make an attack.",
+            "isStarterOption": false,
+            "lootChance": 1,
+            "properties": ["reach", "wounding"],
+            "slug": "tyrant-whip"
+        },
+        {
+            "name": "Vampire's Fang",
+            "blurb": "Recover 1 HP when you deal damage",
+            "description": "Whenever you deal damage to a creature, you recover 1 HP.",
+            "isStarterOption": true,
+            "lootChance": 1,
+            "properties": ["trinket"],
+            "slug": "vampire-fang"
+        },
+        {
+            "name": "Wizard's Staff",
+            "blurb": "Spooky, ranged (25 ft.), d8 cold, fire, lightning, or thunder damage",
+            "damage": 8,
+            "damageType": "cold, fire, lightning, or thunder",
+            "description": "Spooky, ranged (25 ft.), d8 cold, fire, lightning, or thunder damage",
+            "isStarterOption": true,
+            "lootChance": 0,
+            "properties": ["spooky"],
+            "range": 25,
+            "slug": "wizard-staff"
         }
     ]
 }

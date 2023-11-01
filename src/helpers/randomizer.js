@@ -1,3 +1,7 @@
+export function randomListItem(list) {
+    return list[Math.floor(Math.random() * list.length)];
+}
+
 export function randomlySelectSubset(data, count) {
     const dataClone = [...data];
     const results = [];

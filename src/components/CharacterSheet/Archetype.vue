@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="skill-page">
         <div class="archetype-block">
             <div class="row">
                 <div class="die">
@@ -8,7 +8,7 @@
                 </div>
                 <h3>{{ character.archetypes[index]?.name ?? "" }}</h3>
             </div>
-            <p class="small">ARCHETYPE</p>
+            <p class="skill-type">ARCHETYPE</p>
         </div>
         <div
             class="spec-block"
@@ -22,7 +22,7 @@
                 </div>
                 <h3 class="specialization">{{ specialization.name }}</h3>
             </div>
-            <p class="small">SPECIALIZATION</p>
+            <p class="skill-type">SPECIALIZATION</p>
             </div>
             <div
                 class="sign-block"
@@ -37,6 +37,7 @@
                         <h4 class="signature">
                             {{ signature.name }}
                         </h4>
+                        <p class="small">({{ signature.trait ? `${signature.trait} ` : "" }}{{ signature.type }})</p>
                         <p class="description">{{ signature.description }}</p>
                     </div>
                 </div>
@@ -103,8 +104,18 @@ h3, h4 {
 }
 
 .small {
-    color: #760;
-    font-size: 0.7rem;
+    color: #a70;
+    font-size: 0.75rem;
+    margin-left: 1rem;
+}
+
+.skill-page {
+    padding: 0 1rem;
+}
+
+.skill-type {
+    color: #a70;
+    font-size: 0.75rem;
     margin: -1.5rem 2rem 0.5rem 2rem;
 }
 
