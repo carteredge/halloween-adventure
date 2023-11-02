@@ -13,7 +13,11 @@
             @new="newCharacter"
             @random="randomCharacter"
             @save="saveCharacter"/>
-        <!-- <settings-menu ref="settingsMenu"/> -->
+        <a
+            class="corner-button right"
+            href="rules.html"
+            target="_blank"
+            title="Rules">?</a>
 
         <header id="header">
             <img src="/pumpkin.png" />
@@ -25,9 +29,16 @@
                 v-if="edit"
                 @cancel="cancelEdit"
                 @save="saveCharacter"/>
-            <CharacterSheet v-else @change="onStatChange"/>
+            <CharacterSheet
+                v-else
+                @change="onStatChange"
+                @randomize="onRandomize"/>
             <!-- <button @click="randomCharacter">Random Character</button> -->
         </main>
+
+        <footer>
+            <a href="credits.html" target="_blank">License and Credits</a>
+        </footer>
     </div>
 </template>
 
@@ -75,7 +86,6 @@ export default {
         CharacterEdit,
         CharacterMenu,
         CharacterSheet,
-        // SettingsMenu,
     },
 
     methods: {
@@ -94,18 +104,11 @@ export default {
                     skillData[key] = this.dataStore.data[`${key}s`]
                         .find(skill => skill.slug === data.slug);
                     if (key === "specialization") {
-                        // console.log(skillData[key].signatures, skillData[key].signatures.map(s => this.dataStore.getItemBySlug(s, "signatures")));
                         skillData.weight = skillData[key].signatures.reduce((t, s) =>
                             t + [0, 0, 5, 15, 20][(traits[this.dataStore.getItemBySlug(s, "signatures").primaryTrait.toLowerCase()] ?? 12) / 2 - 2], 0) / skillData[key].signatures.length;
-                        // console.log(skillData[key].signatures.reduce((t, s) =>
-                        //     t + [0, 0, 5, 20, 20][(traits[this.dataStore.getItemBySlug(s, "signatures").primaryTrait.toLowerCase()] ?? 4) / 2 - 2], 0) / skillData[key].signatures.length,
-                        //     skillData[key].signatures.map(s => traits[this.dataStore.getItemBySlug(s, "signatures").primaryTrait.toLowerCase()] ?? 0))
                     } else {
-                        // console.log(key, skillData[key]?.slug, skillData[key]?.primaryTrait);
                         skillData.weight = [0, 0, 5, 15, 20][(traits[skillData[key].primaryTrait.toLowerCase()] ?? 12) / 2 - 2];
-                        // console.log(skillData[key].name, skillData[key].primaryTrait, [0, 0, 5, 15, 20][traits[skillData[key].primaryTrait.toLowerCase()] / 2 - 2]);
                     }
-                    // console.log(key, skillData);
                     return skillData;
                 });
             const skills = randomlySelectSubsetByWeights(parentData, 3, parentData.map(data => data.weight));
@@ -123,7 +126,6 @@ export default {
 
         closeMenus() {
             this.$refs.characterMenu.closeMenu();
-            // this.$refs.settingsMenu.closeMenu();
         },
 
         deleteCharacter() {
@@ -170,6 +172,22 @@ export default {
             this.closeMenus();
         },
 
+        onRandomize(thing) {
+            console.log("randomize", thing);
+            switch(thing) {
+                case "skills":
+                    this.randomizeSkillsAndTraits();
+                    break;
+                case "inventory":
+                    this.randomizeInventory();
+                    break;
+                case "character":
+                default:
+                    this.randomCharacter();
+                    break;
+            }
+        },
+
         onStatChange(event) {
             this.character[event.target.id] = isNaN(event.target.value) ? event.target.value : Number(event.target.value);
             (this.character.id in this.allCharacters.characters) && this.saveCharacter();
@@ -177,61 +195,25 @@ export default {
 
         randomCharacter() {
             this.resetCharacterData();
+
             this.character.name = `${randomListItem(this.dataStore.data.names.first)} ${randomListItem(this.dataStore.data.names.last)}`;
-            const dice = [12, 10, 8, 6, 4];
-            let traits = ["Braaains", "Guts", "Mayhem", "Murder", "Spookiness"];
-
-            const activeArchetypes = this.dataStore.data.archetypes.filter(archetype => archetype.isActive);
-            const archetypes = randomlySelectSubset(activeArchetypes, 3).sort((a0, a1) => a0.order - a1.order);
-            this.character.archetypes = archetypes;
-
-            const statCounts = {
-                "Braaains": 0,
-                "Guts": 0,
-                "Mayhem": 0,
-                "Murder": 0,
-                "Spookiness": 0,
-            };
-
-            for (const archetype of archetypes) {
-                statCounts[archetype.primaryTrait] += 2;
-                statCounts[archetype.secondaryTrait] += 1;
-            }
-
-            traits = traits.sort((t1, t2) => {
-                if (statCounts[t1] === statCounts[t2]) {
-                    if (t1 === "Guts" && t2 !== "Guts")
-                        return 1;
-                    if (t1 !== "Guts" && t2 === "Guts")
-                        return -1;
-                    return Math.sign(0.5 - Math.random());
-                }
-                return statCounts[t2] - statCounts[t1];
-            });
-
-            for (let i = 0; i < traits.length; i++) {
-                this.character[traits[i].toLowerCase()] = dice[i];
-            }
-
-            const traitWeights = {
-                murder: this.character.murder,
-                mayhem: this.character.mayhem,
-                guts: this.character.guts,
-                braaains: this.character.braaains,
-                spookiness: this.character.spookiness,
-            }
-
-            const specializations =  this.getRandomSkillSubset(archetypes, "specialization", traitWeights);
-            this.character.specializations = specializations;
-
-            const signatures = this.getRandomSkillSubset(specializations, "signature", traitWeights);
-            this.character.signatures = signatures;
-
+            this.randomizeArchetypes();
+            this.randomizeTraits();
+            this.randomizeSpecializationsAndSignatures();
             this.randomizeInventory();
 
             this.character.recalculateStats();
 
             this.closeMenus();
+        },
+
+        randomizeArchetypes() {
+            const activeArchetypes = this.dataStore.data.archetypes.filter(archetype => archetype.isActive);
+            let archetypes;
+            do {
+                archetypes = randomlySelectSubset(activeArchetypes, 3).sort((a0, a1) => a0.order - a1.order);
+            } while (archetypes.every(archetype => archetype.name.includes("...")));
+            this.character.archetypes = archetypes;
         },
 
         randomizeInventory() {
@@ -318,6 +300,65 @@ export default {
 
             for (const item of this.character.inventory) {
                 item.equipped = item.equippable;
+            }
+            this.character.recalculateStats();
+        },
+
+        randomizeSpecializationsAndSignatures() {
+            const traitWeights = {
+                murder: this.character.murder,
+                mayhem: this.character.mayhem,
+                guts: this.character.guts,
+                braaains: this.character.braaains,
+                spookiness: this.character.spookiness,
+            }
+
+            const specializations =  this.getRandomSkillSubset(this.character.archetypes, "specialization", traitWeights);
+            this.character.specializations = specializations;
+
+            const signatures = this.getRandomSkillSubset(specializations, "signature", traitWeights);
+            this.character.signatures = signatures;
+        },
+
+        randomizeSkillsAndTraits() {
+            this.character.name = `${randomListItem(this.dataStore.data.names.first)} ${randomListItem(this.dataStore.data.names.last)}`;
+
+            this.randomizeArchetypes();
+            this.randomizeTraits();
+            this.randomizeSpecializationsAndSignatures();
+            this.character.recalculateStats();
+        },
+
+        randomizeTraits() {
+            const dice = [12, 10, 8, 6, 4];
+            let traits = ["Braaains", "Guts", "Mayhem", "Murder", "Spookiness"];
+
+            const statCounts = {
+                "Braaains": 0,
+                "Guts": 0,
+                "Mayhem": 0,
+                "Murder": 0,
+                "Spookiness": 0,
+            };
+
+            for (const archetype of this.character.archetypes) {
+                statCounts[archetype.primaryTrait] += 2;
+                statCounts[archetype.secondaryTrait] += 1;
+            }
+
+            traits = traits.sort((t1, t2) => {
+                if (statCounts[t1] === statCounts[t2]) {
+                    if (t1 === "Guts" && t2 !== "Guts")
+                        return 1;
+                    if (t1 !== "Guts" && t2 === "Guts")
+                        return -1;
+                    return Math.sign(0.5 - Math.random());
+                }
+                return statCounts[t2] - statCounts[t1];
+            });
+
+            for (let i = 0; i < traits.length; i++) {
+                this.character[traits[i].toLowerCase()] = dice[i];
             }
         },
 
@@ -419,6 +460,33 @@ export default {
 
 .app-body > * {
     flex: 0 1;
+}
+
+.corner-button.right {
+    background-color: #518;
+    border: 2px outset #eb0;
+    border-radius: 8px;
+    display: flex;
+    font-size: 1.5rem;
+    height: 36px;
+    place-content: center center;
+    position: absolute;
+    right: 1rem;
+    text-align: center;
+    text-decoration: none;
+    top: 1rem;
+    width: 36px;
+}
+
+footer {
+    border-top: 1px solid #960;
+    color: #960;
+    font-size: 0.8rem;
+    padding: 0.5rem 0.5rem 0 0.5rem;
+}
+
+footer a {
+    color: #960;
 }
 
 #header {

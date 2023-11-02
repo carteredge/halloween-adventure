@@ -8,7 +8,6 @@ const useCharacterStore = defineStore('character', {
         guts: 0,
         hp: 10,
         id: "",
-        injuries: 0,
         inventory: [],
         maxHP: 10,
         mayhem: 0,
@@ -17,7 +16,8 @@ const useCharacterStore = defineStore('character', {
         signatures: [],
         speed: 5,
         specializations: [],
-        spookiness: 0
+        spookiness: 0,
+        wounds: 0,
     }),
     actions: {
         addArchetype(archetype) {
@@ -41,6 +41,7 @@ const useCharacterStore = defineStore('character', {
         },
         equip(itemSlug) {
             this.inventory.find(item => item.slug === itemSlug).equipped = true;
+            this.recalculateStats();
         },
         getSkillStatChange(stat) {
             return (this.archetypes.reduce((t, a) => t + (a[stat] ?? 0), 0) +
@@ -91,6 +92,7 @@ const useCharacterStore = defineStore('character', {
         },
         unequip(itemSlug) {
             this.inventory.find(item => item.slug === itemSlug).equipped = false;
+            this.recalculateStats();
         },
     }
 })

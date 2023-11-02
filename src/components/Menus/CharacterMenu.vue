@@ -2,7 +2,8 @@
     <side-menu
         button-icon="char-menu.png"
         side="left"
-        ref="menu">
+        ref="menu"
+        title="Character Menu">
         <div class="side-menu-header">CHARACTERS</div>
         <menu-item @click="$emit('save')">Save Character</menu-item>
         <menu-item @click="$emit('new')">New Character</menu-item>

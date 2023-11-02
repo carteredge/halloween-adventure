@@ -3,7 +3,7 @@
         <secondary-stat trait="defense"/>
         <secondary-stat trait="speed"/>
         <secondary-stat editable label="HP" max="maxHP" trait="hp"/>
-        <secondary-stat editable trait="injuries"/>
+        <secondary-stat editable trait="wounds"/>
     </div>
 </template>
 

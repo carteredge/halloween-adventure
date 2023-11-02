@@ -7,9 +7,20 @@
             <specialization-selection-page v-if="pageIndex === 1" @back="previousPage" @continue="nextPage"/>
             <signature-selection-page v-if="pageIndex === 2" @back="previousPage" @continue="nextPage" />
         </modal>
-        <archetype :index="0"/>
-        <archetype :index="1"/>
-        <archetype :index="2"/>
+        <archetype :index="0" v-if="character.archetypes?.length"/>
+        <archetype :index="1" v-if="character.archetypes?.length > 1"/>
+        <archetype :index="2" v-if="character.archetypes?.length > 2"/>
+        <button
+            v-if="!character.archetypes?.length"
+            @click="$emit('randomize-skills')">
+            <!-- {{ character.murder &&
+                character.mayhem &&
+                character.guts &&
+                character.braaains &&
+                character.spookiness ?
+                'Randomize Skills' : 'Randomize Skills and Traits' -->
+            Randomize Skills and Traits
+        </button>
     </div>
 </template>
 
@@ -43,6 +54,9 @@ export default {
             transitionItems: {},
         };
     },
+    emits: [
+        "randomize-skills",
+    ],
     methods: {
         closeModal() {
             this.modalIsOpen = false;

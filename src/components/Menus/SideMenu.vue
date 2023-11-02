@@ -3,7 +3,7 @@
         <ul v-if="open">
             <slot></slot>
         </ul>
-        <button @click="openMenu" v-else><img :src="buttonIcon"/></button>
+        <button @click="openMenu" :title="title" v-else><img :src="buttonIcon"/></button>
     </nav>
 </template>
 
@@ -34,6 +34,11 @@ export default {
             type: String,
             required: false,
             default: "left",
+        },
+        title: {
+            type: String,
+            required: false,
+            default: "Menu",
         },
     },
 }

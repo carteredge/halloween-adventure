@@ -39,7 +39,6 @@
                                 @select="character.equip(item.slug)"
                                 @unselect="character.unequip(item.slug)"/> <!-- TODO: Fix label (select-label, unselect-label), aria role -->
                         </div>
-                        <!-- TODO: Equip item toggle -->
                         <div class="sub-listing">
                             <icon-button
                                 label="Remove item"

@@ -31,7 +31,7 @@ import { toLabel } from "../../helpers/text";
 export default {
     computed: {
         scaleColor() {
-            if (this.trait === "injuries")
+            if (this.trait === "wounds")
                 return ["green", "yellow", "yellow", "yellow", "yellow", "red"][Math.min(this.character[this.trait], 5)];
             return ["red", "yellow", "green", "green"][Math.ceil(this.character[this.trait] / this.character[this.max] * 4) - 1];
         },
