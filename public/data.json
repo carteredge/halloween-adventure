@@ -68,6 +68,15 @@
             "specializations": ["murder-master", "rooftop", "statue"]
         },
         {
+            "name": "Ghost",
+            "isActive": true,
+            "order": 2,
+            "primaryTrait": "Spookiness",
+            "secondaryTrait": "Guts",
+            "slug": "ghost",
+            "specializations": ["ethereal", "psychic", "dark-powers"]
+        },
+        {
             "name": "Giant",
             "isActive": true,
             "order": 2,
@@ -129,15 +138,6 @@
             "secondaryTrait": "Spookiness",
             "slug": "ninja",
             "specializations": ["assassin", "mayhem-master", "stealth"]
-        },
-        {
-            "name": "Phantom",
-            "isActive": true,
-            "order": 2,
-            "primaryTrait": "Spookiness",
-            "secondaryTrait": "Guts",
-            "slug": "phantom",
-            "specializations": ["ethereal", "psychic", "dark-powers"]
         },
         {
             "name": "Pirate",

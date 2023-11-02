@@ -29,7 +29,7 @@
         </p>
 
         <p>
-            <strong>Automatic Failure:</strong> If all of your dice roll 1, you automatically fail an attempt. (Note that things like damage and HP recovery are not attempts and therefore cannot fail. They may be canceled by other effects, though, such as a character being immune to the damage.)
+            <strong>Automatic Failure:</strong> If all of your dice roll 1, you automatically fail an attempt. (Note that things like damage and <em>HP</em> recovery are not attempts and therefore cannot fail. They may be canceled by other effects, though, such as a character being immune to the damage.)
         </p>
 
         <h3>Character Traits</h3>
@@ -50,7 +50,7 @@
                 <strong>Mayhem</strong>: Intense, rapid, and chaotic actions (except Choas Magic).
             </li>
             <li>
-                <strong>Guts</strong>: Fortitude, gut feelings, and recovery in battle. Most importantly, you roll Guts (typically without any Skill) to recover HP at the start of your turn, and, when wounded, you roll Guts to survive your wounds.
+                <strong>Guts</strong>: Fortitude, gut feelings, and recovery in battle. Most importantly, you roll Guts (typically without any Skill) to recover <em>HP</em> at the start of your turn, and, when wounded, you roll Guts to survive your wounds.
             </li>
             <li>
                 <strong>Braaains</strong>: Thinking about things and stuff (and being tasty to zombies). Also, psychic powers (if you have any).
@@ -94,6 +94,8 @@
             Signatures are specific abilities your character can do, such as hitting an opponent so hard with a hammer that it creates a shockwave that deals damage in an area. The effects of these Signature abilities are specifically listed in their description, and you roll a <strong>d12</strong> for your Skill die when using a Signature.
         </p>
 
+        <hr>
+
         <h2>Combat</h2>
 
         <h3>Taking Your Turn</h3>
@@ -103,8 +105,25 @@
         </p>
 
         <h3>Health and Wounds</h3>
+
         <p>
-            <!--TODO: This: Recovery, Wounds, -->
+            In this game, <em>HP</em> is an overall resilience and combat effectiveness. Your character is not actually hurt until their <em>HP</em> reaches 0 and you receive a <em>wound</em>, and you recover some <em>HP</em> each turn as you overcome lesser attacks.
+        </p>
+            
+        <blockquote>
+            <em>HP</em> in this game is less a measure of physical damage (injuries and wounds) done in battle and more a measure of wearing through the character's defenses before doing the actual damage. You could think of it as a measure of combat prowess and how much they can take a hit without it doing serious damage. As such, it is still appropriate to call them "hit points," but still a little different in how we're used to imagining combat playing out.
+        </blockquote>
+
+        <h4>Recovery</h4>
+
+        <p>
+            Some <em>HP</em> is recovered ever turn. Because <em>HP</em> doesn't directly measure damage, a character regains some of the endurance and resilience that makes up their <em>HP</em> each turn. At the beginning of your turn, roll Guts (with no Skill die) and recover that much HP.
+        </p>
+
+        <h4>Wounds</h4>
+
+        <p>
+            When you reach <em>0 HP</em>, you are <em>wounded</em>. Increase your <em>wounds</em> by 1, then roll <em>Guts</em>. If you roll below your total number of <em>wounds</em>, you are <em>unconscious</em>. If the entire party falls unconscious, your party loses.
         </p>
 
         <h3>Actions</h3>
@@ -198,35 +217,111 @@
         <h4>Finishing Strike</h4>
 
         <p>
-            When a creature is hit by an attack but not wounded, you may use your quick action to attempt to deal a severe blow against the creature. You make a non-signature attack against the creature. If the creature has more than half of its max HP remaining, the attack automatically misses, and the creature gets a free quick action if it uses it immediately afterward. If the creature has half or fewer of its max HP remaining, however, then any hit automatically reduces the target to 0 HP.
+            When a creature is hit by an attack but not wounded, you may use your quick action to attempt to deal a severe blow against the creature. You make a non-signature attack against the creature. If the creature has more than half of its max <em>HP</em> remaining, the attack automatically misses, and the creature gets a free quick action if it uses it immediately afterward. If the creature has half or fewer of its max <em>HP</em> remaining, however, then any hit automatically reduces the target to 0 <em>HP</em>.
         </p>
 
-<!--Help?-->
+        <!--Help?-->
 
         <h4>Intercept</h4>
         <p>
-            When a creature attempts to move through a space adjacent to you, you can try to block that movement. You roll your Might against your opponent's Agility, preventing them from moving for the remainder of the turn if you best them.
+            When a creature attempts to move through a space adjacent to you, you can try to block that movement. You roll your <em>Murder</em> against your opponent's <em>Murder</em>, preventing them from moving for the remainder of the turn if you best them.
         </p>
 
 
         <h4>Quick Step</h4>
         <p>
-            When a creature moves to a space adjacent to you or when a creature in an adjacent square uses the *quick step* reaction, you may move 5 ft. as a reaction.
+            When a creature moves to a space adjacent to you or when a creature in an adjacent square uses the <em>quick step</em> reaction, you may move 5 ft. as a reaction.
         </p>
 
         <h4>Quick Defense</h4>
         <p>
-            When a creature would hit you with an attack, you may use your reaction to *block*, *dodge*, or *parry* against that attack.
+            When a creature would hit you with an attack, you may use your reaction to defend against that attack.
         </p>
 
-### Recover
-When you fail a roll for an action, you may use your reaction to use the next die size down to repeat the roll. If the action was a signature action, you must also use a regular action in place of the signature.
+        <h4>Recover</h4>
+        <p>
+            When you fail a roll for an action, you may use your reaction to reroll the lower die. If the action was a Signature action, you must also use a regular action in place of the Signature.
+        </p>
 
-### Take Cover
+        <h4>Take Cover</h4>
+        <p>
+            When a creature targets you with a ranged attack or area effect, you may use your reaction to drop prone and move up to 5 ft. in any direction.
+        </p>
 
-When a creature targets you with a ranged attack or area effect, you may use your reaction to drop prone and move up to 5 ft. in any direction.
+        <hr>
 
         <h2>Magic</h2>
+
+        <p>
+            You may cast a single spell on each of your turns using an action. The spell uses one of the spell effects below, and can be cast out to 25 ft. and, if no other damage option is chosen, it deals d6 dark damage.
+        </p>
+
+        <h3>Chaos Magic</h3>
+
+        <p>
+            Pick two spell effects. Roll to cast the spell composed of those two effects. If you roll doubles, the spell produces a chaotic backlash. If you roll double ones, the spell also fails, but otherwise you still cast the spell.
+        </p>
+
+        <h3>Rune Magic</h3>
+
+        <p>
+            As an action, you inscribe a rune, adding a spell effect to a runic spell, and, if you have not cast a spell already this turn, you may cast your runic spell. Each turn, you can use this action build upon the same runes, replace a rune, or start another spell. You can have up to five runes for a spell, and up to three spells at any time.
+        </p>
+
+        <h3>
+            Spell Effects
+        </h3>
+
+        <ul>
+            <li>
+                Deal d8 damage of a type of your choice.
+            </li>
+            <li>
+                Add a projectile or target.
+            </li>
+            <li>
+                The spell effects an area with a 15 ft. radius.
+            </li>
+            <li>
+                Increase the range of the spell by 25 ft.
+            </li>
+            <li>
+                Reduce the speed of the target by half until they are healed.
+            </li>
+            <li>
+                Reduce the target's recovery by half until they are healed.
+            </li>
+            <li>
+                The target is blinded until they are healed.
+            </li>
+            <li>
+                The target is frightened until they are healed.
+            </li>
+            <li>
+                Create an illusion for 1 hour.
+            </li>
+            <li>
+                You become invisible until the end of your next turn.
+            </li>
+            <li>
+                You teleport within the range of the spell.
+            </li>
+            <li>
+                Heal the target.
+            </li>
+            <li>
+                Extend the duration of an effect that lasts until the end of your or the target's next turn. At the end of the turn when the spell would end, roll Spookiness. If you roll at least 5, the effect continues, and the difficulty to extend the duration increases by 1 for the next turn. The effect also ends if you fall unconscious or choose to end it, requiring no action. You may have 1 such extended effect at a time.
+            </li>
+            <li>
+                Raise stone 20 ft. in the area of the spell or a 5 ft. diameter pillar.
+            </li>
+            <li>
+                Effect a path of any shape up to 25 ft. long.
+            </li>
+            <li>
+                Effect a 50 ft. line originating from you.
+            </li>
+        </ul>
 
         <footer>
             <p>
@@ -243,6 +338,7 @@ When a creature targets you with a ranged attack or area effect, you may use you
                 box-sizing: border-box;
                 color: #ed6;
                 font-family: sans-serif;
+                line-height: 1.5;
             }
 
             body > * {
@@ -250,12 +346,18 @@ When a creature targets you with a ranged attack or area effect, you may use you
                 margin: 1rem auto;
             }
 
+            blockquote {
+                background-color: #222;
+                border: 1px solid #960;
+                padding: 1rem;
+            }
+
             a {
                 color: #eb0;
             }
 
             footer {
-                border-top: 1px solid #eb0;
+                border-top: 1px solid #960;
                 padding: 1rem 2rem;
             }
 
@@ -266,6 +368,10 @@ When a creature targets you with a ranged attack or area effect, you may use you
             h1, h2, h3, h4, h5, h6, em, strong {
                 color: #eb0;
                 text-shadow: 0 0 6px #808;
+            }
+
+            hr {
+                color: #960;
             }
         </style>
     </body>

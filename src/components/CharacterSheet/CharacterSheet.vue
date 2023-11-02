@@ -15,14 +15,12 @@
                 <randomize-button
                     label="Skills and Traits"
                     thing="skills"
-                    v-if="!character.archetypes?.length"
                     @randomize="this.$emit('randomize', $event)"/>
             </template>
             <template v-slot:inventory>
                 <inventory v-if="character.inventory?.length"/>
                 <randomize-button
                     thing="inventory"
-                    v-else
                     @randomize="this.$emit('randomize', $event)"/>
             </template>
         </tab-box>

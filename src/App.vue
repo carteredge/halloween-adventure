@@ -173,7 +173,6 @@ export default {
         },
 
         onRandomize(thing) {
-            console.log("randomize", thing);
             switch(thing) {
                 case "skills":
                     this.randomizeSkillsAndTraits();
@@ -217,6 +216,8 @@ export default {
         },
 
         randomizeInventory() {
+            this.character.inventory = [];
+
             const availableItems = this.dataStore.data.items.filter(i =>
                 (!i.required || this.character.archetypes.some(a => a.slug === i.required))
                     && !this.character.inventory.some(ii => ii.slug === i.slug));
