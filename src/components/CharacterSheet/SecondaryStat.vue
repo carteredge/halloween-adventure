@@ -71,6 +71,8 @@ export default {
 <style scoped>
 h3 {
     text-align: center;
+    font-weight: 400;
+    margin: 0.5rem 0.5rem 0.5rem 0;
 }
 
 h3.smaller, input.smaller {

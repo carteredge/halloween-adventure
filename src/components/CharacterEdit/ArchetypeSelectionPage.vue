@@ -25,7 +25,7 @@
                                     :key="signature.slug"
                                     v-for="signature in dataStore.getItemsBySlugs(specialization.signatures, 'signatures')">
                                     <h4>{{ signature.name }}</h4> <p class="subtitle">Signature</p>
-                                    <p>({{ signature.type === "Passive" ? "" : "d12" }} {{ signature.trait }} {{ signature.type }}) {{ signature.description }}</p>
+                                    <p>({{ signature.type === "Passive" ? "" : "d12" }} {{ signature.trait }} {{ signature.type }}) <span v-html="convertMD(signature.description)"></span></p>
                                 </div>
                         </div>
                         <select-button
@@ -55,6 +55,8 @@ import SelectButton from "./SelectButton.vue";
 // data stores
 import useCharacterStore from "../../stores/character";
 import useDataStore from "../../stores/data";
+// other
+import { convertMD } from "../../helpers/markdown";
 
 export default {
     components: {
@@ -69,6 +71,7 @@ export default {
     },
     emits: [ "continue" ],
     methods: {
+        convertMD,
         isSelected(slug, itemType) {
             return this.character[itemType].some(item => item.slug === slug);
         },

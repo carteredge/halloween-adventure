@@ -16,7 +16,7 @@
                     <h3 class="name">{{ signature.name }}</h3>
                     <template v-slot:contents>
                         <div class="contents">
-                            <p>{{ signature.description }}</p>
+                            <p v-html="convertMD(signature.description)"></p>
                             <select-button
                                 label="Signature"
                                 :selected="isSelected(signature.slug, 'signatures', specialization.slug)"
@@ -45,6 +45,7 @@ import SelectButton from "./SelectButton.vue";
 // data stores
 import useCharacterStore from "../../stores/character";
 import useDataStore from "../../stores/data";
+import { convertMD } from "../../helpers/markdown";
 
 export default {
     components: {
@@ -59,6 +60,7 @@ export default {
     },
     emits: ["back", "continue"],
     methods: {
+        convertMD,
         isSelected(slug, itemType, parentSlug) {
             return this.character[itemType].some(item => item.slug === slug && (!parentSlug || item.parent === parentSlug));
         },

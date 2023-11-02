@@ -45,7 +45,11 @@ import useCharacterStore from "./stores/character";
 import useDataStore from "./stores/data";
 
 // other imports
-import { randomListItem, randomlySelectSubset } from "./helpers/randomizer";
+import {
+    randomListItem,
+    randomlySelectSubset,
+    randomlySelectSubsetByWeights
+} from "./helpers/randomizer";
 
 
 // TODO: Prevent characters if every archetype has "..."
@@ -75,7 +79,7 @@ export default {
     },
 
     methods: {
-        getRandomSkillSubset(skillParents, key) {
+        getRandomSkillSubset(skillParents, key, traits) {
             let parentData = skillParents.map(skillParent =>
                 skillParent[`${key}s`].map(skillSlug => ({
                     parent: skillParent.slug,
@@ -89,9 +93,22 @@ export default {
                     };
                     skillData[key] = this.dataStore.data[`${key}s`]
                         .find(skill => skill.slug === data.slug);
+                    if (key === "specialization") {
+                        // console.log(skillData[key].signatures, skillData[key].signatures.map(s => this.dataStore.getItemBySlug(s, "signatures")));
+                        skillData.weight = skillData[key].signatures.reduce((t, s) =>
+                            t + [0, 0, 5, 15, 20][(traits[this.dataStore.getItemBySlug(s, "signatures").primaryTrait.toLowerCase()] ?? 12) / 2 - 2], 0) / skillData[key].signatures.length;
+                        // console.log(skillData[key].signatures.reduce((t, s) =>
+                        //     t + [0, 0, 5, 20, 20][(traits[this.dataStore.getItemBySlug(s, "signatures").primaryTrait.toLowerCase()] ?? 4) / 2 - 2], 0) / skillData[key].signatures.length,
+                        //     skillData[key].signatures.map(s => traits[this.dataStore.getItemBySlug(s, "signatures").primaryTrait.toLowerCase()] ?? 0))
+                    } else {
+                        // console.log(key, skillData[key]?.slug, skillData[key]?.primaryTrait);
+                        skillData.weight = [0, 0, 5, 15, 20][(traits[skillData[key].primaryTrait.toLowerCase()] ?? 12) / 2 - 2];
+                        // console.log(skillData[key].name, skillData[key].primaryTrait, [0, 0, 5, 15, 20][traits[skillData[key].primaryTrait.toLowerCase()] / 2 - 2]);
+                    }
+                    // console.log(key, skillData);
                     return skillData;
                 });
-            const skills = randomlySelectSubset(parentData, 3);
+            const skills = randomlySelectSubsetByWeights(parentData, 3, parentData.map(data => data.weight));
 
             return skills.map(skillData => ({
                 ...skillData[key],
@@ -196,10 +213,18 @@ export default {
                 this.character[traits[i].toLowerCase()] = dice[i];
             }
 
-            const specializations =  this.getRandomSkillSubset(archetypes, "specialization");
+            const traitWeights = {
+                murder: this.character.murder,
+                mayhem: this.character.mayhem,
+                guts: this.character.guts,
+                braaains: this.character.braaains,
+                spookiness: this.character.spookiness,
+            }
+
+            const specializations =  this.getRandomSkillSubset(archetypes, "specialization", traitWeights);
             this.character.specializations = specializations;
 
-            const signatures = this.getRandomSkillSubset(specializations, "signature");
+            const signatures = this.getRandomSkillSubset(specializations, "signature", traitWeights);
             this.character.signatures = signatures;
 
             this.randomizeInventory();
@@ -210,51 +235,89 @@ export default {
         },
 
         randomizeInventory() {
+            const availableItems = this.dataStore.data.items.filter(i =>
+                (!i.required || this.character.archetypes.some(a => a.slug === i.required))
+                    && !this.character.inventory.some(ii => ii.slug === i.slug));
             const traits = ["murder", "mayhem", "braaains", "spookiness"];
             const traitValues = traits.map(trait => this.character[trait]);
             const maxValue = Math.max(...traitValues);
-            const highestTrait = traits[traitValues.findIndex(value => value === maxValue)];
-            const allWeapons = this.dataStore.data.items.filter(item => item.damage);
-            let traitWeapons;
             let weaponChoice;
-            switch (highestTrait) {
-                case "murder":
-                    traitWeapons = allWeapons.filter(weapon =>
-                        !weapon.properties.includes("light") &&
-                        !weapon.properties.includes("brainy") &&
-                        !weapon.properties.includes("spooky"));
-                    weaponChoice = {...randomListItem(traitWeapons)};
-                    this.character.inventory.push(weaponChoice);
-                    if (!weaponChoice.properties.includes("heavy")) {
-                        const shield = {...this.dataStore.getItemBySlug("shield", "items") };
-                        this.character.inventory.push(shield);
-                    }
-                    break;
-                case "mayhem":
-                    traitWeapons = allWeapons.filter(weapon =>
-                        weapon.properties.includes("light") ||
-                        !weapon.properties.includes("ranged"));
-                    weaponChoice = {...randomListItem(traitWeapons)};
-                    this.character.inventory.push(weaponChoice);
-                    if (weaponChoice.properties.includes("light"))
-                        weaponChoice.count = 2;
-                    break;
-                case "braaains":
-                    traitWeapons = allWeapons.filter(weapon =>
-                        weapon.properties.includes("brainy"));
-                    weaponChoice = {...randomListItem(traitWeapons)};
-                    this.character.inventory.push(weaponChoice);
-                    break;
-                case "spookiness":
-                    traitWeapons = allWeapons.filter(weapon =>
-                        weapon.properties.includes("spooky"));
-                    weaponChoice = {...randomListItem(traitWeapons)};
-                    this.character.inventory.push(weaponChoice);
-                    break;
+            let traitWeapons;
+            
+            if (this.character.archetypes.some(a => a.slug === "chainsaw-wielding")) {
+                weaponChoice = {...this.dataStore.getItemBySlug("chainsaw", "items")};
+                weaponChoice.count = 1;
+                this.character.inventory.push(weaponChoice);
+            } else if(this.character.archetypes.some(a => a.slug === "heavy-metal")) {
+                weaponChoice = {...this.dataStore.getItemBySlug("electric-guitar", "items")};
+                weaponChoice.count = 1;
+                this.character.inventory.push(weaponChoice);
+            } else {
+                const highestTrait = traits[traitValues.findIndex(value => value === maxValue)];
+                const allWeapons = availableItems.filter(item => item.damage);
+            
+                switch (highestTrait) {
+                    case "murder":
+                        traitWeapons = allWeapons.filter(weapon =>
+                            !weapon.properties.includes("light") &&
+                            !weapon.properties.includes("brainy") &&
+                            !weapon.properties.includes("spooky"));
+                        weaponChoice = {...randomListItem(traitWeapons)};
+                        weaponChoice.count = 1;
+                        this.character.inventory.push(weaponChoice);
+                        if (!weaponChoice.properties.includes("heavy")) {
+                            const shield = {...this.dataStore.getItemBySlug("shield", "items") };
+                            shield.count = 1;
+                            this.character.inventory.push(shield);
+                        }
+                        break;
+                    case "mayhem":
+                        traitWeapons = allWeapons.filter(weapon =>
+                            weapon.properties.includes("light") ||
+                            !weapon.properties.includes("ranged"));
+                        weaponChoice = {...randomListItem(traitWeapons)};
+                        this.character.inventory.push(weaponChoice);
+                        if (weaponChoice.properties.includes("light"))
+                            weaponChoice.count = 2;
+                        else
+                            weaponChoice.count = 1;
+                        break;
+                    case "braaains":
+                        traitWeapons = allWeapons.filter(weapon =>
+                            weapon.properties.includes("brainy"));
+                        weaponChoice = {...randomListItem(traitWeapons)};
+                        weaponChoice.count = 1;
+                        this.character.inventory.push(weaponChoice);
+                        break;
+                    case "spookiness":
+                        traitWeapons = allWeapons.filter(weapon =>
+                            weapon.properties.includes("spooky"));
+                        weaponChoice = {...randomListItem(traitWeapons)};
+                        weaponChoice.count = 1;
+                        this.character.inventory.push(weaponChoice);
+                        break;
+                }
             }
 
+            if (weaponChoice.properties.includes("thrown"))
+                        weaponChoice.count = 5;
+
+            const funSizeCandy = {...this.dataStore.getItemBySlug("fun-size-candy", "items")};
+
+            funSizeCandy.count = 3;
+
+            const nonWeaponEquipment = availableItems.filter(item => item.equippable && !item.damage);
+
+            // TODO: Prevent multiple armors
+            // TODO: Stack duplicate items
+
+            const otherItems = randomlySelectSubsetByWeights(nonWeaponEquipment, 3 - this.character.inventory.length, nonWeaponEquipment.map(i => i.lootChance));
+
+            this.character.inventory.push(...otherItems.map(i => ({ ...i, count: 1 })));
+            this.character.inventory.push(funSizeCandy);
+
             for (const item of this.character.inventory) {
-                item.equipped = true;
+                item.equipped = item.equippable;
             }
         },
 
@@ -287,9 +350,6 @@ export default {
 
         testData() {
             let toDoCount = 0;
-            // let previousArchetype = "";
-            // let previousSignature = "";
-            // let previousSpecialization = "";
             const archetypes = [...this.dataStore.data.archetypes];
             for (const archetype of archetypes) {
                 const specializationSlugs = archetype.specializations;
@@ -297,11 +357,7 @@ export default {
                     toDoCount += (3 - archetype.specializations.length) * 9;
                     console.warn(`Archetype "${archetype.name}" only has ${specializationSlugs.length} specializations.`);
                 }
-                // if (archetype.name < previousArchetype) {
-                //     toDoCount++;
-                //     console.warn(`Archetype ${archetype.name} is out of alphabetical order.`);
-                // }
-                // previousArchetype = archetype.name;
+
                 for (const specializationSlug of specializationSlugs) {
                     const specialization = this.dataStore.data.specializations.find(spec => spec.slug === specializationSlug);
                     if (!specialization) {
@@ -312,22 +368,13 @@ export default {
                             toDoCount += (3 - specialization.signatures.length) * 3;
                             console.warn(`Specialization "${specialization.name}" only has ${specialization.signatures.length} signatures.`);
                         }
-                        // if (specialization.name < previousSpecialization) {
-                        //     toDoCount++;
-                        //     console.warn(`Specialization ${specialization.name} is out of alphabetical order.`);
-                        // }
-                        // previousSpecialization = specialization.name;
+
                         for (const signatureSlug of specialization.signatures) {
                             const signature = this.dataStore.data.signatures.find(sgn => sgn.slug === signatureSlug);
                             if (!signature) {
                                 toDoCount++;
                                 console.error(`Signature not found with slug ${signatureSlug} for specialization ${specialization.name} and archetype ${archetype.name}`);
                             } else {
-                                // if (signature.name < previousSignature) {
-                                //     toDoCount++;
-                                //     console.warn(`Signature ${signature.name} is out of alphabetical order.`);
-                                // }
-                                // previousSignature = signature.name;
                                 if (!signature.description || signature.description === "Description") {
                                     toDoCount++;
                                     console.warn(`Signature ${signature.name} requires description.`);
@@ -350,7 +397,7 @@ export default {
         .then(response => response.json())
         .then(json => {
             this.dataStore.data = json;
-            this.testData();
+            // this.testData();
             // TODO: Reload last active character.
             this.allCharacters.loadFromCookie(this.dataStore);
             this.resetCharacterData();
@@ -375,11 +422,12 @@ export default {
 }
 
 #header {
+    border-bottom: 1px solid #eb0;
     display: flex;
     flex-direction: row;
-    flex: 0 0 100px;
+    flex: 0 0 80px;
     line-height: 1.5;
-    margin: 0 auto;
+    margin: 0.5rem auto;
     place-items: center stretch;
     white-space: nowrap;
 }

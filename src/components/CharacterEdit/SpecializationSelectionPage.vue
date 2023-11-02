@@ -20,12 +20,12 @@
                                 v-for="signature in dataStore.getItemsBySlugs(specialization.signatures, 'signatures')">
                                 <h4>{{ signature.name }}</h4>
                                 <p class="subtitle">Signature</p>
-                                <p>{{ signature.description }}</p>
+                                <p v-html="convertMD(signature.description)"></p>
                             </div>
                             <select-button
                                 label="Specialization"
                                 :selected="isSelected(specialization.slug, 'specializations', archetype.slug)"
-                                @select="character.addSpecialization(specialization)"
+                                @select="character.addSpecialization(specialization, archetype.slug)"
                                 @unselect="character.removeSpecialization(specialization)" />
                         </div>
                     </template>
@@ -48,6 +48,7 @@ import SelectButton from "./SelectButton.vue";
 // data stores
 import useCharacterStore from "../../stores/character";
 import useDataStore from "../../stores/data";
+import { convertMD } from "../../helpers/markdown";
 
 export default {
     components: {
@@ -62,6 +63,7 @@ export default {
     },
     emits: ["back", "continue"],
     methods: {
+        convertMD,
         isSelected(slug, itemType, parentSlug) {
             return this.character[itemType].some(item => item.slug === slug && (!parentSlug || item.parent === parentSlug));
         },

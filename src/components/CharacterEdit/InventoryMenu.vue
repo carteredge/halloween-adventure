@@ -20,7 +20,6 @@
                     v-for="item of character.inventory">
                     <expander :animation-height="50">
                         <div class="main-listing">{{ item.name }}</div>
-                        <!-- TODO: Item count -->
                         <label class="sub-listing"> &times;
                             <div class="input-wrapper">
                                 <input
@@ -35,7 +34,8 @@
                         <div class="sub-listing">
                             <select-button
                                 label="Equip"
-                                :selected="isEquipped(item.slug, 'inventory')"
+                                :selected="equipped(item.slug, 'inventory')"
+                                v-if="item.equippable"
                                 @select="character.equip(item.slug)"
                                 @unselect="character.unequip(item.slug)"/> <!-- TODO: Fix label (select-label, unselect-label), aria role -->
                         </div>
@@ -131,7 +131,7 @@ export default {
         closeModal() {
             this.modalIsOpen = false;
         },
-        isEquipped(slug, itemType) {
+        equipped(slug, itemType) {
             return this.character[itemType].some(item => item.slug === slug && item.equipped);
         },
         openModal() {

@@ -28,9 +28,6 @@ export default {
     methods: {
         toLabel,
     },
-    mounted() {
-        console.log(Object.keys(this.$slots));
-    }
 }
 </script>
 

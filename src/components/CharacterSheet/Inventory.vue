@@ -8,7 +8,7 @@
                 class="item-button sneaky-parent"
                 @click="openItemDescription(item)">
                 <img class="thumb" :src="`items/${item.slug}.png`"/>
-                <div class="main-listing">{{ item.name }} {{ item.blurb ? `&mdash; ${item.blurb}` : "" }}</div>
+                <div class="main-listing"><strong>{{ item.name }}</strong> <span v-html="convertMD(item.blurb)"></span></div>
                 <label :class="`item-count ${ item.count === 1 ? 'sneaky' : ''}`" @click="$event.stopPropagation()"> &times;
                     <div class="input-wrapper">
                         <input
@@ -16,14 +16,15 @@
                             class="count"
                             placeholder="count"
                             type="text"
-                            :value="item.count ?? '1'"
+                            :value="item.count ?? 1"
                             @change="updateItemCount(item, $event)"/>
                     </div>
                 </label>
                 <div class="sub-listing">
                     <select-button
                         label="Equip"
-                        :selected="isEquipped(item.slug, 'inventory')"
+                        :selected="equipped(item.slug, 'inventory')"
+                        v-if="item.equippable"
                         @select="character.equip(item.slug)"
                         @unselect="character.unequip(item.slug)"/>
                 </div>
@@ -36,7 +37,7 @@
         @close="closeItemDescription">
         <img class="description-image" :src="`items/${modalItem.slug}.png`"/>
         <h1>{{ modalItem.name }}</h1>
-        <p>{{ modalItem.description }}</p>
+        <p v-html="convertMD(modalItem.description)"></p>
     </modal>
 </template>
 
@@ -47,6 +48,9 @@ import SelectButton from "../CharacterEdit/SelectButton.vue";
 
 // data stores
 import useCharacterStore from "../../stores/character";
+
+// other
+import { convertMD } from "../../helpers/markdown";
 
 export default {
     components: {
@@ -64,12 +68,16 @@ export default {
         closeItemDescription() {
             this.itemDescriptionOpen = false;
         },
-        isEquipped(slug, itemType) {
+        convertMD,
+        equipped(slug, itemType) {
             return this.character[itemType].some(item => item.slug === slug && item.equipped);
         },
         openItemDescription(item) {
             this.modalItem = item;
             this.itemDescriptionOpen = true;
+        },
+        updateItemCount(item, event) {
+            item.count = isNaN(event.target.value) ? 1 : Number(event.target.value);
         },
     },
 }
@@ -144,6 +152,10 @@ button:hover .main-listing {
     font-size: 1.2rem;
     justify-self: flex-start;
     text-align: left;
+}
+
+.main-listing span {
+    font-size: 1.1rem;
 }
 
 .heading, .sub-listing {

@@ -1,5 +1,7 @@
 <template>
-    <div class="skill-page">
+    <div
+        class="skill-page"
+        v-if="character.archetypes[index]">
         <div class="archetype-block">
             <div class="row">
                 <div class="die">
@@ -38,7 +40,7 @@
                             {{ signature.name }}
                         </h4>
                         <p class="small">({{ signature.trait ? `${signature.trait} ` : "" }}{{ signature.type }})</p>
-                        <p class="description">{{ signature.description }}</p>
+                        <p class="description" v-html="convertMD(signature.description)"></p>
                     </div>
                 </div>
             </div>
@@ -49,6 +51,8 @@
 <script>
 // data stores
 import useCharacterStore from "../../stores/character";
+// other
+import { convertMD } from "../../helpers/markdown";
 
 export default {
     computed: {
@@ -64,6 +68,7 @@ export default {
         }
     },
     methods: {
+        convertMD,
         getSignatures(specializationSlug) {
             const signatures = [...this.character.signatures];
             return signatures.filter(signature => signature.parent === specializationSlug);
@@ -116,7 +121,7 @@ h3, h4 {
 .skill-type {
     color: #a70;
     font-size: 0.75rem;
-    margin: -1.5rem 2rem 0.5rem 2rem;
+    margin: -1rem 2rem 0.5rem 2rem;
 }
 
 .spec-block {

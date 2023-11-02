@@ -46,7 +46,7 @@ const useCharacterStore = defineStore('character', {
             return (this.archetypes.reduce((t, a) => t + (a[stat] ?? 0), 0) +
                 this.specializations.reduce((t, s) => t + (s[stat] ?? 0), 0) +
                 this.signatures.reduce((t, s) => t + (s[stat] ?? 0), 0)) +
-                this.inventory.reduce((t, i) => (i.isEquipped && i[stat] || 0), 0);
+                this.inventory.reduce((t, i) => t + (i.equipped && i[stat] || 0), 0);
         },
         getTitle() {
             return this.archetypes
