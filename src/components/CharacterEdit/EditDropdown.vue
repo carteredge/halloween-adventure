@@ -67,6 +67,7 @@ label {
 }
 
 select {
-    margin: 0.3rem;
+    max-width: 500px;
+    margin: 0.3rem 0.5rem;
 }
 </style>

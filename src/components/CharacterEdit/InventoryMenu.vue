@@ -2,6 +2,9 @@
     <div>
         <h1>Inventory</h1>
         <button class="modal-button" @click="openModal">Manage Inventory</button>
+        <randomize-button
+                thing="inventory"
+                @randomize="this.$emit('randomize', $event)"/>
         <inventory/>
         <modal :open="modalIsOpen" @close="closeModal">
             <header>
@@ -80,6 +83,7 @@ import Expander from "../Expander.vue";
 import IconButton from "./IconButton.vue";
 import Inventory from "../CharacterSheet/Inventory.vue";
 import Modal from "../Modal.vue";
+import RandomizeButton from "../RandomizeButton.vue";
 import SelectButton from "./SelectButton.vue";
 
 // data stores
@@ -93,6 +97,7 @@ export default {
         IconButton,
         Inventory,
         Modal,
+        RandomizeButton,
         SelectButton,
     },
     computed: {
@@ -232,6 +237,7 @@ ul h2 {
 }
 
 .item-action, button button {
+    border-radius: 8px;
     width: auto;
 }
 

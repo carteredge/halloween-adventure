@@ -10,17 +10,10 @@
         <archetype :index="0" v-if="character.archetypes?.length"/>
         <archetype :index="1" v-if="character.archetypes?.length > 1"/>
         <archetype :index="2" v-if="character.archetypes?.length > 2"/>
-        <button
-            v-if="!character.archetypes?.length"
-            @click="$emit('randomize-skills')">
-            <!-- {{ character.murder &&
-                character.mayhem &&
-                character.guts &&
-                character.braaains &&
-                character.spookiness ?
-                'Randomize Skills' : 'Randomize Skills and Traits' -->
-            Randomize Skills and Traits
-        </button>
+            <randomize-button
+                label="Skills and Traits"
+                thing="skills"
+                @randomize="this.$emit('randomize', $event)"/>
     </div>
 </template>
 
@@ -29,6 +22,7 @@
 import Archetype from "../CharacterSheet/Archetype.vue";
 import ArchetypeSelectionPage from "./ArchetypeSelectionPage.vue";
 import Modal from "../Modal.vue";
+import RandomizeButton from "../RandomizeButton.vue";
 import SignatureSelectionPage from "./SignatureSelectionPage.vue";
 import SpecializationSelectionPage from "./SpecializationSelectionPage.vue";
 // data stores
@@ -40,6 +34,7 @@ export default {
         Archetype,
         ArchetypeSelectionPage,
         Modal,
+        RandomizeButton,
         SignatureSelectionPage,
         SpecializationSelectionPage,
     },
@@ -55,7 +50,7 @@ export default {
         };
     },
     emits: [
-        "randomize-skills",
+        "randomize",
     ],
     methods: {
         closeModal() {

@@ -28,6 +28,7 @@
             <CharacterEdit
                 v-if="edit"
                 @cancel="cancelEdit"
+                @randomize="onRandomize"
                 @save="saveCharacter"/>
             <CharacterSheet
                 v-else
@@ -173,6 +174,8 @@ export default {
         },
 
         onRandomize(thing) {
+            // TODO: ensure randomizing archetype before inventory
+            // TODO: randomize skills based on user selected archetypes
             switch(thing) {
                 case "skills":
                     this.randomizeSkillsAndTraits();

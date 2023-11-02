@@ -3,8 +3,8 @@
         <edit-field large property="name"/>
         <!-- <edit-field property="murder" :width="50"/> -->
         <trait-menu/>
-        <archetype-menu/>
-        <inventory-menu/>
+        <archetype-menu @randomize="$emit('randomize', $event)"/>
+        <inventory-menu @randomize="$emit('randomize', $event)"/>
         <div class="row">
             <button @click="$emit('cancel')">Cancel</button>
             <button @click="$emit('save')">Save Changes</button>
