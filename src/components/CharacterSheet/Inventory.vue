@@ -7,7 +7,7 @@
             <button
                 class="item-button sneaky-parent"
                 @click="openItemDescription(item)">
-                <img class="thumb" :src="`/items/${item.slug}.png`"/>
+                <img class="thumb" :src="`${urlRoot ?? ''}/items/${item.slug}.png`"/>
                 <div class="main-listing"><strong>{{ item.name }}</strong> <span v-html="convertMD(item.blurb)"></span></div>
                 <label :class="`item-count ${ item.count === 1 ? 'sneaky' : ''}`" @click="$event.stopPropagation()"> &times;
                     <div class="input-wrapper">
@@ -36,7 +36,7 @@
         :open="itemDescriptionOpen"
         size="small"
         @close="closeItemDescription">
-        <img class="description-image" :src="`/items/${modalItem.slug}.png`"/>
+        <img class="description-image" :src="`${urlRoot ?? ''}/items/${modalItem.slug}.png`"/>
         <h1>{{ modalItem.name }}</h1>
         <p v-html="convertMD(modalItem.description)"></p>
     </modal>
@@ -61,6 +61,7 @@ export default {
     data() {
         return {
             character: useCharacterStore(),
+            urlRoot: import.meta.env.URL_ROOT,
             itemDescriptionOpen: false,
             modalItem: {},
         }
