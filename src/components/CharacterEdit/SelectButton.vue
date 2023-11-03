@@ -12,7 +12,7 @@
             v-if="selected"/>
         <img
             class="icon-hover"
-            :src="selected ? `${env.URL_ROOT ?? ''}/no.png` : `${env.URL_ROOT ?? ''}/yes.png`"/>
+            :src="selected ? `${urlRoot ?? ''}/no.png` : `${urlRoot ?? ''}/yes.png`"/>
     </button>
 </template>
 
@@ -20,7 +20,7 @@
 export default {
     data() {
         return {
-            env: import.meta.env,
+            urlRoot: import.meta.env.URL_ROOT,
         }
     },
     emits: [

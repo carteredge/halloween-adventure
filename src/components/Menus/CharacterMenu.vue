@@ -1,6 +1,6 @@
 <template>
     <side-menu
-        :button-icon="`${env.URL_ROOT ?? ''}/char-menu.png`"
+        :button-icon="`${urlRoot ?? ''}/char-menu.png`"
         side="left"
         ref="menu"
         title="Character Menu">
@@ -37,7 +37,7 @@ export default {
     data() {
         return {
             allCharacters: useAllCharactersStore(),
-            env: import.meta.env,
+            urlRoot: import.meta.env.URL_ROOT,
         }
     },
     emits: ['delete', 'edit', 'load', 'new', 'random', 'save'],
