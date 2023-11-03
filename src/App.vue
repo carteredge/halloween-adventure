@@ -579,18 +579,20 @@ header h1 {
     text-shadow: 0px 0px 16px #808;
 }
 
-@media (min-width: 1024px)
+@media (max-width: 900px)
 {
-    .logo
-    {
-        margin: 0 2rem 0 0;
+    .app-body {
+        height: auto;
+        overflow-y: auto;
+        padding: 0;
     }
 
-    header .wrapper
-    {
-        display: flex;
-        place-items: flex-start;
-        flex-wrap: wrap;
+    #header {
+        flex-direction: column;
+    }
+
+    #header * {
+        margin: auto;
     }
 }
 </style>

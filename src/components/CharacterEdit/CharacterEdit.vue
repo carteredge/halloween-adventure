@@ -47,4 +47,10 @@ button {
     padding: 1rem 0.5rem;
     width: 800px;
 }
+
+@media only screen and (max-width: 900px) {
+    .main {
+        width: 100vw;
+    }
+}
 </style>
