@@ -308,6 +308,7 @@ export default {
             const otherItems = randomlySelectSubsetByWeights(nonWeaponEquipment, 3 - this.character.inventory.length,
                 nonWeaponEquipment.map(i => i.lootChance),
                 (results, data, weights) => {
+                    // if armor present, remove other armor from possibilities to prevent redundancy
                     if (results.some(item => item.properties.includes("heavy armor") || item.properties.includes("light armor"))) {
                         const otherArmorIndexes = data
                             .map((item, index) => index)
@@ -365,8 +366,6 @@ export default {
                 braaains: this.character.braaains,
                 spookiness: this.character.spookiness,
             }
-
-            console.log(this.character.archetypes, traitWeights);
 
             const specializations =  this.getRandomSkillSubset(this.character.archetypes, "specialization", traitWeights);
             this.character.specializations = specializations;
