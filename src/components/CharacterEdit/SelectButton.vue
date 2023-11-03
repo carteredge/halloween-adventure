@@ -12,12 +12,17 @@
             v-if="selected"/>
         <img
             class="icon-hover"
-            :src="selected ? '/no.png' : '/yes.png'"/>
+            :src="selected ? `${env.URL_ROOT ?? ''}/no.png` : `${env.URL_ROOT ?? ''}/yes.png`"/>
     </button>
 </template>
 
 <script>
 export default {
+    data() {
+        return {
+            env: import.meta.env,
+        }
+    },
     emits: [
         "select",
         "unselect"

@@ -1,7 +1,7 @@
 <template>
     <div class="trait-block row">
         <div class="trait-score column">
-            <img :src="`/${trait.toLowerCase()}.png`"/>
+            <img :src="`${env.URL_ROOT ?? ''}/${trait.toLowerCase()}.png`"/>
             <h3 class="trait-label">{{ label || toLabel(trait) }}</h3>
         </div>
         <div class="input-wrapper" v-if="editable">
@@ -39,6 +39,7 @@ export default {
     data() {
         return {
             character: useCharacterStore(),
+            env: import.meta.env,
         };
     },
     methods: {

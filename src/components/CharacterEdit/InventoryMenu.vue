@@ -48,14 +48,14 @@
                         <div class="sub-listing">
                             <icon-button
                                 label="Remove item"
-                                src="/trash-can.png"
+                                :src="`${env.URL_ROOT ?? ''}/trash-can.png`"
                                 @click="removeItem(item.slug)"/>
                         </div>
                         <template v-if="item.description" v-slot:contents>
                             <div class="expander-description">
                                 <img
                                     class="expander-image"
-                                    :src="`/items/${item.slug}.png`"/>
+                                    :src="`${env.URL_ROOT ?? ''}/items/${item.slug}.png`"/>
                                 {{ item.description }}
                             </div>
                         </template>
@@ -114,6 +114,7 @@ export default {
         return {
             character: useCharacterStore(),
             dataStore: useDataStore(),
+            env: import.meta.env,
             itemDescriptionOpen: false,
             modalIsOpen: false,
             modalItem: {},

@@ -2,7 +2,7 @@
     <div>
         <div class="row">
             <div class="trait-score column">
-                <img v-if="die" class="trait-die" :id="`${trait}-die`" :src="`/d${die}.png`"/>
+                <img v-if="die" class="trait-die" :id="`${trait}-die`" :src="`${env.URL_ROOT ?? ''}/d${die}.png`"/>
                 <h3 class="trait" :id="trait">{{ die ? `d${die}` : "?" }}</h3>
             </div>
             <h3 class="trait-label">{{ trait }}!</h3>
@@ -12,6 +12,11 @@
 
 <script>
 export default {
+    data() {
+        return {
+            env: import.meta.env,
+        }
+    },
     props: {
         die: {
             type: Number,
