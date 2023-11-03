@@ -5,7 +5,7 @@
         <div class="archetype-block">
             <div class="row">
                 <div class="die">
-                    <img class="desc-die" src="d8.png"/>
+                    <img class="desc-die" src="/d8.png"/>
                     d8
                 </div>
                 <h3>{{ character.archetypes[index]?.name ?? "" }}</h3>
@@ -19,7 +19,7 @@
             <div>
             <div class="row">
                 <div class="die">
-                    <img class="desc-die" src="d10.png"/>
+                    <img class="desc-die" src="/d10.png"/>
                     d10
                 </div>
                 <h3 class="specialization">{{ specialization.name }}</h3>
@@ -32,7 +32,7 @@
                 v-for="signature in getSignatures(specialization.slug)">
                 <div class="row top">
                     <span class="die">
-                        <img class="desc-die" src="d12.png"/>
+                        <img class="desc-die" src="/d12.png"/>
                         d12
                     </span>
                     <div>

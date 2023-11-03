@@ -48,14 +48,14 @@
                         <div class="sub-listing">
                             <icon-button
                                 label="Remove item"
-                                src="trash-can.png"
+                                src="/trash-can.png"
                                 @click="removeItem(item.slug)"/>
                         </div>
                         <template v-if="item.description" v-slot:contents>
                             <div class="expander-description">
                                 <img
                                     class="expander-image"
-                                    :src="`items/${item.slug}.png`"/>
+                                    :src="`/items/${item.slug}.png`"/>
                                 {{ item.description }}
                             </div>
                         </template>

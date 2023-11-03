@@ -8,11 +8,11 @@
         <img
             :alt="`${label ?? ''} selected`"
             class="icon-default"
-            src="yes.png"
+            src="/yes.png"
             v-if="selected"/>
         <img
             class="icon-hover"
-            :src="selected ? 'no.png' : 'yes.png'"/>
+            :src="selected ? '/no.png' : '/yes.png'"/>
     </button>
 </template>
 

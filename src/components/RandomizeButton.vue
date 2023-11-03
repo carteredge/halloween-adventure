@@ -3,7 +3,7 @@
         :disabled="disabled"
         :title="title"
         @click="$emit('randomize', thing)">
-        <img src="rolling-dice.png"/>
+        <img src="/rolling-dice.png"/>
         <span>Randomize {{ label ? label : toLabel(thing)}}</span>
     </button>
 </template>

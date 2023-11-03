@@ -1,6 +1,6 @@
 <template>
     <side-menu
-        button-icon="char-menu.png"
+        button-icon="/char-menu.png"
         side="left"
         ref="menu"
         title="Character Menu">
