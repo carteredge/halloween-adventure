@@ -19,4 +19,11 @@ import SecondaryStat from "./SecondaryStat.vue";
     margin: 1rem;
     padding: 1rem;
 }
+
+@media only screen and (max-width: 900px) {
+    .secondary-stat-block {
+        flex-direction: column;
+    }
+}
+
 </style>

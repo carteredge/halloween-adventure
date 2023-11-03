@@ -71,4 +71,10 @@ export default {
     flex-direction: row;
     justify-content: space-evenly;
 }
+
+@media only screen and (max-width: 900px) {
+    .character-header {
+        flex-direction: column;
+    }
+}
 </style>

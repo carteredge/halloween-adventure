@@ -28,4 +28,15 @@ export default {
 </script>
 
 <style scoped>
+@media only screen and (max-width: 900px) {
+    div {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    div * {
+        margin: 1rem;
+    }
+}
 </style>

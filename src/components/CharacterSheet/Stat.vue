@@ -51,4 +51,12 @@ export default {
 .trait-score {
     margin-right: 1rem;
 }
+
+/* @media only screen and (max-width: 900px) {
+    .row {
+        display: flex;
+        flex-direction: column;
+        margin: 1rem;
+    }
+} */
 </style>
