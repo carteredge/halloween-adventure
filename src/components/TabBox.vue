@@ -88,12 +88,13 @@ button.active {
 }
 
 .tab-contents {
-    overflow: auto;
+    overflow-y: auto;
 }
 
 #tab-menu-container {
     border-bottom: 1px solid #960;
     display: none;
+    flex: 0;
     height: 56px;
     overflow: visible;
     position: relative;
