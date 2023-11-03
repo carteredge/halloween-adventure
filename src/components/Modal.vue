@@ -63,6 +63,7 @@ export default {
     overflow: hidden;
     padding: 2rem 1rem 1rem 1rem;
     position: relative;
+    z-index: 20;
 }
 
 .modal.large {

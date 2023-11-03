@@ -106,4 +106,12 @@ export default {
 .select-button:disabled:hover .icon-hover {
     opacity: 0.5;
 }
+
+.select-button:focus .icon-default {
+    opacity: 1;
+}
+
+.select-button:focus .icon-hover {
+    opacity: 0;
+}
 </style>

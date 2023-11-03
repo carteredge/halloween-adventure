@@ -52,6 +52,7 @@ export default {
     padding: 1rem 1rem 1rem 1rem;
     position: relative;
     width: 300px;
+    z-index: 30;
 }
 
 button {
