@@ -434,11 +434,12 @@ export default {
                 this.alertType = "save-limit";
                 this.okOnly = true;
                 this.alertIsOpen = true;
+            } else {
+                this.allCharacters.characters ??= {};
+                this.allCharacters.characters[this.character.id] = this.getCharacterData();
+                this.allCharacters.saveToCookie();
+                this.edit = false;
             }
-            this.allCharacters.characters ??= {};
-            this.allCharacters.characters[this.character.id] = this.getCharacterData();
-            this.allCharacters.saveToCookie();
-            this.edit = false;
         },
 
         shelveCharacter() {
