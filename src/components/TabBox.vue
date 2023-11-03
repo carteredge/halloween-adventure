@@ -87,6 +87,10 @@ button.active {
     width: 800px;
 }
 
+.tab-contents {
+    overflow: auto;
+}
+
 #tab-menu-container {
     border-bottom: 1px solid #960;
     display: none;
