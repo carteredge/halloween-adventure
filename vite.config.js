@@ -7,7 +7,7 @@ import vue from '@vitejs/plugin-vue'
 export default defineConfig({
   base: "/halloween-adventure/",
   define: {
-    "urlRoot": JSON.stringify("/halloween-adventure"),
+    "import.meta.env.URL_ROOT": JSON.stringify("/halloween-adventure"),
   },
   plugins: [
     vue(),
