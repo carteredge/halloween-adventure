@@ -9,17 +9,18 @@
                 {{ toLabel(slot) }}
             </button>
         </div>
-        <div class="tab-menu-container">
+        <div id="tab-menu-container">
+            &nbsp;
             <button
                 aria-label="Change view"
-                class="tab-menu-hamburger"
+                id="tab-menu-hamburger"
                 title="Change view"
                 v-if="!menuOpen"
                 @click="toggleMenu">
                 <img src="/hamburger-menu.png"/>
                 {{ toLabel(activeSlot) }}
             </button>
-            <div class="tab-menu" v-else>
+            <div id="tab-menu" v-else>
                 <button
                     :class="activeSlot === slot ? 'active' : ''"
                     :key="slot"
@@ -29,7 +30,7 @@
                 </button>
             </div>
         </div>
-        <div>
+        <div class="tab-contents">
             <slot :name="activeSlot"></slot>
         </div>
     </div>
@@ -86,8 +87,12 @@ button.active {
     width: 800px;
 }
 
-.tab-menu-container {
+#tab-menu-container {
+    border-bottom: 1px solid #960;
     display: none;
+    height: 56px;
+    overflow: visible;
+    position: relative;
 }
 
 .tab-menu-container button {
@@ -96,11 +101,30 @@ button.active {
     width: 80vw;
 }
 
-.tab-menu-hamburger {
-    height: 52px;
+#tab-menu-hamburger, #tab-menu {
+    background-color: #111;
+    border: 1px solid #960;
+    left: 0;
+    margin: 0 auto;
+    overflow: visible;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 80vw;
+    z-index: 2;
+}
+#tab-menu-hamburger {
+    border-bottom: 0 none transparent;
+    display: flex;
+    height: 50px;
+    place-content: center flex-start;
 }
 
-.tab-menu-hamburger img {
+#tab-menu-hamburger img {
+    background-color: #808;
+    /* border: 1px outset #eb0; */
+    border-radius: 8px;
+    padding: 0.1rem;
     margin: 0 1rem;
 }
 
@@ -124,12 +148,16 @@ button.active {
 }
 
 @media only screen and (max-width: 600px) {
-    .tab-row {
-        display: none;
+    #tab-menu-container {
+        display: flex;;
     }
 
-    .tab-menu-container {
-        display: block;
+    .tab-contents {
+        padding: 1rem;
+    }
+
+    .tab-row {
+        display: none;
     }
 }
 </style>

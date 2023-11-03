@@ -224,13 +224,17 @@ option:disabled {
 }
 
 @media only screen and (max-width: 900px) {
-    header,
-    main,
-    footer {
+    main {
         margin: 0 auto;
         width: 100vw;
     }
 
+    header,
+    footer {
+        margin: 0 0.5rem;
+        max-width: 100vw;
+        width: auto;
+    }
     * {
         max-width: 100vw;
     }

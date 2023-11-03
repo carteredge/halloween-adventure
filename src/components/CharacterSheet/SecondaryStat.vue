@@ -113,4 +113,20 @@ input {
 .trait.yellow {
     color: #eb0;
 }
+
+@media only screen and (max-width: 600px) {
+    .trait-block {
+        justify-content: space-between;
+        min-width: 250px;
+    }
+
+    .trait-score {
+        text-align: center;
+        width: 75px;
+    }
+
+    .trait-block  > *:last-child {
+        min-width: 65px;
+    }
+}
 </style>
