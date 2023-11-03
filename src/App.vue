@@ -1,12 +1,13 @@
 <template>
     <div class="app-body" @click="closeMenus($event)">
         <alert 
-            :open="this.alertIsOpen"
-            @cancel="this.alertIsOpen=false"
-            @confirm="this.deleteCharacter">{{ alertText }}</alert>
+            :okOnly="okOnly"
+            :open="alertIsOpen"
+            @cancel="alertIsOpen=false"
+            @confirm="alertConfirm">{{ alertText }}</alert>
         <character-menu
             ref="characterMenu"
-            :show-delete="this.character.id in this.allCharacters.characters"
+            :show-delete="character.id in allCharacters.characters"
             @delete="showDeleteWarning"
             @edit="editCharacter"
             @load="loadCharacter"
@@ -63,22 +64,21 @@ import {
     randomlySelectSubsetByWeights
 } from "./helpers/randomizer";
 
-
-// TODO: Prevent characters if every archetype has "..."
-
 export default {
     data() {
         return {
-            alertIsOpen: false,
-            alertText: "",
+            alertIsOpen: true,
+            alertText: "This site uses cookies to save your characters to your computer.",
+            alertType: "cookies",
             allCharacters: useAllCharacterStore(),
             character: useCharacterStore(),
             idOfCharacterToBeDeleted: "",
             cookie: "",
             cookieData: {},
             dataStore: useDataStore(),
-            shelvedCharacter: {},
             edit: false,
+            okOnly: true,
+            shelvedCharacter: {},
         };
     },
 
@@ -129,14 +129,17 @@ export default {
             this.$refs.characterMenu.closeMenu();
         },
 
-        deleteCharacter() {
+        alertConfirm() {
+            if (this.alertType === "delete") {
+                if (this.character.id === this.idOfCharacterToBeDeleted) {
+                    this.resetCharacterData();
+                    this.resetCharacterData(); // second call ensures that the shelved character is also an unmade character with a preset ID
+                } // TODO: else check shelved character
+                delete this.allCharacters.characters[this.idOfCharacterToBeDeleted];
+                this.allCharacters.saveToCookie();
+            }
             this.alertIsOpen = false;
-            if (this.character.id === this.idOfCharacterToBeDeleted) {
-                this.resetCharacterData();
-                this.resetCharacterData(); // second call ensures that the shelved character is also an unmade character with a preset ID
-            } // TODO: else check shelved character
-            delete this.allCharacters.characters[this.idOfCharacterToBeDeleted];
-            this.allCharacters.saveToCookie();
+            this.alertType = "";
         },
 
         editCharacter() {
@@ -177,8 +180,14 @@ export default {
             // TODO: ensure randomizing archetype before inventory
             // TODO: randomize skills based on user selected archetypes
             switch(thing) {
+                case "signatures":
+                    this.randomizeSignatures();
+                    break;
                 case "skills":
                     this.randomizeSkillsAndTraits();
+                    break;
+                case "specializations":
+                    this.randomizeSpecializations();
                     break;
                 case "inventory":
                     this.randomizeInventory();
@@ -294,10 +303,21 @@ export default {
 
             const nonWeaponEquipment = availableItems.filter(item => item.equippable && !item.damage);
 
-            // TODO: Prevent multiple armors
             // TODO: Stack duplicate items
 
-            const otherItems = randomlySelectSubsetByWeights(nonWeaponEquipment, 3 - this.character.inventory.length, nonWeaponEquipment.map(i => i.lootChance));
+            const otherItems = randomlySelectSubsetByWeights(nonWeaponEquipment, 3 - this.character.inventory.length,
+                nonWeaponEquipment.map(i => i.lootChance),
+                (results, data, weights) => {
+                    if (results.some(item => item.properties.includes("heavy armor") || item.properties.includes("light armor"))) {
+                        const otherArmorIndexes = data
+                            .map((item, index) => index)
+                            .filter(index => data[index].properties.includes("heavy armor") || data[index].properties.includes("light armor"));
+                        for (let i = otherArmorIndexes.length - 1; i >= 0; i--) {
+                            data.splice(otherArmorIndexes[i], 1);
+                            weights.splice(otherArmorIndexes[i], 1);
+                        }
+                    }
+                });
 
             this.character.inventory.push(...otherItems.map(i => ({ ...i, count: 1 })));
             this.character.inventory.push(funSizeCandy);
@@ -308,7 +328,15 @@ export default {
             this.character.recalculateStats();
         },
 
-        randomizeSpecializationsAndSignatures() {
+        randomizeSignatures() {
+            if (!this.character.murder ||
+                !this.character.mayhem ||
+                !this.character.guts ||
+                !this.character.braaains ||
+                !this.character.spookiness) {
+                this.randomizeTraits();
+            }            
+
             const traitWeights = {
                 murder: this.character.murder,
                 mayhem: this.character.mayhem,
@@ -317,11 +345,36 @@ export default {
                 spookiness: this.character.spookiness,
             }
 
+            const signatures = this.getRandomSkillSubset(this.character.specializations, "signature", traitWeights);
+            this.character.signatures = signatures;
+        },
+
+        randomizeSpecializations() {
+            if (!this.character.murder ||
+                !this.character.mayhem ||
+                !this.character.guts ||
+                !this.character.braaains ||
+                !this.character.spookiness) {
+                this.randomizeTraits();
+            }            
+
+            const traitWeights = {
+                murder: this.character.murder,
+                mayhem: this.character.mayhem,
+                guts: this.character.guts,
+                braaains: this.character.braaains,
+                spookiness: this.character.spookiness,
+            }
+
+            console.log(this.character.archetypes, traitWeights);
+
             const specializations =  this.getRandomSkillSubset(this.character.archetypes, "specialization", traitWeights);
             this.character.specializations = specializations;
+        },
 
-            const signatures = this.getRandomSkillSubset(specializations, "signature", traitWeights);
-            this.character.signatures = signatures;
+        randomizeSpecializationsAndSignatures() {
+            this.randomizeSpecializations();
+            this.randomizeSignatures();
         },
 
         randomizeSkillsAndTraits() {
@@ -377,6 +430,12 @@ export default {
         },
 
         saveCharacter() {
+            if (Object.keys(this.allCharacters.characters ?? {}).length >= 3) {
+                this.alertText = "Because characters are stored locally, and some browsers don't like sites storing a lot of local data *cough cough Chrome cough*, you can only save up to three characters."
+                this.alertType = "save-limit";
+                this.okOnly = true;
+                this.alertIsOpen = true;
+            }
             this.allCharacters.characters ??= {};
             this.allCharacters.characters[this.character.id] = this.getCharacterData();
             this.allCharacters.saveToCookie();
@@ -390,6 +449,8 @@ export default {
         showDeleteWarning() {
             this.idOfCharacterToBeDeleted = this.character.id;
             this.alertText = `You are about to permanently delete ${this.allCharacters.characters[this.character.id].name}. Is this OK?`;
+            this.alertType = "delete";
+            this.okOnly = false;
             this.alertIsOpen = true;
         },
 

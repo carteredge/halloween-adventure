@@ -17,7 +17,7 @@
             :key="id"
             v-for="id in allCharacters.characters && Object.keys(allCharacters.characters)"
             @click="$emit('load', id)">
-            {{ allCharacters.characters[id].name }}
+            {{ allCharacters.characters[id].name || '(Unnamed Character)' }}
         </menu-item>
     </side-menu>
 </template>

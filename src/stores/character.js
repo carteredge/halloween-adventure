@@ -57,7 +57,9 @@ const useCharacterStore = defineStore('character', {
         },
         recalculateStats() {
             this.defense = 5 + this.getSkillStatChange('defense');
+            const currentMaxHP = this.maxHP || 10;
             this.maxHP = 10 + this.getSkillStatChange('maxHP');
+            this.hp = (this.hp ?? 10) + this.maxHP - currentMaxHP;
             this.speed = 5 + this.getSkillStatChange('speed');
             // TODO: equipment
         },

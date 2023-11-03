@@ -39,7 +39,7 @@
                         <h4 class="signature">
                             {{ signature.name }}
                         </h4>
-                        <p class="small">({{ signature.trait ? `${signature.trait} ` : "" }}{{ signature.type }})</p>
+                        <p class="small">SIGNATURE &ndash; {{ signature.trait ? `${signature.trait.toUpperCase()} ` : "" }}{{ signature.type.toUpperCase() }}</p>
                         <p class="description" v-html="convertMD(signature.description)"></p>
                     </div>
                 </div>

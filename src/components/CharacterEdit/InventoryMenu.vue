@@ -3,8 +3,10 @@
         <h1>Inventory</h1>
         <button class="modal-button" @click="openModal">Manage Inventory</button>
         <randomize-button
-                thing="inventory"
-                @randomize="this.$emit('randomize', $event)"/>
+            :disabled="!character.archetypes?.length"
+            :title="character.archetypes?.length ? '' : 'Please select or randomize Skills before randomizing inventory.'"
+            thing="inventory"
+            @randomize="this.$emit('randomize', $event)"/>
         <inventory/>
         <modal :open="modalIsOpen" @close="closeModal">
             <header>
@@ -36,7 +38,8 @@
                         </label>
                         <div class="sub-listing">
                             <select-button
-                                label="Equip"
+                                add-label="Equip"
+                                remove-label="Unequip"
                                 :selected="equipped(item.slug, 'inventory')"
                                 v-if="item.equippable"
                                 @select="character.equip(item.slug)"

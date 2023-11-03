@@ -1,12 +1,12 @@
 <template>
     <button
-        :aria-label="selected ? `Remove ${label}`.trim() : `Add ${label}`.trim()"
+        :aria-label="selected ? (removeLabel || `Remove ${label}`.trim()) : (addLabel || `Add ${label}`.trim())"
         class="select-button"
         :disabled="!selected && max && count >= max"
-        :title="selected ? `Remove ${label}`.trim() : (!max || count < max) ? `Add ${label}`.trim() : `${count} of ${max} ${label ? label + 's ' : ''}already selected.`"
+        :title="selected ? (removeLabel || `Remove ${label}`.trim()) : (!max || count < max) ? (addLabel || `Add ${label}`.trim()) : `${count} of ${max} ${label ? label + 's ' : ''}already selected.`"
         @click="toggle($event)">
         <img
-            alt="Skill selected"
+            :alt="`${label ?? ''} selected`"
             class="icon-default"
             src="yes.png"
             v-if="selected"/>
@@ -32,6 +32,11 @@ export default {
         },
     },
     props: {
+        addLabel: {
+            type: String,
+            required: false,
+            default: "",
+        },
         count: {
             type: Number,
             required: false,
@@ -46,6 +51,11 @@ export default {
             type: Number,
             required: false,
             default: 0,
+        },
+        removeLabel: {
+            type: String,
+            required: false,
+            default: "",
         },
         selected: {
             type: Boolean,

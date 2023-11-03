@@ -37,6 +37,7 @@
         <div class="subtitle">{{ character.specializations?.length ?? 0 }} of 3 Specializations selected</div>
         <div class="footer-buttons">
             <button @click="$emit('back')">Back</button>
+            <button @click="$emit('randomize', 'specializations')">Randomize Specializations</button>
             <button :disabled="character.specializations.length < 3" @click="$emit('continue')">Continue</button>
         </div>
     </footer>
@@ -61,7 +62,7 @@ export default {
             dataStore: useDataStore(),
         };
     },
-    emits: ["back", "continue"],
+    emits: ["back", "continue", "randomize"],
     methods: {
         convertMD,
         isSelected(slug, itemType, parentSlug) {
@@ -79,7 +80,7 @@ footer
     bottom: 0;
     display: flex;
     flex-direction: column;
-    height: 4rem;
+    height: 5rem;
     left: 0;
     place-content: center center;
     position: absolute;
@@ -99,7 +100,7 @@ footer button:last-of-type
 
 footer .subtitle
 {
-    margin: 0 auto;
+    margin: 0.5rem auto;
 }
 
 h1

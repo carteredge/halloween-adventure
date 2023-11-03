@@ -4,7 +4,7 @@
             <slot></slot>
             <div class="button-container">
                 <button @click="$emit('confirm')">OK</button>
-                <button @click="$emit('cancel')">Cancel</button>
+                <button v-if="!okOnly" @click="$emit('cancel')">Cancel</button>
             </div>
         </div>
     </div>
@@ -14,6 +14,11 @@
 export default {
     emits: ["cancel", "confirm"],
     props: {
+        okOnly: {
+            type: Boolean,
+            required: false,
+            default: false,
+        },
         open: {
             type: Boolean,
             required: false,

@@ -1,19 +1,21 @@
 <template>
     <div>
         <h1>Character Skills</h1>
-        <button @click="openSkillsModal">Choose Skills</button>
-        <modal :open="modalIsOpen" @close="closeModal">
-            <archetype-selection-page v-if="pageIndex === 0" @continue="nextPage"/>
-            <specialization-selection-page v-if="pageIndex === 1" @back="previousPage" @continue="nextPage"/>
-            <signature-selection-page v-if="pageIndex === 2" @back="previousPage" @continue="nextPage" />
-        </modal>
-        <archetype :index="0" v-if="character.archetypes?.length"/>
-        <archetype :index="1" v-if="character.archetypes?.length > 1"/>
-        <archetype :index="2" v-if="character.archetypes?.length > 2"/>
+        <div class="row">
+            <button @click="openSkillsModal">Choose Skills</button>
             <randomize-button
                 label="Skills and Traits"
                 thing="skills"
                 @randomize="this.$emit('randomize', $event)"/>
+        </div>
+        <modal :open="modalIsOpen" @close="closeModal">
+            <archetype-selection-page v-if="pageIndex === 0" @continue="nextPage"/>
+            <specialization-selection-page v-if="pageIndex === 1" @back="previousPage" @continue="nextPage" @randomize="$emit('randomize', $event)"/>
+            <signature-selection-page v-if="pageIndex === 2" @back="previousPage" @continue="nextPage" @randomize="$emit('randomize', $event)"/>
+        </modal>
+        <archetype :index="0" v-if="character.archetypes?.length"/>
+        <archetype :index="1" v-if="character.archetypes?.length > 1"/>
+        <archetype :index="2" v-if="character.archetypes?.length > 2"/>
     </div>
 </template>
 
@@ -79,7 +81,11 @@ export default {
 
 <style scoped>
 button {
-    margin: 0.5rem 0.5rem 1rem 0.5rem;
+    /* margin: 0.5rem 0.5rem 1rem 0.5rem; */
+    display: flex;
+    font-size: 1.2rem;
+    margin: 2rem auto;
+    place-content: center center;
 }
 
 h1

@@ -22,7 +22,8 @@
                 </label>
                 <div class="sub-listing">
                     <select-button
-                        label="Equip"
+                        add-label="Equip"
+                        remove-label="Unequip"
                         :selected="equipped(item.slug, 'inventory')"
                         v-if="item.equippable"
                         @select="character.equip(item.slug)"

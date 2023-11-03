@@ -10,7 +10,7 @@ export function randomlySelectSubset(data, count) {
     return results;
 }
 
-export function randomlySelectSubsetByWeights(data, count, weights) {
+export function randomlySelectSubsetByWeights(data, count, weights, runAfter) {
     const dataClone = [...data];
     const results = [];
     const weightsClone = [...weights];
@@ -20,6 +20,9 @@ export function randomlySelectSubsetByWeights(data, count, weights) {
         results.push(item);
         dataClone.splice(index, 1);
         weightsClone.splice(index, 1);
+        if (typeof runAfter === "function") {
+            runAfter(results, dataClone, weightsClone);
+        }
     }
     return results;
 }

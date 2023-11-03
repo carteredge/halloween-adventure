@@ -1,4 +1,8 @@
 <template>
+    <alert
+        :open="this.alertIsOpen"
+        ok-only
+        @confirm="this.alertIsOpen = false">{{ alertText }}</alert>
     <header>
         <h1>{{ this.character.getTitle() }}</h1>
     </header>
@@ -10,7 +14,7 @@
                     label="Archetype"
                     :max="3"
                     :selected="isSelected(archetype.slug, 'archetypes')"
-                    @select="character.addArchetype(archetype)"
+                    @select="addArchetype(archetype)"
                     @unselect="character.removeArchetype(archetype)"/>
                 <h2 class="name">{{ archetype.name }}</h2>
                 <template v-slot:contents>
@@ -33,7 +37,7 @@
                             label="Archetype"
                             :max="3"
                             :selected="isSelected(archetype.slug, 'archetypes')"
-                            @select="character.addArchetype(archetype)"
+                            @select="addArchetype(archetype)"
                             @unselect="character.removeArchetype(archetype)"/>
                     </div>
                 </template>
@@ -43,13 +47,14 @@
     <footer>
         <div class="subtitle">{{ character.archetypes?.length ?? 0 }} of 3 Archetypes selected</div>
         <button
-            :disabled="character.archetypes.length < 3"
+            :disabled="continueIsDisabled"
             @click="$emit('continue')">Continue</button>
     </footer>
 </template>
 
 <script>
 // components
+import Alert from "../Alert.vue";
 import Expander from "../Expander.vue";
 import SelectButton from "./SelectButton.vue";
 // data stores
@@ -60,17 +65,35 @@ import { convertMD } from "../../helpers/markdown";
 
 export default {
     components: {
+        Alert,
         Expander,
         SelectButton,
     },
+    computed: {
+        continueIsDisabled() {
+            return this.character.archetypes.length < 3 ||
+                this.character.archetypes.every(archetype => archetype.name.includes("..."));
+        },
+    },
     data() {
         return {
+            alertIsOpen: false,
+            alertText: "",
             character: useCharacterStore(),
             dataStore: useDataStore(),
         };
     },
     emits: [ "continue" ],
     methods: {
+        addArchetype(archetype) {
+            if (this.character.archetypes?.length === 2 &&
+                [...this.character.archetypes, archetype].every(archetype => archetype.name.includes("..."))) {
+                this.alertText = "You must choose at least one archetype that does not include \"...\" in the name.";
+                this.alertIsOpen = true;
+            } else {
+                this.character.addArchetype(archetype);
+            }
+        },
         convertMD,
         isSelected(slug, itemType) {
             return this.character[itemType].some(item => item.slug === slug);
@@ -86,7 +109,7 @@ footer {
     bottom: 0;
     display: flex;
     flex-direction: column;
-    height: 4rem;
+    height: 5rem;
     left: 0;
     place-content: center center;
     position: absolute;
@@ -99,7 +122,7 @@ footer button {
 }
 
 footer .subtitle {
-    margin: 0 auto;
+    margin: 0.5rem auto;
 }
 
 h1

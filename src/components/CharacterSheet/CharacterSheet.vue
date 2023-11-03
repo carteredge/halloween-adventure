@@ -8,6 +8,9 @@
             <template v-slot:stats>
                 <secondary-stat-block/>
             </template>
+            <template v-slot:basics>
+                <basics/>
+            </template>
             <template v-slot:skills>
                 <archetype :index="0" v-if="character.archetypes?.length"/>
                 <archetype :index="1" v-if="character.archetypes?.length > 1"/>
@@ -20,6 +23,8 @@
             <template v-slot:inventory>
                 <inventory v-if="character.inventory?.length"/>
                 <randomize-button
+                    :disabled="!character.archetypes?.length"
+                    :title="character.archetypes?.length ? '' : 'Please select or randomize Skills before randomizing inventory.'"
                     thing="inventory"
                     @randomize="this.$emit('randomize', $event)"/>
             </template>
@@ -30,6 +35,7 @@
 <script>
 //components
 import Archetype from "./Archetype.vue";
+import Basics from "./Basics.vue";
 import Inventory from "./Inventory.vue";
 import RandomizeButton from "../RandomizeButton.vue";
 import SecondaryStatBlock from "./SecondaryStatBlock.vue";
@@ -42,6 +48,7 @@ import useCharacterStore from "../../stores/character";
 export default {
     components: {
         Archetype,
+        Basics,
         Inventory,
         RandomizeButton,
         SecondaryStatBlock,

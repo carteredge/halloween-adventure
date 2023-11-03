@@ -1,5 +1,7 @@
 <template>
     <button
+        :disabled="disabled"
+        :title="title"
         @click="$emit('randomize', thing)">
         <img src="rolling-dice.png"/>
         <span>Randomize {{ label ? label : toLabel(thing)}}</span>
@@ -23,6 +25,11 @@ export default {
         toLabel,
     },
     props: {
+        disabled: {
+            type: Boolean,
+            required: false,
+            default: false,
+        },
         label: {
             type: String,
             required: false,
@@ -31,6 +38,11 @@ export default {
         thing: {
             type: String,
             required: true,
+        },
+        title: {
+            type: String,
+            required: false,
+            default: "",
         },
     },
 }

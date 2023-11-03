@@ -9,6 +9,9 @@
                 <p class="small bottom">...Named </p>
                 <span>{{ character.name }}</span>
             </div>
+            <div v-else>
+                <p class="small bottom">With no Name</p>
+            </div>
         </h1>
     </div>
 </template>
@@ -56,6 +59,7 @@ h1 {
     margin-top: 2rem;
 }
 .small {
+    color: #eb0;
     font-size: 1rem;
 }
 </style>
