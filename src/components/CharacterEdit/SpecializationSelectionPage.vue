@@ -38,6 +38,7 @@
         <div class="footer-buttons">
             <button @click="$emit('back')">Back</button>
             <button @click="$emit('randomize', 'specializations')">Randomize Specializations</button>
+            <button @click="$emit('randomize', 'one-specialization')">Add One Random Specialization</button>
             <button :disabled="character.specializations.length < 3" @click="$emit('continue')">Continue</button>
         </div>
     </footer>

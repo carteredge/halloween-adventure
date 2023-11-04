@@ -15,10 +15,20 @@
                 <archetype :index="0" v-if="character.archetypes?.length"/>
                 <archetype :index="1" v-if="character.archetypes?.length > 1"/>
                 <archetype :index="2" v-if="character.archetypes?.length > 2"/>
-                <randomize-button
-                    label="Skills and Traits"
-                    thing="skills"
-                    @randomize="this.$emit('randomize', $event)"/>
+                <div class="buttons">
+                    <randomize-button
+                        label="Skills and Traits"
+                        thing="skills"
+                        @randomize="this.$emit('randomize', $event)"/>
+                    <randomize-button
+                        label="One Specialization"
+                        thing="one-specialization"
+                        @randomize="this.$emit('randomize', $event)"/>
+                    <randomize-button
+                        label="One Signature"
+                        thing="one-signature"
+                        @randomize="this.$emit('randomize', $event)"/>
+                </div>
             </template>
             <template v-slot:inventory>
                 <inventory v-if="character.inventory?.length"/>

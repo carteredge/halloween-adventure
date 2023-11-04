@@ -33,6 +33,7 @@
         <div class="footer-buttons">
             <button @click="$emit('back')">Back</button>
             <button @click="$emit('randomize', 'signatures')">Randomize Signatures</button>
+            <button @click="$emit('randomize', 'one-signature')">Add One Random Signature</button>
             <button :disabled="character.signatures.length < 3" @click="$emit('continue')">Done</button>
         </div>
     </footer>
