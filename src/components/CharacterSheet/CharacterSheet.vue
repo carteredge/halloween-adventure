@@ -15,19 +15,21 @@
                 <archetype :index="0" v-if="character.archetypes?.length"/>
                 <archetype :index="1" v-if="character.archetypes?.length > 1"/>
                 <archetype :index="2" v-if="character.archetypes?.length > 2"/>
-                <div class="buttons">
+                <div class="button-row">
                     <randomize-button
                         label="Skills and Traits"
                         thing="skills"
-                        @randomize="this.$emit('randomize', $event)"/>
+                        @randomize="$emit('randomize', $event)"/>
                     <randomize-button
+                        :disabled="!character.archetypes.length"
                         label="One Specialization"
                         thing="one-specialization"
-                        @randomize="this.$emit('randomize', $event)"/>
+                        @randomize="$emit('randomize', $event)"/>
                     <randomize-button
+                        :disabled="!character.specializations.length"
                         label="One Signature"
                         thing="one-signature"
-                        @randomize="this.$emit('randomize', $event)"/>
+                        @randomize="$emit('randomize', $event)"/>
                 </div>
             </template>
             <template v-slot:inventory>
@@ -36,7 +38,7 @@
                     :disabled="!character.archetypes?.length"
                     :title="character.archetypes?.length ? '' : 'Please select or randomize Skills before randomizing inventory.'"
                     thing="inventory"
-                    @randomize="this.$emit('randomize', $event)"/>
+                    @randomize="$emit('randomize', $event)"/>
             </template>
         </tab-box>
     </div>

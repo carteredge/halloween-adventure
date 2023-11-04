@@ -30,7 +30,7 @@
     </div>
     <footer>
         <div class="subtitle">{{ character.signatures?.length ?? 0 }} of 3 Signatures selected</div>
-        <div class="footer-buttons">
+        <div class="footer-buttons button-row">
             <button @click="$emit('back')">Back</button>
             <button @click="$emit('randomize', 'signatures')">Randomize Signatures</button>
             <button @click="$emit('randomize', 'one-signature')">Add One Random Signature</button>

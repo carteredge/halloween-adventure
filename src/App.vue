@@ -96,9 +96,15 @@ export default {
                     parent: skillParent.slug,
                     slug: skillSlug
                 }))).flat();
-            parentData = parentData.filter((skillData, index) =>
-                index === parentData.findIndex(data => data.slug === skillData.slug)) // use only first in list to insure uniqueness
-                .map(data => {
+
+            const dataSubset = parentData.filter((skillData, index) =>
+                    !this.character[`${key}s`].some(s => s.slug === skillData.slug) && // prevent adding duplicates
+                    index === parentData.findIndex(data => data.slug === skillData.slug)); // use only first in list to ensure uniqueness
+            
+            if (!dataSubset.length)
+                return [];
+
+            parentData = dataSubset.map(data => {
                     const skillData = {
                         parent: data.parent,
                     };
@@ -120,15 +126,6 @@ export default {
             }));
         },
 
-        cancelEdit() {
-            this.edit = false;
-            this.character.$patch(this.shelvedCharacter);
-        },
-
-        closeMenus() {
-            this.$refs.characterMenu.closeMenu();
-        },
-
         alertConfirm() {
             if (this.alertType === "delete") {
                 if (this.character.id === this.idOfCharacterToBeDeleted) {
@@ -140,6 +137,15 @@ export default {
             }
             this.alertIsOpen = false;
             this.alertType = "";
+        },
+
+        cancelEdit() {
+            this.edit = false;
+            this.character.$patch(this.shelvedCharacter);
+        },
+
+        closeMenus() {
+            this.$refs.characterMenu.closeMenu();
         },
 
         editCharacter() {

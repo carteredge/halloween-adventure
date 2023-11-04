@@ -1,7 +1,7 @@
 <template>
     <div>
         <h1>Character Skills</h1>
-        <div class="row">
+        <div class="button-row">
             <button @click="openSkillsModal">Choose Skills</button>
             <randomize-button
                 label="Skills and Traits"

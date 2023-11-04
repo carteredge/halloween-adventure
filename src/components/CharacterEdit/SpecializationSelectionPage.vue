@@ -35,7 +35,7 @@
     </div>
     <footer>
         <div class="subtitle">{{ character.specializations?.length ?? 0 }} of 3 Specializations selected</div>
-        <div class="footer-buttons">
+        <div class="footer-buttons button-row">
             <button @click="$emit('back')">Back</button>
             <button @click="$emit('randomize', 'specializations')">Randomize Specializations</button>
             <button @click="$emit('randomize', 'one-specialization')">Add One Random Specialization</button>

@@ -5,7 +5,7 @@
         <trait-menu/>
         <archetype-menu @randomize="$emit('randomize', $event)"/>
         <inventory-menu @randomize="$emit('randomize', $event)"/>
-        <div class="row">
+        <div class="button-row">
             <button @click="$emit('cancel')">Cancel</button>
             <button @click="$emit('save')">Save Changes</button>
         </div>

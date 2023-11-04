@@ -1,12 +1,14 @@
 <template>
     <div>
         <h1>Inventory</h1>
-        <button class="modal-button" @click="openModal">Manage Inventory</button>
-        <randomize-button
-            :disabled="!character.archetypes?.length"
-            :title="character.archetypes?.length ? '' : 'Please select or randomize Skills before randomizing inventory.'"
-            thing="inventory"
-            @randomize="this.$emit('randomize', $event)"/>
+        <div class="button-row">
+            <button class="modal-button" @click="openModal">Manage Inventory</button>
+            <randomize-button
+                :disabled="!character.archetypes?.length"
+                :title="character.archetypes?.length ? '' : 'Please select or randomize Skills before randomizing inventory.'"
+                thing="inventory"
+                @randomize="this.$emit('randomize', $event)"/>
+        </div>
         <inventory/>
         <modal :open="modalIsOpen" @close="closeModal">
             <header>
