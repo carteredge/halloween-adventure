@@ -90,7 +90,7 @@ export default {
     },
 
     methods: {
-        getRandomSkillSubset(skillParents, key, traits) {
+        getRandomSkillSubset(skillParents, key, traits, count=3) {
             let parentData = skillParents.map(skillParent =>
                 skillParent[`${key}s`].map(skillSlug => ({
                     parent: skillParent.slug,
@@ -112,7 +112,7 @@ export default {
                     }
                     return skillData;
                 });
-            const skills = randomlySelectSubsetByWeights(parentData, 3, parentData.map(data => data.weight));
+            const skills = randomlySelectSubsetByWeights(parentData, count, parentData.map(data => data.weight));
 
             return skills.map(skillData => ({
                 ...skillData[key],
@@ -180,6 +180,15 @@ export default {
             // TODO: ensure randomizing archetype before inventory
             // TODO: randomize skills based on user selected archetypes
             switch(thing) {
+                case "inventory":
+                    this.randomizeInventory();
+                    break;
+                case "one-signature":
+                    this.randomizeSignatures(1, false);
+                    break;
+                case "one-specialization":
+                    this.randomizeSpecializations(1, false);
+                    break;
                 case "signatures":
                     this.randomizeSignatures();
                     break;
@@ -188,9 +197,6 @@ export default {
                     break;
                 case "specializations":
                     this.randomizeSpecializations();
-                    break;
-                case "inventory":
-                    this.randomizeInventory();
                     break;
                 case "character":
                 default:
@@ -329,7 +335,7 @@ export default {
             this.character.recalculateStats();
         },
 
-        randomizeSignatures() {
+        randomizeSignatures(count=3, reset=true) {
             if (!this.character.murder ||
                 !this.character.mayhem ||
                 !this.character.guts ||
@@ -346,11 +352,14 @@ export default {
                 spookiness: this.character.spookiness,
             }
 
-            const signatures = this.getRandomSkillSubset(this.character.specializations, "signature", traitWeights);
-            this.character.signatures = signatures;
+            const signatures = this.getRandomSkillSubset(this.character.specializations, "signature", traitWeights, count);
+
+            if (reset)
+                this.character.signatures = [];
+            this.character.signatures.push(...signatures);
         },
 
-        randomizeSpecializations() {
+        randomizeSpecializations(count=3, reset=true) {
             if (!this.character.murder ||
                 !this.character.mayhem ||
                 !this.character.guts ||
@@ -367,8 +376,12 @@ export default {
                 spookiness: this.character.spookiness,
             }
 
-            const specializations =  this.getRandomSkillSubset(this.character.archetypes, "specialization", traitWeights);
-            this.character.specializations = specializations;
+            const specializations =  this.getRandomSkillSubset(this.character.archetypes, "specialization", traitWeights, count);
+            
+            if(reset)
+                this.character.specializations = [];
+
+            this.character.specializations.push(...specializations);
         },
 
         randomizeSpecializationsAndSignatures() {
